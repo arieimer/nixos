@@ -4,5 +4,6 @@
     ./gaming
     ./gpu
     ./home-manager
+    ./hypr
   ];
 }

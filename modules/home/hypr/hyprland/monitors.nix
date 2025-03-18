@@ -6,7 +6,7 @@
 {
   options.cfg.hypr.hyprland.monitors.list = lib.mkOption {
     type = lib.types.listOf lib.types.str;
-    default = [ "DP-1" "HDMI-A-1" ];
+    default = [ "DP-1" ];
     description = "List of monitors that hyprland will use (First monitor is set to default)";
   };
   options.cfg.hypr.hyprland.monitors.settings = lib.mkOption {

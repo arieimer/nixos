@@ -18,6 +18,7 @@
   imports = [
     ./monitors.nix
     ./binds.nix
+    ./nvidia.nix
   ];
 
   config = lib.mkIf config.cfg.hypr.hyprland.enable {

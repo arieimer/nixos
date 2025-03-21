@@ -2,7 +2,7 @@
   imports = [
     ./cli
 #    ./xdg
-#    ./hypr
-#    ./gui
+    ./hypr
+    ./gui
   ];
 }

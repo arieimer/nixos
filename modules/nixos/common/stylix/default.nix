@@ -29,6 +29,8 @@
     stylix = {
       enable = true;
       cursor.size = 20;
+      cursor.name = "Bibata-Modern-Ice"; # TODO: resolve mkForce in hyprcursor module...
+      cursor.package = pkgs.bibata-cursors;
       polarity = "dark"; # Probably not required
       base16Scheme = "${pkgs.base16-schemes}/share/themes/${config.cfg.stylix.scheme}.yaml";
       fonts = {

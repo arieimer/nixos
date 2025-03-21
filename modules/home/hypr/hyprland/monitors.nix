@@ -6,7 +6,7 @@
 {
   options.cfg.hypr.hyprland.monitors.list = lib.mkOption {
     type = lib.types.listOf lib.types.str;
-    default = [ "DP-1" ];
+    default = [ "DP-1" ]; # This may cause hyprland to error when there is no DP-1 (possibly)
     description = "List of monitors that hyprland will use (First monitor is set to default)";
   };
   options.cfg.hypr.hyprland.monitors.settings = lib.mkOption {

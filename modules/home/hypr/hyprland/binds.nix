@@ -5,7 +5,7 @@
 }:
 {
   config = lib.mkIf config.cfg.hypr.hyprland.enable {
-    wayland.windowManager.hyprland = {
+    wayland.windowManager.hyprland.settings = {
       "$MOD" = "SUPER";
       bind = [
         # app binds

@@ -12,6 +12,9 @@
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixcord = {
+      url = "github:kaylorben/nixcord";
+    };
   };
   outputs = inputs: import ./hosts inputs;
 }

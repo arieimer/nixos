@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   ...
 }:
@@ -8,7 +9,9 @@
     type = lib.types.bool;
     default = config.cfg.shell.mixed.enable;
   };
-  
+  imports = [
+    ../../../../../packages/scripts/waybar
+  ];  
   config = lib.mkIf config.cfg.shell.mixed.waybar.enable {
     stylix.targets.waybar.enable = false;
     programs.waybar = {
@@ -131,7 +134,7 @@
             };
           };
           "custom/cpuinfo" = {
-            exec = "~/nixos/home/modules/gui/waybar/scripts/cpu-temp.sh";
+            exec = "waybar-cpu-temp"; # TODO: turn into Lib.getexe
             return-type = "json";
             format = "{}";
             tooltip = "true";
@@ -153,7 +156,7 @@
             max-length = 7;
           };
           "custom/cpu" = {
-            exec = "~/nixos/home/modules/gui/waybar/scripts/cpu-usage.sh";
+            exec = "waybar-cpu-usage"; # See above comment
             return-type = "json";
             tooltip = "true";
             interval = 5;

@@ -54,7 +54,7 @@
       pkgs.p7zip-rar
       pkgs.dua
       pkgs.caligula
-      pkgs.lm_sensors
+      #pkgs.lm_sensors 
     ];
     programs.fish = {
       enable = true;

@@ -17,6 +17,7 @@
 
   imports = [
     ./monitors.nix
+    ./workspaces.nix
     ./binds.nix
     ./nvidia.nix
   ];

@@ -6,7 +6,7 @@
 {
   options.cfg.cli.helix.enable = lib.mkOption {
     type = lib.types.bool;
-    default = false;
+    default = true;
     description = "Enables helix the terminal editor";
   };
   config = lib.mkIf config.cfg.cli.helix.enable {

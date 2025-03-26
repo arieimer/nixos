@@ -4,5 +4,6 @@
 #    ./xdg
     ./hypr
     ./gui
+    ./shell
   ];
 }

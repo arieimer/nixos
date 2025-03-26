@@ -4,12 +4,12 @@
   ...
 }:
 {
-  options.cfg.gui.fuzzel.enable = lib.mkOption {
+  options.cfg.shell.mixed.fuzzel.enable = lib.mkOption {
     type = lib.types.bool;
-    default = true;
+    default = config.cfg.shell.mixed.enable;
     description = "Installs and configures fuzzel";
   };
-  config = lib.mkIf config.cfg.gui.fuzzel.enable {
+  config = lib.mkIf config.cfg.shell.mixed.fuzzel.enable {
     programs.fuzzel = {
       enable = true;
       settings = {

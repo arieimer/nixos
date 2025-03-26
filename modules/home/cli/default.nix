@@ -38,23 +38,22 @@
     default = "REPLACEME@example.com";
     description = "git username";
   };
-  options.cfg.cli.yazi.enable = lib.mkOption {
+  options.cfg.cli.btop.enable = lib.mkOption {
     type = lib.types.bool;
     default = config.cfg.cli.enable;
-    description = "Installs yazi";
+    description = "Installs and configures btop";
   };
 
   imports = [
     ./fastfetch
     ./helix
-    # ./yazi not neccessary until plugins are figured out
+    ./yazi
   ];
   config = lib.mkIf config.cfg.cli.enable {
     home.packages = [ # Perhaps should be made optional but they are very good to have
       pkgs.p7zip-rar
       pkgs.dua
       pkgs.caligula
-      #pkgs.lm_sensors 
     ];
     programs.fish = {
       enable = true;
@@ -64,8 +63,9 @@
         "..." = "cd ../..";
       };
     };
-    programs.bat.enable = lib.mkIf config.cfg.cli.bat.enable true;
-    programs.yazi.enable = lib.mkIf config.cfg.cli.yazi.enable true;
+    programs.bat.enable = config.cfg.cli.bat.enable;
+    programs.btop.enable = config.cfg.cli.btop.enable;
+    programs.yazi.enable = config.cfg.cli.yazi.enable;
     programs.eza = lib.mkIf config.cfg.cli.eza.enable {
       enable = true;
       icons = "always";

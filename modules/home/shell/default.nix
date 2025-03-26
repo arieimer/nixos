@@ -14,6 +14,11 @@
     default = "mixed";
     description = "Chooses the shell type";
   };
+  options.cfg.shell.launcher = lib.mkOption {
+    type = lib.types.str;
+    default = "";
+    description = "launcher executable";
+  };
   imports = [
     ./mixed
   ];

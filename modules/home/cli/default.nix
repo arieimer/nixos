@@ -43,6 +43,11 @@
     default = config.cfg.cli.enable;
     description = "Installs and configures btop";
   };
+  options.cfg.cli.fish.shellInit = lib.mkOption {
+    type = lib.types.bool;
+    default = true;
+    description = "Configures fish shellInit";
+  };
 
   imports = [
     ./fastfetch
@@ -62,6 +67,16 @@
         cat = lib.mkIf config.cfg.cli.bat.enable "bat";
         "..." = "cd ../..";
       };
+      # TODO: Make this not terrible...
+      interactiveShellInit = lib.mkIf config.cfg.cli.fish.shellInit ''
+        set EDITOR hx
+        set fish_greeting
+        if test (tty) = /dev/tty1
+          if uwsm check may-start
+            exec uwsm start hyprland-uwsm.desktop
+          end
+        end
+      '';
     };
     programs.bat.enable = config.cfg.cli.bat.enable;
     programs.btop.enable = config.cfg.cli.btop.enable;

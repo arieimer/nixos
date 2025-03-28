@@ -5,5 +5,6 @@
     ./gpu
     ./home-manager
     ./hypr
+    ./mullvad
   ];
 }

@@ -1,7 +1,7 @@
 {
   imports = [
     ./cli
-#    ./xdg
+    ./xdg
     ./hypr
     ./gui
     ./shell

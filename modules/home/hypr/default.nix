@@ -5,5 +5,6 @@
     ./hyprlock.nix
     ./hyprcursor.nix
     ./hyprpaper.nix
+    ./hyprpolkit.nix
   ];
 }

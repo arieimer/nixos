@@ -11,6 +11,7 @@
         # app binds
         "$MOD, return, exec, ${lib.getExe config.programs.foot.package}"
         "$MOD, tab, exec, ${config.cfg.shell.launcher}"
+        "$MOD, escape, exec, ${config.cfg.shell.power}"
 
         # window management
         "$MOD, Q, killactive"

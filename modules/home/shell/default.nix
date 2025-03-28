@@ -19,6 +19,11 @@
     default = "";
     description = "launcher executable";
   };
+  options.cfg.shell.power = lib.mkOption {
+    type = lib.types.str;
+    default = "";
+    description = "Powermenu executable";
+  };
   imports = [
     ./mixed
   ];

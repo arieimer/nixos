@@ -284,7 +284,7 @@
           "custom/power" = {
             format = " ";
             tooltip = "false";
-            on-click = "wlogout";
+            on-click = "${config.cfg.shell.power}";
           };
           "custom/paddw" = {
             format = " ";

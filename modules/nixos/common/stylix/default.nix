@@ -5,6 +5,9 @@
   inputs,
   ...
 }:
+let
+  img = builtins.fetchurl "https://raw.githubusercontent.com/ari-rs/wallpapers/refs/heads/master/${config.cfg.stylix.image}.png";
+in
 {
   options.cfg.stylix.enable = lib.mkOption {
     type = lib.types.bool;
@@ -16,6 +19,12 @@
     default = "ayu-dark";
     description = "chooses which color scheme to use";
   };
+  options.cfg.stylix.image = lib.mkOption {
+    type = lib.types.str;
+    default = "austria_landscape";
+    description = "name of of the wallpaper";
+  };
+
   imports = [
     inputs.stylix.nixosModules.stylix
   ];
@@ -29,6 +38,7 @@
     stylix = {
       enable = true;
       cursor.size = 20;
+      image = img;
       cursor.name = "Bibata-Modern-Ice"; # TODO: resolve mkForce in hyprcursor module...
       cursor.package = pkgs.bibata-cursors;
       polarity = "dark"; # Probably not required

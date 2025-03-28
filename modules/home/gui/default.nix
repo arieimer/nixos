@@ -4,5 +4,6 @@
     ./nixcord
     ./gaming
     ./spotify
+    ./zen
   ];
 }

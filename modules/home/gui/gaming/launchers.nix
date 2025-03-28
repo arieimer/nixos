@@ -26,7 +26,7 @@
     description = "Installs suyu emulator";
   };
 
-  config = lib.mkIf true {
+  config = {
     home.packages = lib.mkMerge [
       (lib.mkIf config.cfg.gui.heroic.enable [
         pkgs.heroic

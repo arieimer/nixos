@@ -27,10 +27,6 @@
       enable = true;
       systemd.enable = true;
       settings = {
-        exec-once = [
-          "waybar &"
-          "dunst &"
-        ];
         input = {
           sensitivity = config.cfg.hypr.hyprland.sensitivity;
         };
@@ -41,7 +37,7 @@
         };
         misc = {
           #disable_hyprland_logo = 1; # TODO: readd when hyprpaper is implemented
-          #disable_splash_rendering = 1; # Kinda like em
+          disable_splash_rendering = 1;
         };        
       };
     };

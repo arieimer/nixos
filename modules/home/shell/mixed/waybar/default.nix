@@ -14,6 +14,7 @@
   ];  
   config = lib.mkIf config.cfg.shell.mixed.waybar.enable {
     stylix.targets.waybar.enable = false;
+    wayland.windowManager.hyprland.settings.exec-once = [ "waybar" ];
     programs.waybar = {
       enable = true;
       settings = {

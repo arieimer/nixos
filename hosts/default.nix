@@ -8,9 +8,9 @@ in
 {
   nixosConfigurations = {
     detlas = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
       specialArgs = {
         hostname = "detlas";
+        system = "x86_64-linux";
         inherit
           inputs
           username
@@ -20,6 +20,20 @@ in
         ./detlas
         ../modules/nixos/common
         ../modules/nixos/client
+      ];
+    };
+    selchar = nixpkgs.lib.nixosSystem {
+      specialArgs = {
+        hostname = "selchar";
+        system = "x86_64-linux";
+        inherit
+          inputs
+          username
+          ;
+      };
+      modules = [
+        ./selchar
+        ../modules/nixos/common
       ];
     };
   };

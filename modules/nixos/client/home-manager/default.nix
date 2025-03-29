@@ -2,6 +2,7 @@
   inputs,
   username,
   hostname,
+  system,
   ...
 }:
 {
@@ -18,6 +19,7 @@
         inputs
         username
         hostname
+        system
         ;
     };
   };

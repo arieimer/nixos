@@ -6,7 +6,12 @@
   ...
 }:
 let
-  img = builtins.fetchurl "https://raw.githubusercontent.com/ari-rs/wallpapers/refs/heads/master/${config.cfg.stylix.image}.png";
+  #img = builtins.fetchurl "https://raw.githubusercontent.com/ari-rs/wallpapers/refs/heads/master/${config.cfg.stylix.image}.png";
+
+  img = pkgs.fetchurl {
+    url ="https://raw.githubusercontent.com/ari-rs/wallpapers/refs/heads/master/${config.cfg.stylix.image}.png";
+    sha256 = "0c90c4f15b5w4hx9sx51qa9nz433xjaqi9wscdxs1xvz30vglswv";
+  };
 in
 {
   options.cfg.stylix.enable = lib.mkOption {

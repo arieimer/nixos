@@ -53,6 +53,7 @@
     ./fastfetch
     ./helix
     ./yazi
+    ./fish
   ];
   config = lib.mkIf config.cfg.cli.enable {
     home.packages = [ # Perhaps should be made optional but they are very good to have
@@ -60,24 +61,6 @@
       pkgs.dua
       pkgs.caligula
     ];
-    programs.fish = {
-      enable = true;
-      shellAliases = {
-        ls = lib.mkIf config.cfg.cli.eza.enable "eza";
-        cat = lib.mkIf config.cfg.cli.bat.enable "bat";
-        "..." = "cd ../..";
-      };
-      # TODO: Make this not terrible...
-      interactiveShellInit = lib.mkIf config.cfg.cli.fish.shellInit ''
-        set EDITOR hx
-        set fish_greeting
-        if test (tty) = /dev/tty1
-          if uwsm check may-start
-            exec uwsm start hyprland-uwsm.desktop
-          end
-        end
-      '';
-    };
     programs.bat.enable = config.cfg.cli.bat.enable;
     programs.btop.enable = config.cfg.cli.btop.enable;
     programs.yazi.enable = config.cfg.cli.yazi.enable;

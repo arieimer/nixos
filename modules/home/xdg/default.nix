@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   ...
 }:
@@ -53,7 +54,7 @@ let
     ]);
   associations = builtins.mapAttrs (_: v: (map (e: "${e}.desktop") v)) (
     {
-      #"application/pdf" = ["org.pwmt.zathura-pdf-mupdf"];
+      "application/pdf" = ["org.pwmt.zathura-pdf-mupdf"];
       "text/html" = browser;
       "text/plain" = [ "Helix" ];
       "inode/directory" = [ "yazi" ];
@@ -72,6 +73,12 @@ in
   };
 
   config = lib.mkIf config.cfg.xdg.enable {
+    home.packages = [
+      pkgs.amberol
+      pkgs.loupe
+      pkgs.celluloid
+      pkgs.zathura
+    ];
     xdg = {
       mimeApps = {
         enable = true;

@@ -7,7 +7,7 @@
 }:
 let
   #img = builtins.fetchurl "https://raw.githubusercontent.com/ari-rs/wallpapers/refs/heads/master/${config.cfg.stylix.image}.png";
-
+  # TODO: Make much better wallpaper system...
   img = pkgs.fetchurl {
     url ="https://raw.githubusercontent.com/ari-rs/wallpapers/refs/heads/master/${config.cfg.stylix.image}.png";
     sha256 = "0c90c4f15b5w4hx9sx51qa9nz433xjaqi9wscdxs1xvz30vglswv";
@@ -21,7 +21,7 @@ in
   };
   options.cfg.stylix.scheme = lib.mkOption {
     type = lib.types.str;
-    default = "ayu-dark";
+    default = "catppuccin-mocha";
     description = "chooses which color scheme to use";
   };
   options.cfg.stylix.image = lib.mkOption {

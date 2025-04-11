@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-#
 
 if [ "$(id -u)" -eq 0 ]; then
   echo "This should not be run with sudo or as root..."
@@ -15,5 +14,7 @@ gum confirm  --default=false "This will install $TARGET_PROFILE please verify th
 echo "Starting install process..."
 
 if [ "$TARGET_PROFILE" == "detlas" ]; then
-  sudo disko-install --flake nixconfig#detlas --disk main /dev/disk/by-id/nvme-WD_Blue_SN570_500GB_222622801561
+  cd ~/nixconfig
+  sudo disko --mode disko --flake .#detlas
+  sudo nixos-install --no-channel-copy --no-root-password --flake .#deltas
 fi

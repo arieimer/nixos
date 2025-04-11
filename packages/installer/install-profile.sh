@@ -16,5 +16,5 @@ echo "Starting install process..."
 if [ "$TARGET_PROFILE" == "detlas" ]; then
   cd ~/nixconfig
   sudo disko --mode disko --flake .#detlas
-  sudo nixos-install --no-channel-copy --no-root-password --flake .#deltas
+  sudo nixos-install --no-channel-copy --no-root-password --flake .#detlas
 fi

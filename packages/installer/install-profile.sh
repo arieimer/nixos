@@ -18,3 +18,6 @@ if [ "$TARGET_PROFILE" == "detlas" ]; then
   sudo disko --mode disko --flake .#detlas
   sudo nixos-install --no-channel-copy --no-root-password --flake .#detlas
 fi
+if [ "$TARGET_PROFILE" == "selchar" ]; then
+  echo "Selchar is the live ISO install image and cannot be installed outside of a liveusb environment."
+fi

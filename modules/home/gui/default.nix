@@ -57,7 +57,7 @@
       (lib.mkIf config.cfg.gui.apps.pavu.enable [
         pkgs.pavucontrol
       ])
-      (lib.mkIf config.cfg.gui.apps.anki-bin.enable [
+      (lib.mkIf config.cfg.gui.apps.anki.enable [
         pkgs.anki-bin
       ])
       (lib.mkIf config.cfg.gui.apps.obsidian.enable [

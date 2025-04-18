@@ -36,7 +36,6 @@
           border_size = 2;
         };
         misc = {
-          disable_hyprland_logo = 1;
           disable_splash_rendering = 1;
         };        
       };

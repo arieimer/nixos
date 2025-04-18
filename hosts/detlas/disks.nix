@@ -4,7 +4,7 @@
     disk = {
       main = {
         type = "disk";
-        device = "/dev/disk/by-id/nvme-WD_Blue_SN570_500GB_222622801561";
+        device = "/dev/disk/by-id/nvme-ADATA_SX8200PNP_2O042924KCYX";
         content = {
           type = "gpt";
           partitions = {

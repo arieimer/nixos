@@ -16,13 +16,6 @@
       };
       interactiveShellInit = "set fish_greeting\n"
         + lib.optionalString config.programs.helix.enable "set EDITOR hx\n";
-        # + lib.optionalString config.wayland.windowManager.hyprland.enable ''
-          # if test (tty) = /dev/tty1
-            # if uwsm check may-start
-              # exec uwsm start hyprland-uwsm.desktop
-            # end
-          # end
-        # '';
     };  
   };
 }

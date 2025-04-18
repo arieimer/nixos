@@ -4,9 +4,6 @@
   config,
   ...
 }:
-let
-  cmd = "uwsm start hyprland-uwsm.desktop";
-in
 {
   options.cfg.greetd.enable = lib.mkOption {
     type = lib.types.bool;
@@ -21,7 +18,7 @@ in
           command =
           ''
             ${pkgs.greetd.tuigreet}/bin/tuigreet \
-            --greeting 'test test asdfasdf' \
+            --greeting "Welcome back." \
             --time \
             --remember \
             --cmd 'fish -c "uwsm start hyprland-uwsm.desktop"'

@@ -475,6 +475,7 @@
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",
         "stylix": "stylix",
+        "wallpapers": "wallpapers",
         "zen-browser": "zen-browser"
       }
     },
@@ -804,6 +805,22 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "wallpapers": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1743050024,
+        "narHash": "sha256-RsGgVeqeBQ+hLHy2kpeRyQXUImIOkJWsc9EdkbDOb0Q=",
+        "owner": "ari-rs",
+        "repo": "wallpapers",
+        "rev": "b8c7ae734af56cef3f147ea9f5ef7f8f6eba3d6d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ari-rs",
+        "repo": "wallpapers",
         "type": "github"
       }
     },

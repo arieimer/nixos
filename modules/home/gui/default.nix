@@ -18,6 +18,11 @@
     default = true;
     description = "Installs qbittorrent";
   };
+  options.cfg.gui.apps.mpv.enable = lib.mkOption {
+    type = lib.types.bool;
+    default = true;
+    description = "Installs mpv";
+  };
   options.cfg.gui.apps.bitwarden.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;
@@ -62,6 +67,9 @@
       ])
       (lib.mkIf config.cfg.gui.apps.obsidian.enable [
         pkgs.obsidian
+      ])
+      (lib.mkIf config.cfg.gui.apps.mpv.enable [
+        pkgs.mpv
       ])
     ];
   };

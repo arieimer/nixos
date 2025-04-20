@@ -35,7 +35,7 @@
     stylix = {
       enable = true;
       cursor.size = 20;
-      image = "${inputs.wallpapers}/${config.cfg.stylix.image}";
+      image = "${inputs.wallpapers}/${config.cfg.stylix.image}.png";
       cursor.name = "Bibata-Modern-Ice"; # TODO: resolve mkForce in hyprcursor module...
       cursor.package = pkgs.bibata-cursors;
       polarity = "dark"; # Probably not required

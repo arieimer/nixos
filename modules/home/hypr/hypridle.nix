@@ -25,8 +25,8 @@
         listener = [
           {
             timeout = config.cfg.hypr.hypridle.timeout;
-            on-timeout = "hyprctl dispatch dpms off";
-            on-resume = "hyprctl dispatch dmps on"; 
+            # on-timeout = "hyprctl dispatch dpms off";
+            # on-resume = "hyprctl dispatch dmps on";
           }
           {
             timeout = (config.cfg.hypr.hypridle.timeout + 30);

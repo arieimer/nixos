@@ -3,7 +3,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   options.cfg.gaming.steam.enable = lib.mkOption {
     type = lib.types.bool;
     default = config.cfg.gaming.enable;

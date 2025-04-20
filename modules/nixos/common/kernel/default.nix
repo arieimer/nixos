@@ -6,15 +6,16 @@
 }:
 let
   kernelType =
-    if config.cfg.kernel.type == "zen"
-    then pkgs.linuxKernel.packages.linux_zen
-    else if config.cfg.kernel.type == "lts"
-    then pkgs.linuxKernel
-    else if config.cfg.kernel.type == "latest"
-    then pkgs.linuxPackages_latest
-    else if config.cfg.kernel.type == "xanmod_latest"
-    then pkgs.linuxKernel.packaes.linux_xanmod_latest
-    else throw "Invalid kernel type try zen, lts, latest, or xanmod_latest";
+    if config.cfg.kernel.type == "zen" then
+      pkgs.linuxKernel.packages.linux_zen
+    else if config.cfg.kernel.type == "lts" then
+      pkgs.linuxKernel
+    else if config.cfg.kernel.type == "latest" then
+      pkgs.linuxPackages_latest
+    else if config.cfg.kernel.type == "xanmod_latest" then
+      pkgs.linuxKernel.packaes.linux_xanmod_latest
+    else
+      throw "Invalid kernel type try zen, lts, latest, or xanmod_latest";
 in
 {
   options.cfg.kernel.enable = lib.mkOption {
@@ -36,4 +37,3 @@ in
     boot.kernelPackages = kernelType;
   };
 }
-

@@ -14,7 +14,7 @@
     services.mako = {
       enable = true;
       icons = true;
-      defaultTimeout = 3;
+      defaultTimeout = 3000;
     };
   };
 }

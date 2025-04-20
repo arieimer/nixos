@@ -44,8 +44,7 @@
         "$MOD SHIFT, 9, movetoworkspace, r~9"
         "$MOD SHIFT, 0, movetoworkspace, r~10"
       ];
-      binde = [
-        # TODO: audio package is not setup so this does not work...
+      binde = [ #TODO: audio package is not setup so this does not work...
         #volume scripts
         ", XF86AudioRaiseVolume, exec, audio.sh vol up 5"
         ", XF86AudioLowerVolume, exec, audio.sh vol down 5"

@@ -10,8 +10,8 @@
     description = "Installs and configures fuzzel";
   };
   config = lib.mkIf config.cfg.shell.mixed.fuzzel.enable {
-    cfg.shell.launcher = "${lib.getExe config.programs.fuzzel.package}";
-    programs.fuzzel = {
+      cfg.shell.launcher = "${lib.getExe config.programs.fuzzel.package}";
+      programs.fuzzel = {
       enable = true;
       settings = {
         main = {

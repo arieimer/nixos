@@ -11,7 +11,7 @@
   };
   imports = [
     ../../../../../packages/scripts/waybar
-  ];
+  ];  
   config = lib.mkIf config.cfg.shell.mixed.waybar.enable {
     stylix.targets.waybar.enable = false;
     wayland.windowManager.hyprland.settings.exec-once = [ "waybar" ];
@@ -31,10 +31,10 @@
           modules-left = [
             "custom/ws"
             "custom/left1"
-
+  
             "hyprland/workspaces"
             "custom/right1"
-
+  
             "custom/paddw"
             "hyprland/window"
           ];
@@ -42,41 +42,41 @@
             "custom/paddc"
             "custom/left2"
             "custom/cpuinfo"
-
+  
             "custom/left3"
             "memory"
-
+  
             "custom/left4"
             "custom/cpu"
             "custom/leftin1"
-
+  
             "custom/left5"
             "idle_inhibitor"
             "custom/right2"
-
+  
             "custom/rightin1"
             "clock#time"
             "custom/right3"
-
+  
             "clock#date"
             "custom/right4"
-
+  
             "pulseaudio#mic"
             "custom/update"
             "custom/right5"
           ];
           modules-right = [
             "tray"
-
+  
             "custom/left6"
             "pulseaudio"
-
+  
             "custom/left7"
             "custom/backlight"
-
+  
             "custom/left8"
             "battery"
-
+  
             "custom/leftin2"
             "custom/power"
           ];
@@ -361,7 +361,7 @@
         };
       };
       style = ''
-
+  
         * {
           font-family: "JetBrainsMono Nerd Font";
           font-weight: bold;
@@ -371,26 +371,26 @@
           border: none;
           margin: 0;
         }
-
+  
         /* === theme.css === */ 
         @define-color main-fg         ${config.lib.stylix.colors.withHashtag.base01}; 
         @define-color main-bg         ${config.lib.stylix.colors.withHashtag.base00};
         @define-color main-br         ${config.lib.stylix.colors.withHashtag.base03};
-
+  
         @define-color active-bg       ${config.lib.stylix.colors.withHashtag.base03};
         @define-color active-fg       #11111b;
-
+  
         @define-color hover-bg        ${config.lib.stylix.colors.withHashtag.base04};
         @define-color hover-fg        rgba(205, 214, 244, 0.75);
-
+  
         @define-color white           #ffffff;
         @define-color black           #000000;
-
+  
         /* Module Colors */
-
+  
         @define-color module-fg       ${config.lib.stylix.colors.withHashtag.base05};
         @define-color workspaces      ${config.lib.stylix.colors.withHashtag.base01};
-
+  
         @define-color cpuinfo         ${config.lib.stylix.colors.withHashtag.base01};
         @define-color memory          ${config.lib.stylix.colors.withHashtag.base02};
         @define-color cpu             ${config.lib.stylix.colors.withHashtag.base03};
@@ -399,35 +399,35 @@
         @define-color time            ${config.lib.stylix.colors.withHashtag.base03};
         @define-color date            ${config.lib.stylix.colors.withHashtag.base02};
         @define-color tray            ${config.lib.stylix.colors.withHashtag.base01}; /* Probably doesnt do anything*/
-
+  
         @define-color pulseaudio      ${config.lib.stylix.colors.withHashtag.base01};
         @define-color backlight       ${config.lib.stylix.colors.withHashtag.base02};
         @define-color battery         ${config.lib.stylix.colors.withHashtag.base03};
         @define-color power           ${config.lib.stylix.colors.withHashtag.base02};
-
+  
         /* State Colors */
-
+  
         @define-color good            #f5e0dc;
         @define-color warning         ${config.lib.stylix.colors.withHashtag.base0A};
         @define-color critical        ${config.lib.stylix.colors.withHashtag.base08};
         @define-color full            #a6e3a1;
         @define-color charging        #cdd6f4;
         /* === Main Background === */
-
+  
         window#waybar {
           background: @main-bg;
         }
-
+  
         /* === Drop Shadow === */
-
+  
         window#waybar > box {
           background-color: transparent;
           box-shadow: 0 0 2px 1px rgba(0, 0, 0, 1);
           margin: 2px;
         }
-
+  
         /* === Tooltip === */
-
+  
         tooltip {
           background: @main-bg;
           border: solid;
@@ -440,9 +440,9 @@
           font-weight: normal;
           margin: -1.5px 3px;
         }
-
+  
         /* === Workspace Buttons === */
-
+  
         #workspaces button {
           color: @module-fg;
           border-radius: 8px;
@@ -465,9 +465,9 @@
           margin: 2px;
           padding: 0 6px;
         }
-
+  
         /* === General === */
-
+  
         #custom-ws,
         #workspaces,
         #window,
@@ -489,7 +489,7 @@
           padding: 0 4px;
           text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
         }
-
+  
         #custom-left1,
         #custom-left2,
         #custom-left3,
@@ -501,7 +501,7 @@
           font-size: 11pt;
           text-shadow: -2px 0 2px rgba(0, 0, 0, 0.5);
         }
-
+  
         #custom-right1,
         #custom-right2,
         #custom-right3,
@@ -511,17 +511,17 @@
           padding-right: 3px;
           text-shadow: 2px 0 2px rgba(0, 0, 0, 0.5);
         }
-
+  
         /* === Modules === */
-
+  
         /* == Window Icon == */
-
+  
         #custom-ws {
           background: @main-bg;
         }
-
+  
         /* == Workspaces == */
-
+  
         #custom-left1 {
           color: @workspaces;
           background: @main-bg;
@@ -535,9 +535,9 @@
           background: @main-bg;
           text-shadow: 3px 0 2px rgba(0, 0, 0, 0.4);
         }
-
+  
         /* == Temperature == */
-
+  
         #custom-paddc {
           padding-right: 22px;
         }
@@ -551,9 +551,9 @@
           padding-left: 1px;
           padding-right: 0;
         }
-
+  
         /* == Memory == */
-
+  
         #custom-left3 {
           color: @memory;
           background: @cpuinfo;
@@ -570,9 +570,9 @@
         #memory.critical {
           color: @critical;
         }
-
+  
         /* == CPU == */
-
+  
         #custom-left4 {
           color: @cpu;
           background: @memory;
@@ -586,9 +586,9 @@
           font-size: 12.2pt;
           margin-bottom: -2px;
         }
-
+  
         /* == Distro Icon == */
-
+  
         #custom-left5 {
           color: @distro-bg;
           background: @main-bg;
@@ -609,9 +609,9 @@
           color: @distro-bg;
           background: @main-bg;
         }
-
+  
         /* == Time == */
-
+  
         #custom-rightin1 {
           color: @time;
           font-size: 12.2pt;
@@ -624,9 +624,9 @@
           color: @time;
           background: @date;
         }
-
+  
         /* == Date == */
-
+  
         #clock.date {
           background: @date;
         }
@@ -639,9 +639,9 @@
           color: @date;
           background: @tray;
         }
-
+  
         /* == Tray == */
-
+  
         #custom-wifi {
           padding-left: 5px;
           padding-right: 8px;
@@ -652,7 +652,7 @@
           text-shadow: none;
           box-shadow: none;
         }
-
+  
         #bluetooth {
           padding-right: 5px;
           background: @tray;
@@ -662,7 +662,7 @@
           text-shadow: none;
           box-shadow: none;
         }
-
+  
         #custom-update {
           padding-right: 8px;
           background: @tray;
@@ -676,9 +676,9 @@
           color: @tray;
           background: @main-bg;
         }
-
+  
         /* == Media Info == */
-
+  
         #custom-media {
           font-weight: normal;
           background-color: @main-bg;
@@ -690,9 +690,9 @@
           text-shadow: none;
           box-shadow: none;
         }
-
+  
         /* == Output Device == */
-
+  
         #custom-left6 {
           color: @pulseaudio;
           background: @main-bg;
@@ -706,9 +706,9 @@
           text-shadow: none;
           box-shadow: none;
         }
-
+  
         /* == Brightness == */
-
+  
         #custom-left7 {
           color: @backlight;
           background: @pulseaudio;
@@ -717,9 +717,9 @@
         #custom-backlight {
           background: @backlight;
         }
-
+  
         /* == Battery == */
-
+  
         #custom-left8 {
           color: @battery;
           background: @backlight;
@@ -743,9 +743,9 @@
         #battery.charging {
           color: @charging;
         }
-
+  
         /* == Power Button == */
-
+  
         #custom-leftin2 {
           color: @battery;
           background: @main-bg;
@@ -772,3 +772,5 @@
     };
   };
 }
+  
+  

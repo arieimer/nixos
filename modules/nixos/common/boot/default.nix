@@ -20,7 +20,7 @@
           editor = false;
         };
         efi.canTouchEfiVariables = true;
-      };
+      }; 
     };
   };
 }

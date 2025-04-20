@@ -37,7 +37,7 @@
         };
         misc = {
           disable_splash_rendering = 1;
-        };
+        };        
       };
     };
   };

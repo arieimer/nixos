@@ -3,8 +3,7 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   pw_rnnoise_config = {
     "context.modules" = [
       {
@@ -43,8 +42,7 @@ let
       }
     ];
   };
-in
-{
+in {
   options.cfg.audio.rnnoise.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;
@@ -71,3 +69,4 @@ in
     };
   };
 }
+

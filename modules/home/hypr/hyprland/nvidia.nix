@@ -5,7 +5,7 @@
   ...
 }:
 {
-  config = lib.mkIf osConfig.cfg.gpu.nvidia.enable {
+  config = lib.mkIf osConfig.cfg.gpu.nvidia.enable {    
     wayland.windowManager.hyprland.settings = {
       env = [
         "LIBVA_DRIVER_NAME,nvidia"

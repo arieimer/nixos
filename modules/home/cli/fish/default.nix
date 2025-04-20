@@ -5,7 +5,7 @@
   ...
 }:
 {
-
+  
   config = lib.mkIf osConfig.cfg.fish.enable {
     programs.fish = {
       enable = true;
@@ -14,8 +14,8 @@
         cat = lib.mkIf config.cfg.cli.bat.enable "bat";
         "..." = "cd ../..";
       };
-      interactiveShellInit =
-        "set fish_greeting\n" + lib.optionalString config.programs.helix.enable "set EDITOR hx\n";
-    };
+      interactiveShellInit = "set fish_greeting\n"
+        + lib.optionalString config.programs.helix.enable "set EDITOR hx\n";
+    };  
   };
 }

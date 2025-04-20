@@ -54,7 +54,7 @@ let
     ]);
   associations = builtins.mapAttrs (_: v: (map (e: "${e}.desktop") v)) (
     {
-      "application/pdf" = [ "org.pwmt.zathura-pdf-mupdf" ];
+      "application/pdf" = ["org.pwmt.zathura-pdf-mupdf"];
       "text/html" = browser;
       "text/plain" = [ "Helix" ];
       "inode/directory" = [ "yazi" ];
@@ -92,5 +92,5 @@ in
         desktop = null;
       };
     };
-  };
+  }; 
 }

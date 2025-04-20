@@ -5,14 +5,6 @@
   inputs,
   ...
 }:
-let
-  #img = builtins.fetchurl "https://raw.githubusercontent.com/ari-rs/wallpapers/refs/heads/master/${config.cfg.stylix.image}.png";
-  # TODO: Make much better wallpaper system...
-  img = pkgs.fetchurl {
-    url ="https://raw.githubusercontent.com/ari-rs/wallpapers/refs/heads/master/${config.cfg.stylix.image}.png";
-    sha256 = "0c90c4f15b5w4hx9sx51qa9nz433xjaqi9wscdxs1xvz30vglswv";
-  };
-in
 {
   options.cfg.stylix.enable = lib.mkOption {
     type = lib.types.bool;
@@ -43,7 +35,7 @@ in
     stylix = {
       enable = true;
       cursor.size = 20;
-      image = img;
+      image = "${inputs.wallpapers}/${config.cfg.stylix.image}";
       cursor.name = "Bibata-Modern-Ice"; # TODO: resolve mkForce in hyprcursor module...
       cursor.package = pkgs.bibata-cursors;
       polarity = "dark"; # Probably not required

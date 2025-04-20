@@ -5,6 +5,10 @@
     stylix.url = "github:danth/stylix";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     nixcord.url = "github:kaylorben/nixcord";
+    wallpapers = {
+      url = "github:ari-rs/wallpapers";
+      flake = false;
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

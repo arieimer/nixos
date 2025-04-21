@@ -10,6 +10,11 @@
     default = true;
     description = "Installs Heroic Games Launcher";
   };
+  options.cfg.gui.rpcs3.enable = lib.mkOption {
+    type = lib.types.bool;
+    default = false;
+    description = "Installs rpcs3 emulator";
+  };
   options.cfg.gui.lutris.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
@@ -30,6 +35,9 @@
     home.packages = lib.mkMerge [
       (lib.mkIf config.cfg.gui.heroic.enable [
         pkgs.heroic
+      ])
+      (lib.mkIf config.cfg.gui.rpcs3.enable [
+        pkgs.rpcs3
       ])
       (lib.mkIf config.cfg.gui.lutris.enable [
         pkgs.lutris

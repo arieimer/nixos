@@ -11,6 +11,7 @@
     ./gaming
     ./spotify
     ./zen
+    ./fcitx5
   ];
 
   options.cfg.gui.apps.qbit.enable = lib.mkOption {

@@ -12,6 +12,7 @@
         "$MOD, return, exec, ${lib.getExe config.programs.foot.package}"
         "$MOD, tab, exec, ${config.cfg.shell.launcher}"
         "$MOD, escape, exec, ${config.cfg.shell.power}"
+        "$MOD, L, exec, ${lib.getExe config.programs.hyprlock.package}"
 
         # window management
         "$MOD, Q, killactive"

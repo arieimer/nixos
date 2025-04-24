@@ -7,7 +7,7 @@
 {
   imports = [
     ./configuration.nix
-    ../../packages/installer
+    ../../packages/scripts/installer
     "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
   ];
   cfg.kernel.enable = false;

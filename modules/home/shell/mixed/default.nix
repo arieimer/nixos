@@ -4,9 +4,9 @@
   ...
 }:
 {
-  options.cfg.shell.mixed.enable = lib.mkOption {
+  options.cfg.shell.mixed.enable = lib.mkOption { # This shouldnt be modified...
     type = lib.types.bool;
-    default = (config.cfg.shell.type == "mixed"); # Not be used normally
+    default = (config.cfg.shell.type == "mixed");
   };
   imports = [
     ./waybar

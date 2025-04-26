@@ -45,10 +45,10 @@
         "$MOD SHIFT, 8, movetoworkspace, r~8"
         "$MOD SHIFT, 9, movetoworkspace, r~9"
         "$MOD SHIFT, 0, movetoworkspace, r~10"
-        
+
       ];
       bindle = [
-        
+
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioNext, exec, playerctl next"
         ", XF86AudioPrev, exec, playerctl previous"

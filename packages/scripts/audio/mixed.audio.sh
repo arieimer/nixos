@@ -21,35 +21,34 @@ source_notify() {
   fi
 }
 
-
 case $1 in
 vol)
-	case $2 in
-	up)
-		wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
-		wpctl set-volume @DEFAULT_AUDIO_SINK@ "$3%+" --limit 1.0
-		volume_notify
-		exit 0
-		;;
-	down)
-		wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
-		wpctl set-volume @DEFAULT_AUDIO_SINK@ "$3%-"
-		volume_notify
-		exit 0
-		;;
-	toggle)
-		wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-		sink_notify
-		exit 0
-		;;
-	esac
-	;;
+  case $2 in
+  up)
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ "$3%+" --limit 1.0
+    volume_notify
+    exit 0
+    ;;
+  down)
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ "$3%-"
+    volume_notify
+    exit 0
+    ;;
+  toggle)
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+    sink_notify
+    exit 0
+    ;;
+  esac
+  ;;
 mic)
-	[ "$2" = "toggle" ] && wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && source_notify
-	exit 0
-	;;
+  [ "$2" = "toggle" ] && wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && source_notify
+  exit 0
+  ;;
 *)
-	echo "Invalid command: $1"
-	exit 1
-	;;
+  echo "Invalid command: $1"
+  exit 1
+  ;;
 esac

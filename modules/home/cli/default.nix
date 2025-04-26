@@ -4,7 +4,7 @@
   username,
   pkgs,
   lib,
-  
+
   ...
 }:
 {
@@ -56,7 +56,8 @@
     ./fish
   ];
   config = lib.mkIf config.cfg.cli.enable {
-    home.packages = [ # Perhaps should be made optional but they are very good to have
+    home.packages = [
+      # Perhaps should be made optional but they are very good to have
       pkgs.p7zip-rar
       pkgs.dua
       pkgs.caligula
@@ -74,6 +75,6 @@
       enable = true;
       userName = config.cfg.cli.git.username;
       userEmail = config.cfg.cli.git.email;
-    };    
+    };
   };
 }

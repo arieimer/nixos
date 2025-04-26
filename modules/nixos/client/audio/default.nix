@@ -9,7 +9,7 @@
     default = false;
     description = "Enables audio via pipewire";
   };
-  imports = [./rnnoise.nix];
+  imports = [ ./rnnoise.nix ];
 
   config = lib.mkIf config.cfg.audio.enable {
     services.pipewire = {

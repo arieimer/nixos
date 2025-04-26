@@ -1,6 +1,5 @@
 {
   system,
-  pkgs,
   modulesPath,
   ...
 }:

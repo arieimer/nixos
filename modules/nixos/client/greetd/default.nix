@@ -15,8 +15,7 @@
       enable = true;
       settings = {
         default_session = {
-          command =
-          ''
+          command = ''
             ${pkgs.greetd.tuigreet}/bin/tuigreet \
             --greeting "Welcome back." \
             --time \

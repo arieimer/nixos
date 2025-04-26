@@ -1,7 +1,8 @@
 {
   nixpkgs,
-  ...  
-}@inputs:
+  inputs,
+  ...
+}:
 let
   username = "ari";
 in

@@ -1,5 +1,5 @@
 {
-  
+
   config,
   pkgs,
   lib,
@@ -15,9 +15,9 @@
       })
       (pkgs.writeShellApplication {
         name = "waybar-cpu-usage";
-        runtimeInputs = [];
+        runtimeInputs = [ ];
         text = builtins.readFile ./cpu-usage.sh;
       })
-    ];  
-  };  
+    ];
+  };
 }

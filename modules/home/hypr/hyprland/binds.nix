@@ -5,6 +5,7 @@
 }:
 {
   config = lib.mkIf config.cfg.hypr.hyprland.enable {
+    services.playerctld.enable = true;
     wayland.windowManager.hyprland.settings = {
       "$MOD" = "SUPER";
       bind = [
@@ -44,14 +45,17 @@
         "$MOD SHIFT, 8, movetoworkspace, r~8"
         "$MOD SHIFT, 9, movetoworkspace, r~9"
         "$MOD SHIFT, 0, movetoworkspace, r~10"
+        
       ];
-      binde = [
-        # TODO: audio package is not setup so this does not work...
-        #volume scripts
-        ", XF86AudioRaiseVolume, exec, audio.sh vol up 5"
-        ", XF86AudioLowerVolume, exec, audio.sh vol down 5"
-        ", XF86AudioMute, exec, audio.sh vol toggle"
-        "$MOD, O, exec, audio.sh mic toggle"
+      bindle = [
+        
+        ", XF86AudioPlay, exec, playerctl play-pause"
+        ", XF86AudioNext, exec, playerctl next"
+        ", XF86AudioPrev, exec, playerctl previous"
+        ", XF86AudioRaiseVolume, exec, ${config.cfg.shell.type}.audio.sh vol up 5"
+        ", XF86AudioLowerVolume, exec, ${config.cfg.shell.type}.audio.sh vol down 5"
+        ", XF86AudioMute, exec, ${config.cfg.shell.type}.audio.sh vol toggle"
+        "$MOD, M, exec, ${config.cfg.shell.type}audio.sh mic toggle"
       ];
       bindm = [
         "$MOD, mouse:272, movewindow"

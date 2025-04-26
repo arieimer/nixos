@@ -25,7 +25,7 @@
 
     programs.nh = {
       enable = true;
-      flake = "/home/${username}/.config/nixos"; # additionally extends out the environment variables $FLAKE to be used by others
+      flake = "/home/${username}/.config/nixos";
       clean = {
         enable = true;
         extraArgs = "--keep 8 --keep-since 7d";

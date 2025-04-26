@@ -10,7 +10,7 @@
       (lib.mkIf config.cfg.shell.mixed.enable (
         pkgs.writeShellApplication {
           name = "mixed.audio.sh";
-          runtimeInputs = [ ];
+          runtimeInputs = [ pkgs.libnotify ];
           text = builtins.readFile ./mixed.audio.sh;
         }
       ))

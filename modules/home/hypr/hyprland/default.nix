@@ -28,7 +28,7 @@
       systemd.enable = true;
       settings = {
         input = {
-          sensitivity = config.cfg.hypr.hyprland.sensitivity;
+          inherit (config.cfg.hypr.hyprland) sensitivity;
         };
         general = {
           gaps_out = 4;

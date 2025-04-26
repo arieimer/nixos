@@ -24,12 +24,12 @@
         };
         listener = [
           {
-            timeout = config.cfg.hypr.hypridle.timeout;
+            inherit (config.cfg.hypr.hypridle) timeout;
             # on-timeout = "hyprctl dispatch dpms off";
             # on-resume = "hyprctl dispatch dmps on";
           }
           {
-            timeout = (config.cfg.hypr.hypridle.timeout + 30);
+            timeout = config.cfg.hypr.hypridle.timeout + 30;
             on-timeout = "loginctl lock-session";
           }
         ];

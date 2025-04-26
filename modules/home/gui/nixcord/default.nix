@@ -11,7 +11,7 @@
     description = "Discord with vesktop for nix";
   };
   imports = [
-    inputs.nixcord.homeManagerModules.nixcord
+    inputs.nixcord.homeModules.nixcord
   ];
   config = lib.mkIf config.cfg.gui.nixcord.enable {
     stylix.targets.vesktop.enable = false; # Possibly unneccessary

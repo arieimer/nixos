@@ -6,5 +6,6 @@
     ./hyprcursor.nix
     ./hyprpaper.nix
     ./hyprpolkit.nix
+    ./screenshot.nix
   ];
 }

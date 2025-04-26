@@ -5,12 +5,13 @@
   ...
 }:
 let
-	plugins-repo = pkgs.fetchFromGitHub { # Grabbed on March 26 2025
-		owner = "yazi-rs";
-		repo = "plugins";
-		rev = "273019910c1111a388dd20e057606016f4bd0d17";
-		hash = "sha256-80mR86UWgD11XuzpVNn56fmGRkvj0af2cFaZkU8M31I=";
-	};
+  plugins-repo = pkgs.fetchFromGitHub {
+    # Grabbed on March 26 2025
+    owner = "yazi-rs";
+    repo = "plugins";
+    rev = "273019910c1111a388dd20e057606016f4bd0d17";
+    hash = "sha256-80mR86UWgD11XuzpVNn56fmGRkvj0af2cFaZkU8M31I=";
+  };
 in
 {
   options.cfg.cli.yazi.enable = lib.mkOption {

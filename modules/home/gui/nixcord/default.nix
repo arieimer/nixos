@@ -38,8 +38,7 @@
           webScreenShareFixes.enable = true;
         };
       };
-      quickCss =
-      ''
+      quickCss = ''
         /* Hides Store and Shop button */
         [href="/store"], 
         [href='/shop']

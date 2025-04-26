@@ -9,7 +9,7 @@ git clone https://github.com/ari-rs/nixconfig.git "$HOME/nixconfig"
 
 TARGET_PROFILE=$(find ~/nixconfig/hosts -mindepth 1 -maxdepth 1 -type d ! -name default -exec basename {} \; | gum choose)
 
-gum confirm  --default=false "This will install $TARGET_PROFILE please verify this is correct."
+gum confirm --default=false "This will install $TARGET_PROFILE please verify this is correct."
 
 echo "Starting install process..."
 

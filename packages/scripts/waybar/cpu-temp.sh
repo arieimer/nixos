@@ -14,10 +14,10 @@ get_cpu_frequency() {
 # Get CPU temperature
 get_cpu_temperature() {
   temp=$(sensors | awk '/Package id 0/ {print $4}' | awk -F '[+.]' '{print $2}')
-  if [[ -z "$temp" ]]; then
+  if [[ -z $temp ]]; then
     temp=$(sensors | awk '/Tctl/ {print $2}' | tr -d '+°C')
   fi
-  if [[ -z "$temp" ]]; then
+  if [[ -z $temp ]]; then
     temp="N/A"
   else
     temp_f=$(awk "BEGIN {printf \"%.1f\", ($temp * 9 / 5) + 32}")
@@ -40,7 +40,6 @@ get_temperature_icon() {
   fi
   echo "$icon"
 }
-
 
 # Main script execution
 cpu_frequency=$(get_cpu_frequency)

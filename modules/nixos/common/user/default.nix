@@ -13,7 +13,10 @@
   };
   options.cfg.user.group = lib.mkOption {
     type = lib.types.listOf lib.types.str;
-    default = [ "wheel" "networkmanager" ];
+    default = [
+      "wheel"
+      "networkmanager"
+    ];
     description = "Set user's groups";
   };
   config = lib.mkIf config.cfg.user.enable {

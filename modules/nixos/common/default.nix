@@ -7,5 +7,5 @@
     ./nix
     ./stylix
     ./user
-  ]; 
+  ];
 }

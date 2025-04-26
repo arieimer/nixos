@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 fileName="Screenshot-$(date '+%m.%d.%y-%I:%M%P')"
 screenshotDir="$XDG_PICTURES_DIR/Screenshots"
 path="$screenshotDir/$fileName"

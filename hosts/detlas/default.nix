@@ -1,7 +1,4 @@
 {
-  ...
-}:
-{
   imports = [
     ./disks.nix
     ./configuration.nix

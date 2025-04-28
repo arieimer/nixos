@@ -1,6 +1,7 @@
 {
   config,
   inputs,
+  pkgs,
   lib,
   ...
 }:
@@ -12,12 +13,18 @@
   };
   imports = [
     inputs.nixcord.homeModules.nixcord
+    inputs.chaotic.homeManagerModules.default
   ];
   config = lib.mkIf config.cfg.gui.nixcord.enable {
     stylix.targets.vesktop.enable = false; # Possibly unneccessary
     stylix.targets.vencord.enable = false; # same here ^^
     programs.nixcord = {
       enable = true;
+      discord = {
+        package = pkgs.discord-krisp;
+        # ^^ Requires the nixosmodule to be loaded which is done in the kernel config file.
+        autoscroll.enable = true;
+      };
       config = {
         useQuickCss = true;
         plugins = {
@@ -31,7 +38,6 @@
           noF1.enable = true;
           noOnboardingDelay.enable = true;
           plainFolderIcon.enable = true;
-          translate.enable = true;
           typingIndicator.enable = true;
           volumeBooster.enable = true;
           youtubeAdblock.enable = true;
@@ -49,10 +55,18 @@
         button[aria-label="Send a gift"] {
           display: none;
         }
+        /* Hide GIF picker button */
+        button[aria-label="Open GIF picker"] {
+          display: none;
+        }
         /* Hide sticker picker button */
         button[aria-label="Open sticker picker"] {
           display: none;
-        }   
+        }
+        /* Hide app launcher */
+        [class*=channelAppLauncher_] {
+          display: none !important;
+        }
       '';
     };
   };

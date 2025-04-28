@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   pkgs,
   lib,
   ...
@@ -14,6 +15,8 @@ let
       pkgs.linuxPackages_latest
     else if config.cfg.kernel.type == "xanmod_latest" then
       pkgs.linuxKernel.packaes.linux_xanmod_latest
+    else if config.cfg.kernel.type == "cachyos" then
+      pkgs.linuxPackages_cachyos
     else
       throw "Invalid kernel type try zen, lts, latest, or xanmod_latest";
 in
@@ -29,10 +32,14 @@ in
       "lts"
       "zen"
       "xanmod_latest"
+      "cachyos"
     ];
     default = "latest";
     description = "Selects which kernel needs to be used ex: 'zen' or 'latest'";
   };
+  imports = [
+    inputs.chaotic.nixosModules.default
+  ];
   config = lib.mkIf config.cfg.kernel.enable {
     boot.kernelPackages = kernelType;
   };

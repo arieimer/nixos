@@ -2,6 +2,7 @@
   description = "If it just worked this wouldn't exist.";
   inputs = {
     nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable"; # shadow clone for speeeeeeeeeeed
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     stylix.url = "github:danth/stylix";
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
     nixcord.url = "github:kaylorben/nixcord";

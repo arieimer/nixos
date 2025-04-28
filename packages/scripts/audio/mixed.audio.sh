@@ -2,7 +2,7 @@
 
 volume_notify() {
   volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2 * 100}')
-  notify-send "Volume" "$volume"
+  notify-send "Volume" "$volume%"
 }
 
 sink_notify() {

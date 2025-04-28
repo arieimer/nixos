@@ -18,11 +18,13 @@
           "flakes"
         ];
         auto-optimise-store = true;
+        warn-dirty = false;
+        allowed-users = [ "@wheel" ];
+        trusted-users = [ "@wheel" ];
       };
     };
-
     nixpkgs.config.allowUnfree = true;
-
+    system.rebuild.enableNg = true;
     programs.nh = {
       enable = true;
       flake = "/home/${username}/.config/nixos";

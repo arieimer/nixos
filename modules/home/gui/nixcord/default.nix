@@ -20,11 +20,8 @@
     stylix.targets.vencord.enable = false; # same here ^^
     programs.nixcord = {
       enable = true;
-      discord = {
-        package = pkgs.discord-krisp;
-        # ^^ Requires the nixosmodule to be loaded which is done in the kernel config file.
-        autoscroll.enable = true;
-      };
+      discord.package = pkgs.discord-krisp;
+      # ^^ Requires the nixosmodule to be loaded which is done in the kernel config file.
       config = {
         useQuickCss = true;
         plugins = {

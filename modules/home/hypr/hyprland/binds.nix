@@ -55,7 +55,7 @@
         ", XF86AudioRaiseVolume, exec, ${config.cfg.shell.type}.audio.sh vol up 5"
         ", XF86AudioLowerVolume, exec, ${config.cfg.shell.type}.audio.sh vol down 5"
         ", XF86AudioMute, exec, ${config.cfg.shell.type}.audio.sh vol toggle"
-        "$MOD, M, exec, ${config.cfg.shell.type}audio.sh mic toggle"
+        "$MOD, M, exec, ${config.cfg.shell.type}.audio.sh mic toggle"
       ];
       bindm = [
         "$MOD, mouse:272, movewindow"

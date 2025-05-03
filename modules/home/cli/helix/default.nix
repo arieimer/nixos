@@ -1,6 +1,5 @@
 {
   config,
-  pkgs,
   lib,
   ...
 }:
@@ -10,46 +9,51 @@
     default = true;
     description = "Enables helix the terminal editor";
   };
+  imports = [
+    ./languages.nix
+  ];
   config = lib.mkIf config.cfg.cli.helix.enable {
     programs.helix = {
       enable = true;
       defaultEditor = true;
       settings = {
-        keys.normal = {
-          space.space = "file_picker";
-          space.x = ":x";
-          space.w = ":w";
-          space.q = ":q";
+        editor = {
+          cursor-shape = {
+            insert = "bar";
+            normal = "block";
+            select = "underline";
+          };
+          statusline = {
+            left = [
+              "mode"
+              "version-control"
+              "file-name"
+              "spinner"
+              "read-only-indicator"
+            ];
+            right = [
+              "diagnostics"
+              "selections"
+              "register"
+              "file-type"
+              "position"
+            ];
+            mode.normal = "";
+            mode.insert = "I";
+            mode.select = "S";
+          };
         };
-        editor.cursor-shape = {
-          insert = "bar";
-          normal = "block";
-          select = "underline";
-        };
-        editor.statusline = {
-          left = [
-            "mode"
-            "spinner"
-            "version-control"
-            "file-name"
-          ];
+        keys = {
+          normal = {
+            space = {
+              space = "file_picker";
+              q = ":write-quit-all";
+              Q = ":quit!";
+              w = ":write";
+            };
+          };
         };
       };
-      languages = {
-        language = [
-        {
-          name = "nix";
-        }
-        {
-          name = "rust";
-          language-servers = [ "rust-analyzer" ];
-        }
-        ];
-      };
-      extraPackages = [
-        pkgs.nil
-        pkgs.rust-analyzer
-      ];
     };
   };
 }

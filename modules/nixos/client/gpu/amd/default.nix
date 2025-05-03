@@ -6,7 +6,7 @@
 }:
 {
   config = lib.mkIf ((config.cfg.gpu.type == "amd") && config.cfg.gpu.enable) {
-      environment.systemPackages = [
+    environment.systemPackages = [
       pkgs.nvtopPackages.amd
     ];
     boot.initrd.kernelModules = [ "amdgpu" ];

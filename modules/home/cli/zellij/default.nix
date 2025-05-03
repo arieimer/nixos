@@ -14,6 +14,6 @@
     programs.zellij = {
       enable = true;
       enableFishIntegration = osConfig.cfg.fish.enable;
-    };    
+    };
   };
 }

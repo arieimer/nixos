@@ -1,10 +1,9 @@
 {
-  options,
   config,
   username,
+  osConfig,
   pkgs,
   lib,
-
   ...
 }:
 {
@@ -54,6 +53,7 @@
     ./helix
     ./yazi
     ./fish
+    ./zellij
   ];
   config = lib.mkIf config.cfg.cli.enable {
     home.packages = [
@@ -64,9 +64,9 @@
     ];
     programs.bat.enable = config.cfg.cli.bat.enable;
     programs.btop.enable = config.cfg.cli.btop.enable;
-    programs.yazi.enable = config.cfg.cli.yazi.enable;
     programs.eza = lib.mkIf config.cfg.cli.eza.enable {
       enable = true;
+      enableFishIntegration = osConfig.cfg.fish.enable;
       icons = "always";
       colors = "always";
       extraOptions = [ "--group-directories-first" ];

@@ -1,4 +1,5 @@
 {
+  osConfig,
   config,
   pkgs,
   lib,
@@ -22,7 +23,7 @@ in
   config = lib.mkIf config.cfg.cli.yazi.enable {
     programs.yazi = {
       enable = true;
-      enableFishIntegration = true;
+      enableFishIntegration = osConfig.cfg.fish.enable;
       shellWrapperName = "y";
       plugins = {
         full-border = "${plugins-repo}/full-border.yazi";

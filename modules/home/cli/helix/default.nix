@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   ...
 }:
@@ -34,6 +35,21 @@
           ];
         };
       };
+      languages = {
+        language = [
+        {
+          name = "nix";
+        }
+        {
+          name = "rust";
+          language-servers = [ "rust-analyzer" ];
+        }
+        ];
+      };
+      extraPackages = [
+        pkgs.nil
+        pkgs.rust-analyzer
+      ];
     };
   };
 }

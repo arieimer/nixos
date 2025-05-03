@@ -5,12 +5,10 @@
   ...
 }:
 {
-  options.cfg.gpu.nvidia.enable = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
-    description = "Installs nvidia GPU drivers (open kernel modules)";
-  };
-  config = lib.mkIf config.cfg.gpu.nvidia.enable {
+  config = lib.mkIf ((config.cfg.gpu.type == "nvidia") && config.cfg.gpu.enable) {
+    environment.systemPackages = [
+      pkgs.nvtopPackages.nvidia
+    ];
     services.xserver.videoDrivers = [ "nvidia" ];
     hardware = {
       nvidia = {

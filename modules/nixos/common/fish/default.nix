@@ -13,6 +13,5 @@
   config = lib.mkIf config.cfg.fish.enable {
     programs.fish.enable = true;
     users.defaultUserShell = pkgs.fish;
-    environment.shells = [ pkgs.fish ];
   };
 }

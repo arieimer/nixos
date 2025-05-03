@@ -11,6 +11,11 @@
     default = true;
     description = "Sets username, hostname and groups";
   };
+  options.cfg.user.password = lib.mkOption {
+    type = lib.types.str;
+    default = null;
+    description = "Sets the user's password based on a hashed password generated via mkpasswd";
+  };
   options.cfg.user.group = lib.mkOption {
     type = lib.types.listOf lib.types.str;
     default = [
@@ -25,7 +30,7 @@
       isNormalUser = true;
       extraGroups = config.cfg.user.group;
       uid = 1000;
-      hashedPassword = "$y$j9T$KhVJOOCKj2mC8XehV0vQ6/$BIOs54KYkPSipG/1/qoH9GW0uxEdKGIpShyEBefn5G4"; # pls no pwn
+      hashedPassword = config.cfg.user.password;
     };
   };
 }

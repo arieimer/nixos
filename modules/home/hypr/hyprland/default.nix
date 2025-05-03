@@ -19,6 +19,7 @@
     ./monitors.nix
     ./workspaces.nix
     ./binds.nix
+    ./theme.nix
     ./nvidia.nix
   ];
 
@@ -29,14 +30,6 @@
       settings = {
         input = {
           inherit (config.cfg.hypr.hyprland) sensitivity;
-        };
-        general = {
-          gaps_out = 4;
-          gaps_in = 2;
-          border_size = 2;
-        };
-        misc = {
-          disable_splash_rendering = 1;
         };
       };
     };

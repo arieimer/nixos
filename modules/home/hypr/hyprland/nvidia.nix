@@ -1,10 +1,11 @@
 {
   osConfig,
+  config,
   lib,
   ...
 }:
 {
-  config = lib.mkIf (osConfig.cfg.gpu.type == "nvidia") {
+  config = lib.mkIf ((osConfig.cfg.gpu.type == "nvidia") && config.cfg.hypr.hyprland.enable) {
     wayland.windowManager.hyprland.settings = {
       env = [
         "LIBVA_DRIVER_NAME,nvidia"

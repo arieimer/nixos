@@ -19,6 +19,7 @@
       windowrule = [
         "opaque, class:^(.*Minecraft.*)$"
         "opaque, class:^(.*zen-beta.*)$"
+        "opaque, class:^(.*mpv.*)$"
       ];
       misc = {
         disable_splash_rendering = 1;

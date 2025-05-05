@@ -1,9 +1,12 @@
 {
   description = "If it just worked this wouldn't exist.";
   inputs = {
-    nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable"; # shadow clone for speeeeeeeeeeed
+    nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable"; # shadow clone
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    stylix.url = "github:danth/stylix";
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     apple-fonts = {
       url = "github:Lyndeno/apple-fonts.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,10 +18,6 @@
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    wallpapers = {
-      url = "github:ari-rs/wallpapers";
-      flake = false;
     };
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -39,6 +38,10 @@
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    wallpapers = {
+      url = "github:ari-rs/wallpapers";
+      flake = false;
     };
   };
   outputs =

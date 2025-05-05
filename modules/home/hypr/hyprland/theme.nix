@@ -18,7 +18,7 @@
       };
       windowrule = [
         "opaque, class:^(.*Minecraft.*)$"
-        "opaque, class:^(.*zen-beta.*)$"
+        "opaque, class:^(.*zen.*)$"
         "opaque, class:^(.*mpv.*)$"
       ];
       misc = {

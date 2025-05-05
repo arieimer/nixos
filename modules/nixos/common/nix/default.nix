@@ -30,7 +30,8 @@
       flake = "/home/${username}/.config/nixos";
       clean = {
         enable = true;
-        extraArgs = "--keep 8 --keep-since 7d";
+        extraArgs = "--keep 5 --keep-since 24h";
+        dates = "daily";
       };
     };
   };

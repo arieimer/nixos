@@ -1,6 +1,5 @@
 {
   lib,
-  pkgs,
   config,
   ...
 }:
@@ -14,8 +13,6 @@
     home.pointerCursor = {
       gtk.enable = true;
       hyprcursor.enable = true;
-      name = lib.mkForce "Bibata-Modern-Ice";
-      package = lib.mkForce pkgs.bibata-cursors;
     };
   };
 }

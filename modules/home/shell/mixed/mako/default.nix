@@ -13,8 +13,10 @@
   config = lib.mkIf config.cfg.shell.mixed.mako.enable {
     services.mako = {
       enable = true;
-      icons = true;
-      defaultTimeout = 3000;
+      settings = {
+        icons = true;
+        defaultTimeout = 3000;
+      };
     };
   };
 }

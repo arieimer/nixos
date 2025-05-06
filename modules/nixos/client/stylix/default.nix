@@ -30,7 +30,7 @@
           name = "New York Medium";
         };
         sansSerif = {
-          package = inputs.apple-fonts.packages.${pkgs.system}.ny;
+          package = inputs.apple-fonts.packages.${pkgs.system}.sf-pro;
           name = "SF Pro Text";
         };
         monospace = {

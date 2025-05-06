@@ -14,6 +14,7 @@
       nvidia = {
         open = true;
         nvidiaSettings = false;
+        powerManagement.enable = true;
         package = config.boot.kernelPackages.nvidiaPackages.beta;
       };
       graphics = {

@@ -7,5 +7,6 @@
     ./home-manager
     ./hypr
     ./mullvad
+    ./stylix
   ];
 }

@@ -25,11 +25,11 @@
       If you set this to 0, the PC won't lock when idle.'';
   };
   options.cfg.hypr.hypridle.suspendTimeout = lib.mkOption {
-  type = lib.types.int;
-  default = 1800;
-  description = ''
-  Sets the time in seconds for the PC to automatically lock when idle.
-  If you set this to 0, the PC won't lock when idle.'';
+    type = lib.types.int;
+    default = 1800;
+    description = ''
+      Sets the time in seconds for the PC to automatically lock when idle.
+      If you set this to 0, the PC won't lock when idle.'';
   };
   config = lib.mkIf config.cfg.hypr.hypridle.enable {
     services.hypridle = {

@@ -19,4 +19,4 @@ jobs:
           persist-credentials: false
       - uses: DeterminateSystems/nix-installer-action@main
       - name: Run checks
-        run: nix flake check --no-build --all-systems
+        run: nix flake check --all-systems

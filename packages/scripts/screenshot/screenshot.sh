@@ -2,7 +2,7 @@
 
 fileName="Screenshot-$(date '+%m.%d.%y-%I:%M%P')"
 screenshotDir="$XDG_PICTURES_DIR/Screenshots"
-path="$screenshotDir/$fileName"
+path="$screenshotDir/$fileName.png"
 
 if [ ! -d "$screenshotDir" ]; then
   mkdir -p "$screenshotDir"

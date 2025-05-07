@@ -15,7 +15,7 @@
       enable = true;
       settings = {
         icons = true;
-        defaultTimeout = 3000;
+        default-timeout = 3000;
       };
     };
   };

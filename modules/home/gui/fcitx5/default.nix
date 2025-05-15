@@ -38,6 +38,11 @@
             "Groups/0/Items/0".Name = "keyboard-us";
             "Groups/0/Items/1".Name = "mozc";
           };
+          globalOptions = {
+            "Hotkey/TriggerKeys" = {
+              "0" = "Alt+space";
+            };
+          };
         };
       };
     };

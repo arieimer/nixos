@@ -43,6 +43,10 @@
       url = "github:ari-rs/wallpapers";
       flake = false;
     };
+    yazi-plugins = {
+      url = "github:yazi-rs/plugins";
+      flake = false;
+    };
   };
   outputs =
     {

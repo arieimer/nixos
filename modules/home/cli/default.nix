@@ -66,6 +66,7 @@
       enable = true;
       silent = true;
       nix-direnv.enable = true;
+      config.global.hide_env_diff = true;
     };
     programs.bat.enable = config.cfg.cli.bat.enable;
     programs.btop.enable = config.cfg.cli.btop.enable;

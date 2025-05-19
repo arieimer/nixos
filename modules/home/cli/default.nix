@@ -42,10 +42,10 @@
     default = config.cfg.cli.enable;
     description = "Installs and configures btop";
   };
-  options.cfg.cli.fish.shellInit = lib.mkOption {
+  options.cfg.cli.direnv.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;
-    description = "Configures fish shellInit";
+    description = "Installs and configures direnv";
   };
 
   imports = [
@@ -62,6 +62,11 @@
       pkgs.dua
       pkgs.caligula
     ];
+    programs.direnv = lib.mkIf config.cfg.cli.direnv.enable {
+      enable = true;
+      silent = true;
+      nix-direnv.enable = true;
+    };
     programs.bat.enable = config.cfg.cli.bat.enable;
     programs.btop.enable = config.cfg.cli.btop.enable;
     programs.eza = lib.mkIf config.cfg.cli.eza.enable {

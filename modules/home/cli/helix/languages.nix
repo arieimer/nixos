@@ -35,7 +35,7 @@
         };
       };
       extraPackages = [
-        pkgs.marksman        
+        pkgs.marksman
       ];
     };
   };

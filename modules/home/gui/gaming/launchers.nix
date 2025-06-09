@@ -30,9 +30,17 @@
     default = false;
     description = "Installs suyu emulator";
   };
+  options.cfg.gui.umu.enable = lib.mkOption {
+    type = lib.types.bool;
+    default = false;
+    description = "Installs umu-launher";
+  };
 
   config = {
     home.packages = lib.mkMerge [
+      (lib.mkIf config.cfg.gui.umu.enable [
+        pkgs.umu-launcher
+      ])
       (lib.mkIf config.cfg.gui.heroic.enable [
         pkgs.heroic
       ])

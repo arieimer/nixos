@@ -90,6 +90,8 @@ in
         templates = null;
         publicShare = null;
         desktop = null;
+        videos = null;
+        music = null;
       };
     };
   };

@@ -4,6 +4,7 @@
     ./gaming
     ./gpu
     ./greetd
+    ./ly
     ./home-manager
     ./hypr
     ./mullvad

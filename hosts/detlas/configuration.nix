@@ -4,4 +4,5 @@
   networking.networkmanager.enable = true;
   cfg.kernel.type = "cachyos";
   system.stateVersion = "25.05";
+  cfg.greedtd.enable = false;
 }

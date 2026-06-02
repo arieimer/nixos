@@ -46,7 +46,10 @@ in
             inInitrd = true;
           }
           "/var/log"
-          "/etc/sops/age"
+          {
+            directory = "/etc/sops/age";
+            inInitrd = true;
+          }
           "/var/db/sudo"
           "/etc/NetworkManager/system-connections"
           "/var/lib/bluetooth"

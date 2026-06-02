@@ -1,10 +1,11 @@
 {
   cfg = {
-    greetd.enable = true;
     system = {
       kernel = "latest";
       # kernel = "cachyos-v3";
       nvidia.enable = true;
+      greetd.enable = false;
+      ly.enable = true;
       scx.enable = true;
       networkmanager.enable = true;
       fish.enable = true;
@@ -33,6 +34,13 @@
       git.enable = true;
       yazi.enable = true;
       btop.enable = true;
+      niri = {
+        enable = true;
+        monitors = [
+          "DP-1, 1920x1080@240, 1, x=0 y=0"
+          "HDMI-A-1, 1920x1080@75, 1, x=-1920 y=0"
+        ];
+      };
     };
     user = {
       username = "ari";

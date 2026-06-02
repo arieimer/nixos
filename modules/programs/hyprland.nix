@@ -158,11 +158,10 @@ in
           blur_popups = true,
         })
         hl.on("hyprland.start", function ()
-          hl.exec_cmd("fish -c \"noctalia && hyprctl reload\"")
+          hl.exec_cmd("noctalia")
           hl.exec_cmd("fcitx5 -d")
       end)
         require("noctalia")
-        -- dofile(os.getenv("HOME") .. "/.config/hypr/noctalia.lua")
       '';
   };
 }

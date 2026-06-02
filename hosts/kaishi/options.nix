@@ -1,0 +1,65 @@
+{
+  cfg = {
+    greetd.enable = true;
+    system = {
+      kernel = "latest";
+      # kernel = "cachyos-v3";
+      nvidia.enable = true;
+      scx.enable = true;
+      networkmanager.enable = true;
+      fish.enable = true;
+      fonts.enable = true;
+      gamemode.enable = true;
+      pipewire.enable = true;
+      xdg.enable = true;
+      cursor.enable = true;
+      qt.enable = true;
+      gtk.enable = true;
+      sops.enable = true;
+    };
+    programs = {
+      ghostty.enable = true;
+      mullvad.enable = true;
+      noctalia.enable = true;
+      steam.enable = true;
+      qbittorrent.enable = true;
+      prismlauncher.enable = true;
+      heroic.enable = true;
+      nixcord.enable = true;
+      zen.enable = true;
+      nvf.enable = true;
+      fcitx5.enable = true;
+      thunar.enable = true;
+      git.enable = true;
+      yazi.enable = true;
+      btop.enable = true;
+    };
+    user = {
+      username = "ari";
+      email = "ari.eimer@proton.me";
+    };
+    hypr.hyprland = {
+      enable = true;
+      monitors = {
+        list = [
+          "DP-1"
+          "HDMI-A-1"
+        ];
+        settings = [
+          "Lenovo, 1920x1080@240, 0x0, 1"
+          "LG, 1920x1080@75, -1920x0, 1"
+        ];
+      };
+    };
+    preservation.directories = [
+      "Documents"
+      "Pictures"
+      "Downloads"
+      "Games"
+    ];
+    disko = {
+      disk = "/dev/disk/by-id/nvme-WD_Blue_SN570_500GB_222622801561";
+      swapSize = "20G";
+    };
+  };
+}

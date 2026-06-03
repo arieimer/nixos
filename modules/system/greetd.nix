@@ -2,12 +2,10 @@
   config,
   pkgs,
   lib,
-  ...  
-}:
-let
+  ...
+}: let
   inherit (lib) mkEnableOption mkIf;
-in
-{
+in {
   options.cfg.system.greetd.enable = mkEnableOption "greetd";
   config = mkIf config.cfg.system.greetd.enable {
     # preservation.preserveAt."/persistent".directories = [ "/var/cache/tuigreet" ];
@@ -24,8 +22,7 @@ in
             --remember \
             --asterisks \
             --cmd 'niri'
-            '';
-          # command = "${pkgs.tuigreet}/bin/tuigreet --gretting \"Welcome back.\" \ --time-format --cmd 'fish -c start-hyprland'";
+          '';
           user = "greeter";
         };
       };

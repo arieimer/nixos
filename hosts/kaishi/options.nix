@@ -46,19 +46,6 @@
       username = "ari";
       email = "ari.eimer@proton.me";
     };
-    hypr.hyprland = {
-      enable = true;
-      monitors = {
-        list = [
-          "DP-1"
-          "HDMI-A-1"
-        ];
-        settings = [
-          "Lenovo, 1920x1080@240, 0x0, 1"
-          "LG, 1920x1080@75, -1920x0, 1"
-        ];
-      };
-    };
     preservation.directories = [
       "Documents"
       "Pictures"

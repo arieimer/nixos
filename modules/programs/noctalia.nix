@@ -77,17 +77,14 @@ in
             enabled = true;
             directory = "${inputs.wallpapers}/wallpapers";
           };
-          # templates.hyprland.post_hook = "hyprctl reload";
           theme = {
             source = "wallpaper";
             templates = {
               enable_builtin_templates = true;
               builtin_ids = [
                 "ghostty"
-                "hyprland"
                 "btop"
               ];
-              # hyprland.post_hook = "hyprctl reload"; # hack to fix boot up race condition
             };
           };
         };

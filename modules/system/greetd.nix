@@ -23,7 +23,7 @@ in
             --time-format "%B %-d %I:%M %p" \
             --remember \
             --asterisks \
-            --cmd 'start-hyprland'
+            --cmd 'niri'
             '';
           # command = "${pkgs.tuigreet}/bin/tuigreet --gretting \"Welcome back.\" \ --time-format --cmd 'fish -c start-hyprland'";
           user = "greeter";

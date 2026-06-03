@@ -4,14 +4,12 @@
   inputs,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
-in
-{
+in {
   options.cfg.programs.noctalia.enable = mkEnableOption "noctalia";
   config = mkIf config.cfg.programs.noctalia.enable {
-    cfg.preservation.directories = [ ".local/state/noctalia" ];
+    cfg.preservation.directories = [".local/state/noctalia"];
     hjem.extraModules = [
       inputs.noctalia.hjemModules.default
     ];
@@ -20,6 +18,7 @@ in
         enable = true;
         settings = {
           shell = {
+            setup_wizard_enabled = false;
             telemetry_enabled = false;
             avatar_path = "${config.programs.nh.flake}/hosts/${hostName}/profile.png";
             polkit_agent = true;
@@ -30,9 +29,9 @@ in
             };
           };
           widget = {
-          workspaces = {
-            display = "none";
-          };
+            workspaces = {
+              display = "none";
+            };
             clock-12h = {
               type = "clock";
               format = "{:%-I:%M %p}";
@@ -65,9 +64,9 @@ in
           };
           weather = {
             enabled = true;
-            auto_locate = true;
             unit = "imperial";
           };
+          location.auto_locate = true;
           backdrop = {
             enabled = true;
             blur_intensity = 0.10;
@@ -81,9 +80,14 @@ in
             source = "wallpaper";
             templates = {
               enable_builtin_templates = true;
+              enable_community_templates = true;
               builtin_ids = [
                 "ghostty"
+                "niri"
                 "btop"
+              ];
+              community_ids = [
+                "discord"
               ];
             };
           };

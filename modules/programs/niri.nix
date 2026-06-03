@@ -3,34 +3,35 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf mkOption types splitString elemAt concatStringsSep imap0 optionalString;
-  parseMonitor = str: isFirst:
-    let
-      parts = splitString ", " str; 
-    in ''
-         output "${elemAt parts 0}"  {
-            mode "${elemAt parts 1}"
-            scale ${elemAt parts 2}
-            position ${elemAt parts 3}
-            ${optionalString isFirst "focus-at-startup"}
-         }
-       '';
+  parseMonitor = str: isFirst: let
+    parts = splitString ", " str;
+  in ''
+    output "${elemAt parts 0}"  {
+       mode "${elemAt parts 1}"
+       scale ${elemAt parts 2}
+       position ${elemAt parts 3}
+       ${optionalString isFirst "focus-at-startup"}
+    }
+  '';
 
   workspaceBinds = concatStringsSep "\n" (builtins.concatLists (
-    builtins.genList (i:
-      let
+    builtins.genList (
+      i: let
         n = i + 1;
-        key = if n == 10 then "0" else toString n;
+        key =
+          if n == 10
+          then "0"
+          else toString n;
       in [
         "Mod+${key} { focus-workspace ${toString n}; }"
         "Mod+Shift+${key} { move-window-to-workspace ${toString n}; }"
       ]
-    ) 10
+    )
+    10
   ));
-in
-{
+in {
   options.cfg.programs.niri = {
     enable = mkEnableOption "niri";
     monitors = mkOption {
@@ -44,100 +45,110 @@ in
       enable = true;
       useNautilus = false;
     };
-    xdg.portal.config.niri."org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
+    xdg.portal.config.niri."org.freedesktop.impl.portal.FileChooser" = ["gtk"];
     hj.packages = [
       pkgs.xwayland-satellite
     ];
-    hj.xdg.config.files."niri/config.kdl".text = /* kdl */''
-      ${concatStringsSep "" (imap0 (i: m: parseMonitor m (i == 0)) config.cfg.programs.niri.monitors)}
-      window-rule {
-        geometry-corner-radius 15
-        clip-to-geometry true
-      }
-      prefer-no-csd
-      window-rule {
-        match app-id="dev.noctalia.Noctalia.Settings"
-        open-floating true
-        default-column-width { fixed 1080; }
-        default-window-height { fixed 920; }
-      }
-      window-rule {
-        match is-active=true
-        opacity 0.97
-      }
-      window-rule {
-        match is-active=false
-        opacity 0.94
-      }      
-      window-rule {
-        match app-id="firefox" is-active=false
-        opacity 1.0
-      }
-      cursor {
-        xcursor-theme "Bibata-Modern-Ice"
-        xcursor-size 24
-      }
-      clipboard {
-        disable-primary
-      }
-      input {
-        focus-follows-mouse max-scroll-amount="0%"
-        warp-mouse-to-focus
-      }
-      hotkey-overlay {
-        skip-at-startup
-      }
-      layer-rule {
-        match namespace="^noctalia-backdrop"
-        place-within-backdrop true
-      }
-      gestures {
-        hot-corners {
+    hj.xdg.config.files."niri/config.kdl".text =
+      /*
+      kdl
+      */
+      ''
+        ${concatStringsSep "" (imap0 (i: m: parseMonitor m (i == 0)) config.cfg.programs.niri.monitors)}
+        window-rule {
+          geometry-corner-radius 15
+          clip-to-geometry true
+        }
+        prefer-no-csd
+        window-rule {
+          match app-id="dev.noctalia.Noctalia.Settings"
+          open-floating true
+          default-column-width { fixed 1080; }
+          default-window-height { fixed 920; }
+        }
+        window-rule {
+          match is-active=true
+          opacity 0.97
+        }
+        window-rule {
+          match is-active=false
+          opacity 0.94
+        }
+        window-rule {
+          match app-id="firefox" is-active=false
+          opacity 1.0
+        }
+        cursor {
+          xcursor-theme "Bibata-Modern-Ice"
+          xcursor-size 24
+        }
+        clipboard {
+          disable-primary
+        }
+        input {
+          focus-follows-mouse max-scroll-amount="0%"
+          warp-mouse-to-focus
+        }
+        hotkey-overlay {
+          skip-at-startup
+        }
+        layer-rule {
+          match namespace="^noctalia-backdrop"
+          place-within-backdrop true
+        }
+        gestures {
+          hot-corners {
+            off
+          }
+        }
+        recent-windows {
           off
         }
-      }
-      debug {
-        honor-xdg-activation-with-invalid-serial
-      }
-      binds {
-        Mod+Tab { spawn-sh "noctalia msg panel-toggle launcher"; }
-        Mod+S { spawn-sh "noctalia msg panel-toggle control-center"; }
-        Mod+Comma { spawn-sh "noctalia msg settings-toggle"; }
-        Mod+Return { spawn "ghostty"; }
-        Mod+Q { close-window; }
+        debug {
+          honor-xdg-activation-with-invalid-serial
+        }
+        binds {
+          Mod+Tab { spawn-sh "noctalia msg panel-toggle launcher"; }
+          Mod+S { spawn-sh "noctalia msg panel-toggle control-center"; }
+          Mod+Comma { spawn-sh "noctalia msg settings-toggle"; }
+          Mod+P { spawn-sh "noctalia msg panel-toggle session"; }
 
-        Mod+A { toggle-window-floating; }
-        Mod+Shift+A { switch-focus-between-floating-and-tiling; }
-        Mod+H { focus-column-or-monitor-left; }
-        Mod+L { focus-column-or-monitor-right; }
-        Mod+J { focus-window-or-workspace-down; }
-        Mod+K { focus-window-or-workspace-up; }
-        Mod+Shift+H { move-column-left; }
-        Mod+Shift+L { move-column-right; }
-        Mod+Shift+J { move-window-down; }
-        Mod+Shift+K { move-window-up; }
-        Mod+R { switch-preset-column-width; }
-        Mod+Shift+R { switch-preset-window-height; }
-        Mod+F { maximize-column; }
-        Mod+Shift+F { fullscreen-window; }
-        Mod+C { center-column; }
-        Mod+Minus { set-column-width "-10%"; }
-        Mod+Equal { set-column-width "+10%"; }
-        Mod+Shift+Minus { set-window-height "-10%"; }
-        Mod+Shift+Equal { set-window-height "+10%"; }
-        Mod+Space { toggle-overview; }
+          Mod+Return { spawn "ghostty"; }
+          Mod+Q { close-window; }
 
-        XF86AudioRaiseVolume { spawn-sh "noctalia msg volume-up"; }
-        XF86AudioLowerVolume { spawn-sh "noctalia msg volume-down"; }
-        XF86AudioMute { spawn-sh "noctalia msg volume-mute"; }
-        XF86MonBrightnessUp { spawn-sh "noctalia msg brightness-up"; }
-        XF86MonBrightnessDown { spawn-sh "noctalia msg brightness-down"; }
+          Mod+A { toggle-window-floating; }
+          Mod+Shift+A { switch-focus-between-floating-and-tiling; }
+          Mod+H { focus-column-or-monitor-left; }
+          Mod+L { focus-column-or-monitor-right; }
+          Mod+J { focus-window-or-workspace-down; }
+          Mod+K { focus-window-or-workspace-up; }
+          Mod+Shift+H { move-column-left; }
+          Mod+Shift+L { move-column-right; }
+          Mod+Shift+J { move-window-down; }
+          Mod+Shift+K { move-window-up; }
+          Mod+R { switch-preset-column-width; }
+          Mod+Shift+R { switch-preset-window-height; }
+          Mod+F { maximize-column; }
+          Mod+Shift+F { fullscreen-window; }
+          Mod+C { center-column; }
+          Mod+Minus { set-column-width "-10%"; }
+          Mod+Equal { set-column-width "+10%"; }
+          Mod+Shift+Minus { set-window-height "-10%"; }
+          Mod+Shift+Equal { set-window-height "+10%"; }
+          Mod+Space { toggle-overview; }
 
-        ${workspaceBinds}
+          XF86AudioRaiseVolume { spawn-sh "noctalia msg volume-up"; }
+          XF86AudioLowerVolume { spawn-sh "noctalia msg volume-down"; }
+          XF86AudioMute { spawn-sh "noctalia msg volume-mute"; }
+          XF86MonBrightnessUp { spawn-sh "noctalia msg brightness-up"; }
+          XF86MonBrightnessDown { spawn-sh "noctalia msg brightness-down"; }
 
-      }
-      spawn-at-startup "noctalia" 
-      spawn-sh-at-startup "fcitx5 -d"
-    '';
+          ${workspaceBinds}
+
+        }
+        spawn-at-startup "noctalia"
+        spawn-sh-at-startup "fcitx5 -d"
+        include optional=true "noctalia.kdl"
+      '';
   };
 }

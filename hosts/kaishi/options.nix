@@ -34,6 +34,7 @@
       git.enable = true;
       yazi.enable = true;
       btop.enable = true;
+      fastfetch.enable = true;
       niri = {
         enable = true;
         monitors = [

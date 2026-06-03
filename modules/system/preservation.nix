@@ -58,7 +58,9 @@ in
         directories = [
           ".config/nixos"
         ] ++ config.cfg.preservation.directories;
-        files = config.cfg.preservation.files;
+        files = [
+          ".ssh/known_hosts"
+        ] ++ config.cfg.preservation.files;
         };
       };
     };

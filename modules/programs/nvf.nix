@@ -23,6 +23,7 @@ in
           viAlias = true;
           lsp = {
             enable = true;
+            formatOnSave = true;
           };
           opts = {
             expandtab = true;

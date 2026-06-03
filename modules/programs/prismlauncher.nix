@@ -3,11 +3,9 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
-in
-{
+in {
   options.cfg.programs.prismlauncher.enable = mkEnableOption "prismlauncher";
   config = mkIf config.cfg.programs.prismlauncher.enable {
     hj = {
@@ -21,6 +19,6 @@ in
           ];
         })
       ];
-    };   
+    };
   };
 }

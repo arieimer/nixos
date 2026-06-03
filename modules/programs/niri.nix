@@ -75,7 +75,7 @@ in {
           opacity 0.94
         }
         window-rule {
-          match app-id="firefox" is-active=false
+          match app-id="zen"
           opacity 1.0
         }
         cursor {
@@ -112,6 +112,8 @@ in {
           Mod+S { spawn-sh "noctalia msg panel-toggle control-center"; }
           Mod+Comma { spawn-sh "noctalia msg settings-toggle"; }
           Mod+P { spawn-sh "noctalia msg panel-toggle session"; }
+          Mod+E {spawn-sh "noctalia msg screenshot-region"; }
+          Mod+Shift+E {spawn-sh "noctalia msg screenshot-fullscreen"; }
 
           Mod+Return { spawn "ghostty"; }
           Mod+Q { close-window; }

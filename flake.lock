@@ -506,11 +506,11 @@
     "wallpapers": {
       "flake": false,
       "locked": {
-        "lastModified": 1780426860,
-        "narHash": "sha256-4cXLMgTn9MSgEYfzh4xxo+Jf3T2N3s9hLYcCW22ZPDw=",
+        "lastModified": 1780457844,
+        "narHash": "sha256-uTxsYh6pxmfZdJWI9N9HgQKeFOy3I5UpIs1mnyoP/Xk=",
         "owner": "arieimer",
         "repo": "wallpapers",
-        "rev": "2a6ee2d57f8ff9919f6b2dd409ecc9ac9a9ecaa4",
+        "rev": "c649caf33a7946be85d2e18d9c80ead116dbbd34",
         "type": "github"
       },
       "original": {

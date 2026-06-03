@@ -17,6 +17,7 @@ in
         brightness_down_key = null;
         brightness_up_key = null;
         hide_version_string = true;
+        session_log = null;
       };
     };
   };

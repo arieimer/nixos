@@ -61,6 +61,18 @@ in
         default-column-width { fixed 1080; }
         default-window-height { fixed 920; }
       }
+      window-rule {
+        match is-active=true
+        opacity 0.97
+      }
+      window-rule {
+        match is-active=false
+        opacity 0.94
+      }      
+      window-rule {
+        match app-id="firefox" is-active=false
+        opacity 1.0
+      }
       cursor {
         xcursor-theme "Bibata-Modern-Ice"
         xcursor-size 24
@@ -68,8 +80,21 @@ in
       clipboard {
         disable-primary
       }
+      input {
+        focus-follows-mouse max-scroll-amount="0%"
+        warp-mouse-to-focus
+      }
       hotkey-overlay {
         skip-at-startup
+      }
+      layer-rule {
+        match namespace="^noctalia-backdrop"
+        place-within-backdrop true
+      }
+      gestures {
+        hot-corners {
+          off
+        }
       }
       debug {
         honor-xdg-activation-with-invalid-serial
@@ -83,10 +108,10 @@ in
 
         Mod+A { toggle-window-floating; }
         Mod+Shift+A { switch-focus-between-floating-and-tiling; }
-        Mod+H { focus-column-left; }
-        Mod+L { focus-column-right; }
-        Mod+J { focus-window-down; }
-        Mod+K { focus-window-up; }
+        Mod+H { focus-column-or-monitor-left; }
+        Mod+L { focus-column-or-monitor-right; }
+        Mod+J { focus-window-or-workspace-down; }
+        Mod+K { focus-window-or-workspace-up; }
         Mod+Shift+H { move-column-left; }
         Mod+Shift+L { move-column-right; }
         Mod+Shift+J { move-window-down; }

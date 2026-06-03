@@ -31,7 +31,7 @@ in
           };
           widget = {
           workspaces = {
-            display = "name";
+            display = "none";
           };
             clock-12h = {
               type = "clock";
@@ -67,6 +67,11 @@ in
             enabled = true;
             auto_locate = true;
             unit = "imperial";
+          };
+          backdrop = {
+            enabled = true;
+            blur_intensity = 0.10;
+            tint_intensity = 0.0;
           };
           wallpaper = {
             enabled = true;

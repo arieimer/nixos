@@ -3,13 +3,12 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
-in
-{
+in {
   options.cfg.programs.heroic.enable = mkEnableOption "heroic";
   config = mkIf config.cfg.programs.heroic.enable {
+    cfg.preservation.directories = [".config/heroic"];
     hj = {
       packages = [
         pkgs.heroic

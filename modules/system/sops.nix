@@ -3,12 +3,10 @@
   config,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
-in
-{
-  imports = [ 
+in {
+  imports = [
     inputs.sops-nix.nixosModules.sops
   ];
   options.cfg.system.sops.enable = mkEnableOption "sops";
@@ -21,6 +19,9 @@ in
       secrets."git_ssh_key" = {
         owner = config.cfg.user.username;
         path = "/home/${config.cfg.user.username}/.ssh/id_ed25519";
+      };
+      secrets."mullvad" = {
+        owner = config.cfg.user.username;
       };
     };
   };

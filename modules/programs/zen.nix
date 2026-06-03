@@ -4,8 +4,7 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
   extension = shortId: guid: {
     name = guid;
@@ -35,19 +34,20 @@ let
     (extension "youtube-recommended-videos" "myallychou@gmail.com")
     (extension "7tv-extension" "moz-addon-prod@7tv.app")
   ];
-in
-{
+in {
   options.cfg.programs.zen.enable = mkEnableOption "zen browser";
   config = mkIf config.cfg.programs.zen.enable {
-    cfg.preservation.directories = [ ".config/zen" ]; 
+    cfg.preservation.directories = [".config/zen"];
     hj.packages = [
-      (pkgs.wrapFirefox
+      (
+        pkgs.wrapFirefox
         inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.zen-browser-unwrapped
         {
           extraPrefs = lib.concatLines (
             lib.mapAttrsToList (
               name: value: ''lockPref(${lib.strings.toJSON name}, ${lib.strings.toJSON value});''
-            ) prefs
+            )
+            prefs
           );
           extraPolicies = {
             DisableTelemetry = true;
@@ -56,5 +56,6 @@ in
         }
       )
     ];
+    xdg.mime.defaultApplications."application/pdf" = "zen.desktop";
   };
 }

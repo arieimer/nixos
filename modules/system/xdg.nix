@@ -1,13 +1,10 @@
 {
   config,
-  pkgs,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf mkOption types;
-in
-{
+in {
   options.cfg.system.xdg = {
     enable = mkEnableOption "xdg";
     userDirs.enable = mkOption {
@@ -17,14 +14,15 @@ in
   };
   config = mkIf config.cfg.system.xdg.enable {
     hj.files = mkIf config.cfg.system.xdg.userDirs.enable {
+      # probably unnecessary
       "Documents".type = "directory";
       "Downloads".type = "directory";
       "Pictures".type = "directory";
     };
     environment.sessionVariables = {
       XDG_DOCUMENTS_DIR = "$HOME/Documents";
-      XDG_DOWNLOAD_DIR  = "$HOME/Downloads";
-      XDG_PICTURES_DIR  = "$HOME/Pictures";
+      XDG_DOWNLOAD_DIR = "$HOME/Downloads";
+      XDG_PICTURES_DIR = "$HOME/Pictures";
     };
   };
 }

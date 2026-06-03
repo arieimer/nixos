@@ -114,16 +114,25 @@ in {
           Mod+P { spawn-sh "noctalia msg panel-toggle session"; }
           Mod+E {spawn-sh "noctalia msg screenshot-region"; }
           Mod+Shift+E {spawn-sh "noctalia msg screenshot-fullscreen"; }
+          Mod+Shift+Ctrl+E {spawn-sh "noctalia msg screenshot-fullscreen all"; }
 
           Mod+Return { spawn "ghostty"; }
           Mod+Q { close-window; }
 
           Mod+A { toggle-window-floating; }
           Mod+Shift+A { switch-focus-between-floating-and-tiling; }
-          Mod+H { focus-column-or-monitor-left; }
-          Mod+L { focus-column-or-monitor-right; }
+          Mod+H { focus-column-left; }
+          Mod+L { focus-column-right; }
           Mod+J { focus-window-or-workspace-down; }
           Mod+K { focus-window-or-workspace-up; }
+          Mod+Ctrl+L { focus-monitor-right; }
+          Mod+Ctrl+H { focus-monitor-left;  }
+          Mod+Ctrl+K { focus-monitor-up;    }
+          Mod+Ctrl+J { focus-monitor-down;  }
+          Mod+Shift+Ctrl+L { move-column-to-monitor-right; }
+          Mod+Shift+Ctrl+H { move-column-to-monitor-left; }
+          Mod+Shift+Ctrl+K { move-column-to-monitor-up; }
+          Mod+Shift+Ctrl+J { move-column-to-monitor-down; }
           Mod+Shift+H { move-column-left; }
           Mod+Shift+L { move-column-right; }
           Mod+Shift+J { move-window-down; }

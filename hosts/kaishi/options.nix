@@ -1,4 +1,5 @@
 {
+  system.stateVersion = "26.11";
   cfg = {
     system = {
       kernel = "latest";
@@ -21,6 +22,7 @@
     programs = {
       ghostty.enable = true;
       mullvad.enable = true;
+      loupe.enable = true;
       noctalia.enable = true;
       steam.enable = true;
       qbittorrent.enable = true;

@@ -6,6 +6,10 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
+  hostsDir = ../../hosts;
+  avatar = builtins.path {
+    path = hostsDir + "/${hostName}/profile.png";
+  };
 in {
   options.cfg.programs.noctalia.enable = mkEnableOption "noctalia";
   config = mkIf config.cfg.programs.noctalia.enable {
@@ -20,7 +24,7 @@ in {
           shell = {
             setup_wizard_enabled = false;
             telemetry_enabled = false;
-            avatar_path = "${config.programs.nh.flake}/hosts/${hostName}/profile.png";
+            avatar_path = "${avatar}";
             polkit_agent = true;
             launch_apps_as_systemd_services = true;
             screenshot = {

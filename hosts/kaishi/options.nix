@@ -50,7 +50,7 @@
       email = "ari.eimer@proton.me";
     };
     disko = {
-      disk = "/dev/disk/by-id/nvme-WD_Blue_SN570_500GB_222622801561";
+      disk = "/dev/disk/by-id/nvme-ADATA_SX8200PNP_2O042924KCY";
       swapSize = "20G";
     };
   };

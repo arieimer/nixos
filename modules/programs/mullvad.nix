@@ -14,12 +14,5 @@ in {
       enable = true;
       package = pkgs.mullvad-vpn;
     };
-    systemd.services.mullvad-daemon.postStart = let
-      mullvad = config.services.mullvad-vpn.package;
-    in ''
-      while ! ${mullvad}/bin/mullvad status >/dev/null; do sleep 1; done
-        ${mullvad}/bin/mullvad account login \
-        "$(cat ${config.sops.secrets.mullvad.path})"
-    '';
   };
 }

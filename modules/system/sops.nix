@@ -11,6 +11,13 @@ in {
   ];
   options.cfg.system.sops.enable = mkEnableOption "sops";
   config = mkIf config.cfg.system.sops.enable {
+    systemd.services.mullvad-daemon.postStart = mkIf config.cfg.programs.mullvad.enable (let
+      mullvad = config.services.mullvad-vpn.package;
+    in ''
+      while ! ${mullvad}/bin/mullvad status >/dev/null; do sleep 1; done
+        ${mullvad}/bin/mullvad account login \
+        "$(cat ${config.sops.secrets.mullvad.path})"
+    '');
     sops = {
       defaultSopsFile = ../../secrets/secrets.yaml;
       defaultSopsFormat = "yaml";

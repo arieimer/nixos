@@ -1,7 +1,5 @@
 {
   config,
-  pkgs,
-  lib,
   ...
 }: {
   config = {
@@ -15,6 +13,7 @@
       };
     };
     documentation.nixos.enable = false;
+    programs.command-not-found.enable = false;
     nix = {
       channel.enable = false;
       settings = {
@@ -23,6 +22,7 @@
           "flakes"
         ];
         auto-optimise-store = true;
+        warn-dirty = false;
         download-buffer-size = 1024 * 1024 * 1024;
         allowed-users = ["@wheel"];
         trusted-users = ["@wheel"];

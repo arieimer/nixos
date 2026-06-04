@@ -2,8 +2,8 @@
   system.stateVersion = "26.11";
   cfg = {
     system = {
-      kernel = "latest";
-      # kernel = "cachyos-v3";
+      # kernel = "latest";
+      kernel = "cachyos-v3";
       nvidia.enable = true;
       greetd.enable = false;
       ly.enable = true;

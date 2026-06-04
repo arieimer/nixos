@@ -2,11 +2,9 @@
   config,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf mkEnableOption;
-in
-{
+in {
   options.cfg.system.nvidia.enable = mkEnableOption "nvidia";
   config = mkIf config.cfg.system.nvidia.enable {
     services.xserver.videoDrivers = ["nvidia"];

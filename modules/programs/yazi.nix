@@ -3,11 +3,9 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
-in
-{
+in {
   options.cfg.programs.yazi.enable = mkEnableOption "yazi";
   config = mkIf config.cfg.programs.yazi.enable {
     programs.yazi = {
@@ -16,7 +14,7 @@ in
         full-border = pkgs.yaziPlugins.full-border;
         git = pkgs.yaziPlugins.git;
         no-status = pkgs.yaziPlugins.no-status;
-       };
+      };
       initLua = pkgs.writeText "yazi-init.lua" ''
         require("full-border"):setup()
         require("no-status"):setup()
@@ -26,14 +24,14 @@ in
         plugin = {
           prepend_fetchers = [
             {
-               url = "*";
-               run = "git";
-               group = "git";
+              url = "*";
+              run = "git";
+              group = "git";
             }
             {
-               url = "*/";
-               run = "git";
-               group = "git";
+              url = "*/";
+              run = "git";
+              group = "git";
             }
           ];
         };

@@ -2,8 +2,7 @@
   inputs,
   self,
   ...
-}:
-let
+}: let
   inherit (inputs.nixpkgs.lib) genAttrs nixosSystem filterAttrs;
   inherit (builtins) attrNames readDir;
 
@@ -19,7 +18,6 @@ let
         ./${hostName}/options.nix
       ];
     };
-in
-{
+in {
   flake.nixosConfigurations = genAttrs (attrNames dirs) mkSystem;
 }

@@ -3,14 +3,12 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
-in
-{
+in {
   options.cfg.system.pipewire.enable = mkEnableOption "pipewire";
   config = mkIf config.cfg.system.pipewire.enable {
-    cfg.preservation.directories = [ ".local/state/wireplumber" ];
+    cfg.preservation.directories = [".local/state/wireplumber"];
     hj.packages = [
       pkgs.pwvucontrol
     ];

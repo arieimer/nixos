@@ -3,11 +3,9 @@
   config,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) modules;
-in
-{
+in {
   imports = [
     inputs.hjem.nixosModules.default
     (modules.mkAliasOptionModule ["hj"] ["hjem" "users" config.cfg.user.username])

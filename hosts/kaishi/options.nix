@@ -49,12 +49,6 @@
       username = "ari";
       email = "ari.eimer@proton.me";
     };
-    preservation.directories = [
-      "Documents"
-      "Pictures"
-      "Downloads"
-      "Games"
-    ];
     disko = {
       disk = "/dev/disk/by-id/nvme-WD_Blue_SN570_500GB_222622801561";
       swapSize = "20G";

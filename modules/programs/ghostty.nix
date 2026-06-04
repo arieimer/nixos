@@ -3,11 +3,9 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
-in
-{
+in {
   options.cfg.programs.ghostty.enable = mkEnableOption "ghostty";
   config = mkIf config.cfg.programs.ghostty.enable {
     hj = {

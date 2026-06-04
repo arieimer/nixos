@@ -1,12 +1,10 @@
 {
   config,
   lib,
-  ...  
-}:
-let
+  ...
+}: let
   inherit (lib) mkEnableOption mkIf;
-in
-{
+in {
   options.cfg.system.ly.enable = mkEnableOption "ly";
   config = mkIf config.cfg.system.ly.enable {
     services.displayManager.ly = {
@@ -22,4 +20,3 @@ in
     };
   };
 }
-

@@ -27,28 +27,28 @@ in {
             }
             {
               type = "cpu";
-              key = "   CPU";
+              key = " CPU";
               keyColor = "blue";
             }
             {
               type = "board";
-              key = "   Board";
+              key = " Board";
               keyColor = "magenta";
             }
             {
               type = "gpu";
               format = "{2} {3}";
-              key = "  󰛇 GPU";
+              key = "󰛇 GPU";
               keyColor = "yellow";
             }
             {
               type = "memory";
-              key = "   Memory";
+              key = " Memory";
               keyColor = "green";
             }
             {
               type = "display";
-              key = "  󰍹 Display";
+              key = "󰍹 Display";
               keyColor = "cyan";
               compactType = "original";
             }
@@ -59,37 +59,37 @@ in {
             }
             {
               type = "os";
-              key = "   OS";
+              key = " OS";
               keyColor = "blue";
             }
             {
               type = "kernel";
-              key = "   Kernel";
+              key = " Kernel";
               keyColor = "red";
             }
             {
               type = "shell";
-              key = "   Shell";
+              key = " Shell";
               keyColor = "magenta";
             }
             {
               type = "wm";
-              key = "   WM";
+              key = " WM";
               keyColor = "cyan";
             }
             {
               type = "terminal";
-              key = "   Terminal";
+              key = " Terminal";
               keyColor = "yellow";
             }
             {
               type = "packages";
-              key = "   Packages";
+              key = "󰏖 Packages";
               keyColor = "green";
             }
             {
               type = "uptime";
-              key = "  󱫐 Uptime";
+              key = "󱫐 Uptime";
               keyColor = "white";
             }
             {

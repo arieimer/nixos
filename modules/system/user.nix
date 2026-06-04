@@ -2,11 +2,9 @@
   lib,
   config,
   ...
-}:
-let
+}: let
   inherit (lib) mkOption types;
-in
-{
+in {
   options.cfg.user = {
     username = mkOption {
       type = types.str;
@@ -14,7 +12,7 @@ in
     };
     extraGroups = mkOption {
       type = types.listOf types.str;
-      default = [ ];
+      default = [];
     };
   };
   config = {
@@ -24,9 +22,11 @@ in
       users.${config.cfg.user.username} = {
         isNormalUser = true;
         initialPassword = "1234";
-        extraGroups = [
-          "wheel"
-        ] ++ config.cfg.user.extraGroups;
+        extraGroups =
+          [
+            "wheel"
+          ]
+          ++ config.cfg.user.extraGroups;
       };
     };
   };

@@ -3,11 +3,9 @@
   pkgs,
   lib,
   ...
-}:
-let
- inherit (lib) mkEnableOption mkIf;
-in
-{
+}: let
+  inherit (lib) mkEnableOption mkIf;
+in {
   options.cfg.system.gtk.enable = mkEnableOption "gtk";
   config = mkIf config.cfg.system.gtk.enable {
     hj = {
@@ -18,14 +16,14 @@ in
         "gtk-3.0/settings.ini" = {
           generator = lib.generators.toINI {};
           value.Settings = {
-            gtk-application-prefer-dark-theme = true; 
+            gtk-application-prefer-dark-theme = true;
             gtk-icon-theme-name = "Papirus-Dark";
           };
         };
         "gtk-4.0/settings.ini" = {
           generator = lib.generators.toINI {};
           value.Settings = {
-            gtk-application-prefer-dark-theme = true; 
+            gtk-application-prefer-dark-theme = true;
             gtk-icon-theme-name = "Papirus-Dark";
           };
         };

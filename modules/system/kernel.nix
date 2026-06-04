@@ -3,9 +3,8 @@
   config,
   pkgs,
   lib,
-  ...  
-}:
-let
+  ...
+}: let
   inherit (lib) mkEnableOption mkOption types;
   kernelType =
     if config.cfg.system.kernel == "latest"
@@ -14,13 +13,12 @@ let
     then pkgs.linuxPackages
     else if config.cfg.system.kernel == "zen"
     then pkgs.linuxPackages_zen
-    else if config.cfg.system.kernel  == "cachyos"
+    else if config.cfg.system.kernel == "cachyos"
     then pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto
     else if config.cfg.system.kernel == "cachyos-v3"
     then inputs.nix-cachyos-kernel.legacyPackages.x86_64-linux.linuxPackages-cachyos-latest-lto-x86_64-v3
     else throw "unknown kernel type.";
-in
-{
+in {
   options.cfg.system = {
     kernel = mkOption {
       type = types.enum [
@@ -53,4 +51,4 @@ in
       kernel.sysctl."vm.max_map_count" = 2147483642;
     };
   };
-} 
+}

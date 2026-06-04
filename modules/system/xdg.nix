@@ -13,12 +13,11 @@ in {
     };
   };
   config = mkIf config.cfg.system.xdg.enable {
-    hj.files = mkIf config.cfg.system.xdg.userDirs.enable {
-      # probably unnecessary
-      "Documents".type = "directory";
-      "Downloads".type = "directory";
-      "Pictures".type = "directory";
-    };
+    cfg.preservation.directories = [
+      "Documents"
+      "Pictures"
+      "Downloads"
+    ];
     environment.sessionVariables = {
       XDG_DOCUMENTS_DIR = "$HOME/Documents";
       XDG_DOWNLOAD_DIR = "$HOME/Downloads";

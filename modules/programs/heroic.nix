@@ -8,7 +8,10 @@
 in {
   options.cfg.programs.heroic.enable = mkEnableOption "heroic";
   config = mkIf config.cfg.programs.heroic.enable {
-    cfg.preservation.directories = [".config/heroic"];
+    cfg.preservation.directories = [
+      ".config/heroic"
+      "Games"
+    ];
     hj = {
       packages = [
         pkgs.heroic

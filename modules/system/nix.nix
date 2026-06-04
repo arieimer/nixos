@@ -3,8 +3,7 @@
   pkgs,
   lib,
   ...
-}:
-{
+}: {
   config = {
     programs.nh = {
       enable = true;

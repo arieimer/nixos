@@ -2,16 +2,18 @@
   description = "All the bells and whistles";
   outputs = inputs:
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = [ "x86_64-linux" ];
+      systems = ["x86_64-linux"];
       imports = [
         ./hosts
         ./modules
+        ./fmt.nix
       ];
     };
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
     preservation.url = "github:nix-community/preservation";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     nvf = {
       url = "github:NotAShelf/nvf";
@@ -44,6 +46,6 @@
     wallpapers = {
       url = "github:arieimer/wallpapers";
       flake = false;
-    }; 
+    };
   };
 }

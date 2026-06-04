@@ -3,22 +3,20 @@
   inputs,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) mkOption types;
-in
-{
+in {
   imports = [
     inputs.preservation.nixosModules.default
     inputs.disko.nixosModules.disko
   ];
   options.cfg.preservation.directories = mkOption {
     type = types.listOf types.str;
-    default = [ ];
+    default = [];
   };
   options.cfg.preservation.files = mkOption {
     type = types.listOf types.str;
-    default = [ ];
+    default = [];
   };
   options.cfg.disko.tmpfsSize = mkOption {
     type = types.ints.between 1 100;
@@ -37,7 +35,10 @@ in
       enable = true;
       preserveAt."/persistent" = {
         files = [
-          { file = "/etc/machine-id"; inInitrd = true; }
+          {
+            file = "/etc/machine-id";
+            inInitrd = true;
+          }
         ];
         directories = [
           "/var/lib/systemd/timers"
@@ -54,17 +55,21 @@ in
           "/etc/NetworkManager/system-connections"
           "/var/lib/bluetooth"
         ];
-        users.${config.cfg.user.username} = {          
-        directories = [
-          ".config/nixos"
-        ] ++ config.cfg.preservation.directories;
-        files = [
-          ".ssh/known_hosts"
-        ] ++ config.cfg.preservation.files;
+        users.${config.cfg.user.username} = {
+          directories =
+            [
+              ".config/nixos"
+            ]
+            ++ config.cfg.preservation.directories;
+          files =
+            [
+              ".ssh/known_hosts"
+            ]
+            ++ config.cfg.preservation.files;
         };
       };
     };
-    systemd.suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
+    systemd.suppressedSystemUnits = ["systemd-machine-id-commit.service"];
     fileSystems."/nix".neededForBoot = true;
     fileSystems."/persistent".neededForBoot = true;
     disko.devices.nodev = {

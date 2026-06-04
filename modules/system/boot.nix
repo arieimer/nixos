@@ -3,11 +3,9 @@
   lib,
   config,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkOption types mkIf;
-in
-{
+in {
   config = {
     boot = {
       loader = {

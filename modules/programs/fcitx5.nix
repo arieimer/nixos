@@ -3,16 +3,14 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
-in
-{
+in {
   options.cfg.programs.fcitx5.enable = mkEnableOption "fcitx5";
   config = mkIf config.cfg.programs.fcitx5.enable {
     environment.sessionVariables.XMODIFIERS = "@im=fcitx";
     i18n.inputMethod = {
-      enable = true; 
+      enable = true;
       type = "fcitx5";
       fcitx5 = {
         waylandFrontend = true;

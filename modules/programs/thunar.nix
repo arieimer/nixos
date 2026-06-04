@@ -3,16 +3,14 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf concatMapStrings;
   bookmarks = [
-  "file:///home/${config.cfg.user.username}/Downloads Downloads"
-  "file:///home/${config.cfg.user.username}/Documents Documents"
-  "file:///home/${config.cfg.user.username}/Pictures Pictures"
+    "file:///home/${config.cfg.user.username}/Downloads Downloads"
+    "file:///home/${config.cfg.user.username}/Documents Documents"
+    "file:///home/${config.cfg.user.username}/Pictures Pictures"
   ];
-in
-{
+in {
   options.cfg.programs.thunar.enable = mkEnableOption "thunar";
   config = mkIf config.cfg.programs.thunar.enable {
     programs.thunar = {

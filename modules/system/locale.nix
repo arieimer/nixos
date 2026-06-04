@@ -2,12 +2,10 @@
   config,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) mkOption types;
-  locale =  config.cfg.locale;
-in
-{
+  locale = config.cfg.locale;
+in {
   options.cfg.locale = mkOption {
     type = types.str;
     default = "en_US.UTF-8";

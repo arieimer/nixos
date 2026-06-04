@@ -3,16 +3,14 @@
   config,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption;
-in
-{
+in {
   options.cfg.system.networkmanager.enable = mkEnableOption "networkmanager";
   config = {
     networking = {
       networkmanager.enable = config.cfg.system.networkmanager.enable;
       inherit hostName;
-    };   
+    };
   };
 }

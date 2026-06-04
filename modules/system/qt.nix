@@ -3,11 +3,9 @@
   pkgs,
   lib,
   ...
-}:
-let
- inherit (lib) mkEnableOption mkIf;
-in
-{
+}: let
+  inherit (lib) mkEnableOption mkIf;
+in {
   options.cfg.system.qt.enable = mkEnableOption "qt";
   config = mkIf config.cfg.system.qt.enable {
     environment.sessionVariables = {

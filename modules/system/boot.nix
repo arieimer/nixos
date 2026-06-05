@@ -1,7 +1,4 @@
-{
-  lib,
-  ...
-}: {
+_: {
   config = {
     boot = {
       loader = {

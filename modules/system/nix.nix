@@ -1,7 +1,4 @@
-{
-  config,
-  ...
-}: {
+{config, ...}: {
   config = {
     programs.nh = {
       enable = true;

@@ -32,6 +32,22 @@ in {
               copy_to_clipboard = true;
             };
           };
+          idle = {
+            pre_action_fade_seconds = 5.0;
+            behavior = {
+              lock = {
+                enabled = true;
+                timeout = 600;
+                command = "noctalia:session lock";
+              };
+              screen-off = {
+                enabled = false;
+                timeout = 1200;
+                command = "noctalia:dpms-off";
+                resume_command = "noctalia:dpms-on";
+              };
+            };
+          };
           widget = {
             workspaces = {
               display = "none";

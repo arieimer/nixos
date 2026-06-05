@@ -21,6 +21,8 @@
     };
     programs = {
       ghostty.enable = true;
+      ente.enable = true;
+      # bitwarden.enable = true; # broken build is a broken build
       mullvad.enable = true;
       loupe.enable = true;
       noctalia.enable = true;

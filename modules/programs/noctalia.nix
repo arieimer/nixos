@@ -26,6 +26,10 @@ in {
             telemetry_enabled = false;
             avatar_path = "${avatar}";
             polkit_agent = true;
+            panel = {
+              session_placement = "centered";
+              wallpaper_placement = "centered";
+            };
             launch_apps_as_systemd_services = true;
             screenshot = {
               directory = "~/Pictures/Screenshots";
@@ -58,18 +62,25 @@ in {
             };
           };
           bar = {
-            order = ["main"];
-            main = {
-              position = "top";
+            order = ["vertical"];
+            vertical = {
+              position = "left";
               enabled = true;
               auto_hide = false;
               reserve_space = true;
-              radius_top_left = 0;
-              radius_top_right = 0;
+              radius = 0;
               margin_edge = 0;
-              margin_ends = 40;
+              margin_ends = 0;
+              capsule_group = [
+                {
+                  fill = "surface_variant";
+                  id = "g1";
+                  members = ["volume" "input_volume"];
+                  opacity = 0.5;
+                  padding = 6.0;
+                }
+              ];
               start = [
-                "launcher"
                 "workspaces"
               ];
               center = [
@@ -77,8 +88,7 @@ in {
               ];
               end = [
                 "tray"
-                "volume"
-                "session"
+                "group:g1"
               ];
             };
           };
@@ -86,10 +96,24 @@ in {
             enabled = true;
             unit = "imperial";
           };
+          control_center.shortcuts = [
+            {
+              type = "caffeine";
+            }
+            {
+              type = "notification";
+            }
+            {
+              type = "wallpaper";
+            }
+            {
+              type = "mic_mute";
+            }
+          ];
           location.auto_locate = true;
           backdrop = {
             enabled = true;
-            blur_intensity = 0.10;
+            blur_intensity = 0.30;
             tint_intensity = 0.0;
           };
           wallpaper = {

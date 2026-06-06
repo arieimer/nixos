@@ -16,11 +16,16 @@
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
 
-  # fileSystems."/home/ari/Drive" = {
-  # device = "/dev/disk/by-uuid/0001f19f-3057-48ee-b47a-c212ba41f16a";
-  # fsType = "ext4";
-  # options = [ "nofail" "noatime" ];
-  # };
+  fileSystems."/home/ari/barracuda" = {
+    device = "/dev/disk/by-uuid/0001f19f-3057-48ee-b47a-c212ba41f16a";
+    fsType = "ext4";
+    options = ["nofail" "noatime"];
+  };
+  fileSystems."/home/ari/Drive" = {
+    device = "/dev/disk/by-uuid/d7033368-b871-4fd9-8644-4b793f853765";
+    fsType = "ext4";
+    options = ["nofail" "noatime"];
+  };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

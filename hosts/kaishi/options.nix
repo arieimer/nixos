@@ -24,6 +24,7 @@
       ente.enable = true;
       # bitwarden.enable = true; # broken build is a broken build
       mullvad.enable = true;
+      lazygit.enable = true;
       loupe.enable = true;
       noctalia.enable = true;
       steam.enable = true;
@@ -32,6 +33,7 @@
       heroic.enable = true;
       nixcord.enable = true;
       zen.enable = true;
+      zellij.enable = true;
       nvf.enable = true;
       fcitx5.enable = true;
       thunar.enable = true;

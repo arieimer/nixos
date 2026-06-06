@@ -12,7 +12,6 @@ in {
       pkgs.ripgrep
       pkgs.dua
       pkgs.onefetch
-      pkgs.lazygit
     ];
     users.defaultUserShell = pkgs.fish;
     programs.fish = {
@@ -26,7 +25,6 @@ in {
           end
           alias ls "${lib.getExe pkgs.eza} --color always --icons --group-directories-first"
           alias cat "${lib.getExe pkgs.bat}"
-          cd ~
         ''
         + optionalString config.cfg.programs.yazi.enable ''
           function y
@@ -36,6 +34,12 @@ in {
               builtin cd -- "$cwd"
             end
             rm -f -- "$tmp"
+          end
+        ''
+        + optionalString config.cfg.programs.zellij.enable ''
+          if set -q ZELLIJ
+          else
+            # zellij
           end
         '';
     };

@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   ...
 }: let
@@ -7,6 +8,7 @@
 in {
   options.cfg.system.nvidia.enable = mkEnableOption "nvidia";
   config = mkIf config.cfg.system.nvidia.enable {
+    hj.packages = [pkgs.nvtopPackages.nvidia];
     services.xserver.videoDrivers = ["nvidia"];
     hardware = {
       graphics = {

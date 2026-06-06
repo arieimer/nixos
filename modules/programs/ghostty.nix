@@ -15,6 +15,7 @@ in {
       xdg.config.files."ghostty/config.ghostty".text = ''
         theme = noctalia
         confirm-close-surface = false
+        working-directory = home
       '';
     };
   };

@@ -22,6 +22,7 @@ in {
         enable = true;
         settings = {
           shell = {
+            time_format = "{:%-I:%M %p}";
             setup_wizard_enabled = false;
             telemetry_enabled = false;
             avatar_path = "${avatar}";
@@ -59,6 +60,7 @@ in {
             clock-12h = {
               type = "clock";
               format = "{:%-I:%M %p}";
+              vertical_format = "{:%I\\n%M\\n%p}";
             };
           };
           bar = {

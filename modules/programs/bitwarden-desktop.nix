@@ -9,5 +9,6 @@ in {
   options.cfg.programs.bitwarden.enable = mkEnableOption "bitwarden-desktop client";
   config = mkIf config.cfg.programs.bitwarden.enable {
     hj.packages = [pkgs.bitwarden-desktop]; # broken until nixpkgs#526914
+    # TODO: when not broken add to niri screen blocker
   };
 }

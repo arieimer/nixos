@@ -14,6 +14,10 @@ in {
   options.cfg.programs.noctalia.enable = mkEnableOption "noctalia";
   config = mkIf config.cfg.programs.noctalia.enable {
     cfg.preservation.directories = [".local/state/noctalia"];
+    nix.settings = {
+      extra-substituters = ["https://noctalia.cachix.org"];
+      extra-trusted-public-keys = ["noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="];
+    };
     hjem.extraModules = [
       inputs.noctalia.hjemModules.default
     ];
@@ -46,7 +50,7 @@ in {
                 command = "noctalia:session lock";
               };
               screen-off = {
-                enabled = false;
+                enabled = true;
                 timeout = 1200;
                 command = "noctalia:dpms-off";
                 resume_command = "noctalia:dpms-on";

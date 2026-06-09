@@ -15,12 +15,9 @@
     preservation.url = "github:nix-community/preservation";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+    noctalia.url = "github:noctalia-dev/noctalia";
     nvf = {
       url = "github:NotAShelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell/v5";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {

@@ -14,7 +14,10 @@ in {
       ];
       xdg.config.files."lazygit/config.yml" = {
         generator = lib.generators.toYAML {};
-        value.gui.showIcons = true;
+        value = {
+          gui.showIcons = true;
+          disableStartupPopups = true;
+        };
       };
     };
   };

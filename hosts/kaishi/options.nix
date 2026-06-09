@@ -33,7 +33,7 @@
       heroic.enable = true;
       nixcord.enable = true;
       zen.enable = true;
-      zellij.enable = true;
+      zellij.enable = false;
       nvf.enable = true;
       fcitx5.enable = true;
       thunar.enable = true;

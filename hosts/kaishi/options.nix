@@ -24,6 +24,7 @@
       ente.enable = true;
       # bitwarden.enable = true; # broken build is a broken build
       mullvad.enable = true;
+      anki.enable = true;
       lazygit.enable = true;
       loupe.enable = true;
       noctalia.enable = true;

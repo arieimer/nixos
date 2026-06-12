@@ -5,8 +5,7 @@
       # kernel = "latest";
       kernel = "cachyos-v3";
       nvidia.enable = true;
-      greetd.enable = false;
-      ly.enable = true;
+      greetd.enable = true;
       scx.enable = true;
       networkmanager.enable = true;
       fish.enable = true;

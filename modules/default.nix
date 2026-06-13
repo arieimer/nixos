@@ -12,5 +12,7 @@
   in
     builtins.filter filterFile allNixFiles;
 in {
-  flake.nixosModules.default.imports = collectNixModules ./.;
+  flake.nixosModules.base.imports = collectNixModules ./nixos/base;
+  flake.nixosModules.desktop.imports = collectNixModules ./nixos/desktop;
+  flake.nixosModules.server.imports = collectNixModules ./nixos/server;
 }

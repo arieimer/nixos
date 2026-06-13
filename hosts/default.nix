@@ -13,9 +13,8 @@
         inherit inputs self hostName;
       };
       modules = [
-        self.nixosModules.default
+        ./${hostName}/config.nix
         ./${hostName}/hardware-configuration.nix
-        ./${hostName}/options.nix
       ];
     };
 in {

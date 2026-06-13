@@ -7,7 +7,7 @@
 }: let
   inherit (lib) mkEnableOption mkIf elemAt splitString;
   primaryMonitor = elemAt (splitString ", " (elemAt config.cfg.programs.niri.monitors 0)) 0;
-  hostsDir = ../../hosts;
+  hostsDir = ../../../../hosts;
   avatar = builtins.path {
     path = hostsDir + "/${hostName}/profile.png";
   };

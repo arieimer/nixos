@@ -19,7 +19,6 @@ in {
       pulse.enable = true;
       extraConfig.pipewire."pipewire"."context.properties"."default.clock.min-quantum" = 1024;
     };
-    # services.pipewire.extraConfig.pipewire."pipewire"."context.properties"."default.clock.min-quantum" = 1024;
     security.rtkit.enable = true;
   };
 }

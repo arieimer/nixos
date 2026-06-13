@@ -33,6 +33,7 @@ in {
           typingIndicator.enable = true;
           youtubeAdblock.enable = true;
           mentionAvatars.enable = true;
+          volumeBooster.enable = true;
         };
       };
       quickCss = ''

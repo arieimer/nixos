@@ -1,5 +1,9 @@
-{
+{self, ...}: {
   system.stateVersion = "26.11";
+  imports = [
+    self.nixosModules.base
+    self.nixosModules.desktop
+  ];
   cfg = {
     system = {
       # kernel = "latest";

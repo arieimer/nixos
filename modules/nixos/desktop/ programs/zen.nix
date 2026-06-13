@@ -53,7 +53,7 @@ in {
             DisableTelemetry = true;
             ExtensionSettings = builtins.listToAttrs extensions;
             SearchEngines = {
-              Default = "ddg";
+              Default = "DuckDuckGo";
               Add = [
                 {
                   Name = "nixpkgs packages";
@@ -74,11 +74,25 @@ in {
                   Alias = "@ng";
                 }
               ];
+              Remove = [
+                "Bing"
+                "eBay"
+                "Perplexity"
+                "Amazon.com"
+                "Google"
+              ];
             };
           };
         }
       )
     ];
-    xdg.mime.defaultApplications."application/pdf" = "zen.desktop";
+    xdg.mime.defaultApplications = {
+      "application/pdf" = "zen.desktop";
+      "application/xhtml+xml" = "zen.desktop";
+      "text/html" = "zen.desktop";
+      "text/xml" = "zen.desktop";
+      "x-scheme-handler/http" = "zen.desktop";
+      "x-scheme-handler/https" = "zen.desktop";
+    };
   };
 }

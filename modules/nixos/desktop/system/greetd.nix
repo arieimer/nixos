@@ -11,7 +11,7 @@ in {
     inputs.noctalia-greeter.nixosModules.default
   ];
   config = mkIf config.cfg.system.greetd.enable {
-    preservation.preserveAt."/persistent".directories = ["/var/lib/noctalia-greeter"];
+    cfg.preservation.directories = ["/var/lib/noctalia-greeter"];
     programs.noctalia-greeter.enable = true;
   };
 }

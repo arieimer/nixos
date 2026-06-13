@@ -11,7 +11,7 @@ in {
   ];
   options.cfg.programs.nixcord.enable = mkEnableOption "nixcord";
   config = mkIf config.cfg.programs.nixcord.enable {
-    cfg.preservation.directories = [".config/vesktop"];
+    cfg.preservation.homeDirectories = [".config/vesktop"];
     programs.nixcord = {
       discord.enable = false;
       enable = true;

@@ -14,7 +14,15 @@ in {
     type = types.listOf types.str;
     default = [];
   };
+  options.cfg.preservation.homeDirectories = mkOption {
+    type = types.listOf types.str;
+    default = [];
+  };
   options.cfg.preservation.files = mkOption {
+    type = types.listOf types.str;
+    default = [];
+  };
+  options.cfg.preservation.homeFiles = mkOption {
     type = types.listOf types.str;
     default = [];
   };
@@ -34,38 +42,42 @@ in {
     preservation = {
       enable = true;
       preserveAt."/persistent" = {
-        files = [
-          {
-            file = "/etc/machine-id";
-            inInitrd = true;
-          }
-        ];
-        directories = [
-          "/var/lib/systemd/timers"
-          {
-            directory = "/var/lib/nixos";
-            inInitrd = true;
-          }
-          "/var/log"
-          {
-            directory = "/etc/sops/age";
-            inInitrd = true;
-          }
-          "/var/db/sudo"
-          "/etc/NetworkManager/system-connections"
-          "/var/lib/bluetooth"
-        ];
+        files =
+          [
+            {
+              file = "/etc/machine-id";
+              inInitrd = true;
+            }
+          ]
+          ++ config.cfg.preservation.files;
+        directories =
+          [
+            "/var/lib/systemd/timers"
+            {
+              directory = "/var/lib/nixos";
+              inInitrd = true;
+            }
+            "/var/log"
+            {
+              directory = "/etc/sops/age";
+              inInitrd = true;
+            }
+            "/var/db/sudo"
+            "/etc/NetworkManager/system-connections"
+            "/var/lib/bluetooth"
+          ]
+          ++ config.cfg.preservation.directories;
         users.${config.cfg.user.username} = {
           directories =
             [
               ".config/nixos"
             ]
-            ++ config.cfg.preservation.directories;
+            ++ config.cfg.preservation.homeDirectories;
           files =
             [
               ".ssh/known_hosts"
             ]
-            ++ config.cfg.preservation.files;
+            ++ config.cfg.preservation.homeFiles;
         };
       };
     };

@@ -8,7 +8,7 @@
 in {
   options.cfg.programs.prismlauncher.enable = mkEnableOption "prismlauncher";
   config = mkIf config.cfg.programs.prismlauncher.enable {
-    cfg.preservation.directories = [".local/share/PrismLauncher"];
+    cfg.preservation.homeDirectories = [".local/share/PrismLauncher"];
     hj = {
       packages = [
         (pkgs.prismlauncher.override {

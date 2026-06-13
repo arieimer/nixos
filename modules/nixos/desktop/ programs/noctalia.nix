@@ -5,8 +5,7 @@
   lib,
   ...
 }: let
-  inherit (lib) mkEnableOption mkIf elemAt splitString;
-  primaryMonitor = elemAt (splitString ", " (elemAt config.cfg.programs.niri.monitors 0)) 0;
+  inherit (lib) mkEnableOption mkIf;
   hostsDir = ../../../../hosts;
   avatar = builtins.path {
     path = hostsDir + "/${hostName}/profile.png";
@@ -14,7 +13,7 @@
 in {
   options.cfg.programs.noctalia.enable = mkEnableOption "noctalia";
   config = mkIf config.cfg.programs.noctalia.enable {
-    cfg.preservation.directories = [".local/state/noctalia"];
+    cfg.preservation.homeDirectories = [".local/state/noctalia"];
     hjem.extraModules = [
       inputs.noctalia.hjemModules.default
     ];

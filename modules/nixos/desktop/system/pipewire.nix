@@ -8,7 +8,7 @@
 in {
   options.cfg.system.pipewire.enable = mkEnableOption "pipewire";
   config = mkIf config.cfg.system.pipewire.enable {
-    cfg.preservation.directories = [".local/state/wireplumber"];
+    cfg.preservation.homeDirectories = [".local/state/wireplumber"];
     hj.packages = [
       pkgs.pwvucontrol
     ];

@@ -13,7 +13,7 @@ in {
     };
   };
   config = mkIf config.cfg.system.xdg.enable {
-    cfg.preservation.directories = [
+    cfg.preservation.homeDirectories = [
       "Documents"
       "Pictures"
       "Downloads"

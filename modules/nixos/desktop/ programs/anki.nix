@@ -8,7 +8,7 @@
 in {
   options.cfg.programs.anki.enable = mkEnableOption "anki";
   config = mkIf config.cfg.programs.ente.enable {
-    cfg.preservation.directories = [".local/share/Anki2"];
+    cfg.preservation.homeDirectories = [".local/share/Anki2"];
     hj.packages = [
       (pkgs.anki.withAddons [
         pkgs.ankiAddons.passfail2

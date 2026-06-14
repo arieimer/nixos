@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) mkEnableOption mkIf generators;
 in {
   options.cfg.programs.btop.enable = mkEnableOption "btop";
   config = mkIf config.cfg.programs.btop.enable {
@@ -12,9 +12,10 @@ in {
       packages = [
         pkgs.btop
       ];
-      xdg.config.files."btop/btop.conf".text = ''
-        color_theme = "noctalia.theme"
-      '';
+      xdg.config.files."btop/btop.conf" = {
+        generator = generators.toKeyValue {};
+        value.color_theme = "noctalia.theme";
+      };
     };
   };
 }

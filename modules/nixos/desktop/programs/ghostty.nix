@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) mkEnableOption mkIf generators;
 in {
   options.cfg.programs.ghostty.enable = mkEnableOption "ghostty";
   config = mkIf config.cfg.programs.ghostty.enable {
@@ -12,12 +12,14 @@ in {
       packages = [
         pkgs.ghostty
       ];
-      # TODO: generators.toKeyValue
-      xdg.config.files."ghostty/config.ghostty".text = ''
-        theme = noctalia
-        confirm-close-surface = false
-        working-directory = home
-      '';
+      xdg.config.files."ghostty/config.ghostty" = {
+        generator = generators.toKeyValue {};
+        value = {
+          theme = "noctalia";
+          confirm-close-surface = false;
+          working-directory = "home";
+        };
+      };
     };
   };
 }

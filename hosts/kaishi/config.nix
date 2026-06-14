@@ -45,6 +45,7 @@
       yazi.enable = true;
       btop.enable = true;
       fastfetch.enable = true;
+      zed.enable = true;
       niri = {
         enable = true;
         monitors = [

@@ -12,6 +12,7 @@ in {
       packages = [
         pkgs.ghostty
       ];
+      # TODO: generators.toKeyValue
       xdg.config.files."ghostty/config.ghostty".text = ''
         theme = noctalia
         confirm-close-surface = false

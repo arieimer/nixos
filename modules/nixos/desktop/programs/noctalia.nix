@@ -37,6 +37,7 @@ in {
               copy_to_clipboard = true;
             };
           };
+          desktop_widgets.enabled = false;
           idle = {
             pre_action_fade_seconds = 5.0;
             behavior = {

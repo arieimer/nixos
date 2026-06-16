@@ -18,7 +18,7 @@ in {
           pkgs.fcitx5-mozc
         ];
         settings = {
-          globalOptions."Hotkey/TriggerKeys"."0" = "Alt+grave";
+          globalOptions."Hotkey/TriggerKeys"."0" = "Alt+space";
           inputMethod = {
             "Groups/0" = {
               Name = "Default";

@@ -19,7 +19,7 @@ in {
         "$(cat ${config.sops.secrets.mullvad.path})"
     '');
     sops = {
-      defaultSopsFile = ../../../secrets/secrets.yaml;
+      defaultSopsFile = ../../../../secrets/secrets.yaml;
       defaultSopsFormat = "yaml";
       age.keyFile = "/etc/sops/age/keys.txt";
       age.sshKeyPaths = [];

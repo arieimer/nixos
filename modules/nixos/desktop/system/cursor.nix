@@ -19,7 +19,8 @@ in {
     programs.dconf.profiles.user.databases = [
       {
         settings."org/gnome/desktop/interface" = {
-          inherit cursor-theme cursor-size-gv;
+          inherit cursor-theme;
+          cursor-size = cursor-size-gv;
         };
       }
     ];

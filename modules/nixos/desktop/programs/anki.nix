@@ -13,7 +13,7 @@ in {
       packages = [
         pkgs.anki
       ];
-      # Beyond a hacky fix for AJT mecab controller
+      # Beyond hacky fix for AJT mecab controller
       xdg.data.files."Anki2/addons21/200813220/mecab_controller/support/mecab.lin" = {
         type = "copy";
         permissions = "755";

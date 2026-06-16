@@ -35,12 +35,6 @@ in {
             end
             rm -f -- "$tmp"
           end
-        ''
-        + optionalString config.cfg.programs.zellij.enable ''
-          if set -q ZELLIJ
-          else
-            # zellij
-          end
         '';
     };
   };

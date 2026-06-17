@@ -19,6 +19,7 @@ in {
         ];
         settings = {
           globalOptions."Hotkey/TriggerKeys"."0" = "Alt+space";
+          addons.quickphrase.globalSection.TriggerKey = "";
           inputMethod = {
             "Groups/0" = {
               Name = "Default";

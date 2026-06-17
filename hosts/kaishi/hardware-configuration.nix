@@ -16,7 +16,7 @@
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
 
-  fileSystems."/home/ari/barracuda" = {
+  fileSystems."/home/ari/Barracuda" = {
     device = "/dev/disk/by-uuid/0001f19f-3057-48ee-b47a-c212ba41f16a";
     fsType = "ext4";
     options = ["nofail" "noatime"];

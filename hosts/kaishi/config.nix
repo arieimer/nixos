@@ -27,6 +27,8 @@
       ente.enable = true;
       # bitwarden.enable = true; # broken build is a broken build
       mullvad.enable = true;
+      mpv.enable = true;
+      obs.enable = true;
       anki.enable = true;
       lazygit.enable = true;
       loupe.enable = true;

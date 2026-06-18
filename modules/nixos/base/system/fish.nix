@@ -4,12 +4,11 @@
   lib,
   ...
 }: let
-  inherit (lib) mkEnableOption mkIf optionalString;
+  inherit (lib) mkEnableOption mkIf optionalString getExe;
 in {
   options.cfg.system.fish.enable = mkEnableOption "fish";
   config = mkIf config.cfg.system.fish.enable {
     hj.packages = [
-      pkgs.ripgrep
       pkgs.dua
       pkgs.onefetch
     ];
@@ -23,8 +22,9 @@ in {
           function nsp
             nix-shell -p $argv --command "fish"
           end
-          alias ls "${lib.getExe pkgs.eza} --color always --icons --group-directories-first"
-          alias cat "${lib.getExe pkgs.bat}"
+          alias ls "${getExe pkgs.eza} --color always --icons --group-directories-first"
+          alias cat "${getExe pkgs.bat}"
+          alias grep "${getExe pkgs.ripgrep}"
         ''
         + optionalString config.cfg.programs.yazi.enable ''
           function y

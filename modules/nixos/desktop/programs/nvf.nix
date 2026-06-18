@@ -48,6 +48,10 @@ in {
             nix.enable = true;
             markdown.enable = true;
             bash.enable = true;
+            rust = {
+              enable = true;
+              extensions.crates-nvim.enable = true;
+            };
           };
           autocomplete.blink-cmp.enable = true;
           ui = {

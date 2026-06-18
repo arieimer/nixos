@@ -61,7 +61,7 @@ in {
             clock-12h = {
               type = "clock";
               format = "{:%-I:%M %p}";
-              vertical_format = "{:%I\\n%M\\n%p}";
+              vertical_format = "{:%I\n%M\n—\n%m\n%d}";
             };
           };
           bar = {
@@ -82,12 +82,20 @@ in {
                   opacity = 0.5;
                   padding = 6.0;
                 }
+                {
+                  fill = "surface_variant";
+                  id = "g2";
+                  members = ["clock-12h"];
+                  opacity = 0.5;
+                  padding = 6.0;
+                }
               ];
               start = [
                 "workspaces"
               ];
               center = [
-                "clock-12h"
+                # "clock-12h"
+                "group:g2"
               ];
               end = [
                 "tray"

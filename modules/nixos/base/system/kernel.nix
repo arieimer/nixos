@@ -16,7 +16,7 @@
     else if config.cfg.system.kernel == "cachyos"
     then pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto
     else if config.cfg.system.kernel == "cachyos-v3"
-    then inputs.nix-cachyos-kernel.legacyPackages.x86_64-linux.linuxPackages-cachyos-latest-lto-x86_64-v3
+    then pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3
     else throw "unknown kernel type.";
 in {
   options.cfg.system = {

@@ -1,5 +1,5 @@
 {
-  description = "All the bells and whistles";
+  description = "github:arieimer/nixos";
   outputs = inputs:
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];

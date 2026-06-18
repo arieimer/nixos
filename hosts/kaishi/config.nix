@@ -25,8 +25,12 @@
     programs = {
       ghostty.enable = true;
       ente.enable = true;
+      direnv.enable = true;
       # bitwarden.enable = true; # broken build is a broken build
-      mullvad.enable = true;
+      mullvad = {
+        enable = true;
+        enableGUI = true;
+      };
       mpv.enable = true;
       obs.enable = true;
       anki.enable = true;

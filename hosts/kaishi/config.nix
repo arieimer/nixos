@@ -25,6 +25,7 @@
     programs = {
       ghostty.enable = true;
       ente.enable = true;
+      obsidian.enable = true;
       direnv.enable = true;
       lazyssh.enable = true;
       # bitwarden.enable = true; # broken build is a broken build
@@ -50,8 +51,6 @@
       git.enable = true;
       yazi.enable = true;
       btop.enable = true;
-      fastfetch.enable = true;
-      zed.enable = true;
       niri = {
         enable = true;
         monitors = [

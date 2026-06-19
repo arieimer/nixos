@@ -25,6 +25,7 @@ in {
           alias ls "${getExe pkgs.eza} --color always --icons --group-directories-first"
           alias cat "${getExe pkgs.bat}"
           alias grep "${getExe pkgs.ripgrep}"
+          alias fetch "${getExe pkgs.microfetch}"
         ''
         + optionalString config.cfg.programs.yazi.enable ''
           function y

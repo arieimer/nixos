@@ -2,7 +2,7 @@
 
 My personal NixOS configuration built against unstable.
 
-![image](https://github.com/user-attachments/assets/df8ae7f0-46d4-430c-be54-e099a2b8dcd2)
+![image](.github/assets/hero.png)
 
 ## Notable Features
 

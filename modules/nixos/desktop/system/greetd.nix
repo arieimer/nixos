@@ -15,6 +15,7 @@ in {
     cfg.preservation.directories = ["/var/lib/noctalia-greeter"];
     programs.noctalia-greeter = {
       enable = true;
+      greeter-args = "--user ${config.cfg.user.username}";
       settings = {
         cursor = mkIf config.cfg.system.cursor.enable {
           package = pkgs.bibata-cursors;

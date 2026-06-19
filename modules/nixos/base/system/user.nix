@@ -22,15 +22,16 @@ in {
   config = {
     services.automatic-timezoned.enable = true;
     users = {
-      mutableUsers = true;
+      mutableUsers = false;
       users.${config.cfg.user.username} = {
         isNormalUser = true;
-        initialPassword = "1234";
+        hashedPassword = "$2b$05$.i8mAte0MIo.hsItMvWSge6VYE/K1ejh5ZnjPq7D698BD7dyxWXEK"; # Oh so temporary
         extraGroups =
           [
             "wheel"
           ]
           ++ config.cfg.user.extraGroups;
+        openssh.authorizedKeys.keys = config.cfg.user.authorizedKeys;
       };
     };
   };

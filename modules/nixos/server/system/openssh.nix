@@ -9,6 +9,10 @@ in {
   config = mkIf config.cfg.system.openssh.enable {
     services.openssh = {
       enable = true;
+      settings = {
+        PasswordAuthentication = false;
+        KbdInteractiveAuthentication = false;
+      };
     };
   };
 }

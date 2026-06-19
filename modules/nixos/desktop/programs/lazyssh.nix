@@ -11,6 +11,9 @@ in {
     hj = {
       packages = [pkgs.lazyssh];
       files.".ssh/config".text = ''
+        Host *
+        SetEnv TERM=xterm-256color
+
         Host katei
           HostName 192.168.0.57
           Port 22

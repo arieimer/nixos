@@ -2,34 +2,20 @@
   system.stateVersion = "26.11";
   imports = [
     self.nixosModules.base
-    self.nixosModules.desktop
+    self.nixosModules.server
   ];
   cfg = {
     system = {
-      # kernel = "latest";
-      kernel = "cachyos-v3";
-      nvidia.enable = true;
-      greetd.enable = true;
-      scx.enable = true;
-      networkmanager.enable = true;
       fish.enable = true;
-      fonts.enable = true;
-      gamemode.enable = true;
-      pipewire.enable = true;
-      xdg.enable = true;
-      cursor.enable = true;
-      qt.enable = true;
-      gtk.enable = true;
-      sops.enable = true;
-    };
-    programs = {
+      openssh.enable = true;
     };
     user = {
       username = "ari";
       email = "ari.eimer@proton.me";
+      authorizedKeys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEf1YkWtfe11NHCJ+vBikiQH/LZWT7n5vQcOoXIeHXNa ari.eimer@proton.me"];
     };
     disko = {
-      # disk = "/dev/disk/by-id/nvme-ADATA_SX8200PNP_2O042924KCY";
+      disk = "/dev/disk/by-id/ata-256GB_SSD_CM53CBH2606858";
       swapSize = "10G";
     };
   };

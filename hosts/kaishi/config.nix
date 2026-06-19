@@ -26,6 +26,7 @@
       ghostty.enable = true;
       ente.enable = true;
       direnv.enable = true;
+      lazyssh.enable = true;
       # bitwarden.enable = true; # broken build is a broken build
       mullvad = {
         enable = true;

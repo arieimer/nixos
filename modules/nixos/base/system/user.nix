@@ -14,6 +14,10 @@ in {
       type = types.listOf types.str;
       default = [];
     };
+    authorizedKeys = mkOption {
+      type = types.listOf types.str;
+      default = [];
+    };
   };
   config = {
     services.automatic-timezoned.enable = true;

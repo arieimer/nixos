@@ -5,30 +5,24 @@
   lib,
   ...
 }: let
-  inherit (lib) mkEnableOption mkOption types;
-  kernelType =
-    if config.cfg.system.kernel == "latest"
-    then pkgs.linuxPackages_latest
-    else if config.cfg.system.kernel == "lts"
-    then pkgs.linuxPackages
-    else if config.cfg.system.kernel == "zen"
-    then pkgs.linuxPackages_zen
-    else if config.cfg.system.kernel == "cachyos"
-    then pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto
-    else if config.cfg.system.kernel == "cachyos-v3"
-    then pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3
-    else throw "unknown kernel type.";
+  inherit (lib) mkEnableOption mkOption types attrNames;
+  kernels = {
+    "latest" = pkgs.linuxPackages_latest;
+    "lts" = pkgs.linuxPackages;
+    "zen" = pkgs.linuxPackages_zen;
+    "cachyos" = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto;
+    "cachyos-v2" = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v2; # no binary cache
+    "cachyos-v3" = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
+    "cachyos-v4" = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v4;
+    "cachyos-zen4" = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-86_64-zen4;
+  };
+  kernelType = kernels.${config.cfg.system.kernel}
+    or (throw "Unknown kernel: ${config.cfg.system.kernel}");
 in {
   options.cfg.system = {
     kernel = mkOption {
-      type = types.enum [
-        "latest"
-        "lts"
-        "zen"
-        "cachyos"
-        "cachyos-v3"
-      ];
-      default = "lts";
+      type = types.enum (attrNames kernels);
+      default = "latest";
     };
     scx = {
       enable = mkEnableOption "scx";

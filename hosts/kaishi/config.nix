@@ -19,6 +19,7 @@
       xdg.enable = true;
       cursor.enable = true;
       qt.enable = true;
+      bluetooth.enable = true;
       gtk.enable = true;
       sops.enable = true;
     };

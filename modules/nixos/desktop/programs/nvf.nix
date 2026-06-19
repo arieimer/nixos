@@ -76,7 +76,6 @@ in {
             whichKey.enable = true;
             cheatsheet.enable = true;
           };
-          theme.enable = true;
           notify.nvim-notify.enable = true;
           presence.neocord.enable = true;
           autopairs.nvim-autopairs.enable = true;

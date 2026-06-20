@@ -8,9 +8,12 @@
 in {
   options.cfg.system.fish.enable = mkEnableOption "fish";
   config = mkIf config.cfg.system.fish.enable {
+    cfg.preservation.homeDirectories = [".local/share/zoxide"];
     hj.packages = [
       pkgs.dua
       pkgs.onefetch
+      pkgs.fzf
+      pkgs.zoxide
     ];
     users.defaultUserShell = pkgs.fish;
     programs.fish = {
@@ -33,6 +36,7 @@ in {
           end
           rm -f -- "$tmp"
         end
+        zoxide init fish --cmd cd | source
       '';
     };
   };

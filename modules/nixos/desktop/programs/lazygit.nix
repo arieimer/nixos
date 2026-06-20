@@ -16,6 +16,7 @@ in {
         generator = lib.generators.toYAML {};
         value = {
           gui.showIcons = true;
+          git.pagers = [{pager = "delta --dark --paging=never";}];
           disableStartupPopups = true;
         };
       };

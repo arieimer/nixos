@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   ...
 }: let
@@ -11,9 +12,18 @@ in {
     default = null;
   };
   config = mkIf config.cfg.programs.git.enable {
+    hj.packages = [pkgs.delta];
     programs.git = {
       enable = true;
       config = {
+        core.pager = "delta";
+        interactive.diffFilter = "delta --color-only";
+        delta = {
+          navigate = true;
+          line-numbers = true;
+        };
+        merge.conflictstyle = "diff3";
+        diff.colorMoved = "default";
         user =
           {
             name = config.cfg.user.username;

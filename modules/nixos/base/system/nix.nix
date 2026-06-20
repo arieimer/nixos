@@ -9,7 +9,10 @@
         extraArgs = "--keep ${toString config.boot.loader.systemd-boot.configurationLimit}";
       };
     };
-    documentation.nixos.enable = false;
+    documentation = {
+      nixos.enable = false;
+      enable = false;
+    };
     programs.command-not-found.enable = false;
     nix = {
       channel.enable = false;

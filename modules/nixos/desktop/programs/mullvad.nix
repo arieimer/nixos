@@ -16,6 +16,14 @@ in {
   };
   config = mkIf config.cfg.programs.mullvad.enable {
     cfg.preservation.directories = ["/etc/mullvad-vpn"];
+    systemd.services.mullvad-daemon.postStart = mkIf config.cfg.system.sops.enable (let
+      mullvad = config.services.mullvad-vpn.package;
+    in ''
+      while ! ${mullvad}/bin/mullvad status >/dev/null; do sleep 1; done
+        ${mullvad}/bin/mullvad account login \
+        "$(cat ${config.sops.secrets.mullvad.path})"
+    '');
+
     services.mullvad-vpn = {
       enable = true;
       package = mullvadType;

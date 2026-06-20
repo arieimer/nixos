@@ -1,7 +1,9 @@
 keys:
-  - &primary age1807wls5ej64t6xu7jxqhvfav6qtd57r6m2t6z0hfpszw7jnxzeasvf5c75
+  - &kaishi age1807wls5ej64t6xu7jxqhvfav6qtd57r6m2t6z0hfpszw7jnxzeasvf5c75
+  - &katei age1npfg2hmdagazsm5pzhqsl0wpurtxm9ty9fdyp5nc2wm9d3zz73csvnqn6x
 creation_rules:
   - path_regex: secrets/secrets.yaml$
     key_groups:
     - age:
-      - *primary
+      - *kaishi
+      - *katei

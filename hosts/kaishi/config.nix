@@ -13,6 +13,7 @@
       scx.enable = true;
       networkmanager.enable = true;
       fish.enable = true;
+      tailscale.enable = true;
       fonts.enable = true;
       gamemode.enable = true;
       pipewire.enable = true;

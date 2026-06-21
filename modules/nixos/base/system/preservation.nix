@@ -42,19 +42,19 @@ in {
           ++ cfg.files;
         directories =
           [
+            "/var/log"
+            "/var/db/sudo"
             "/var/lib/systemd/timers"
+            "/var/lib/bluetooth"
+            "/etc/NetworkManager/system-connections"
             {
               directory = "/var/lib/nixos";
               inInitrd = true;
             }
-            "/var/log"
             {
               directory = "/etc/sops/age";
               inInitrd = true;
             }
-            "/var/db/sudo"
-            "/etc/NetworkManager/system-connections"
-            "/var/lib/bluetooth"
           ]
           ++ cfg.directories;
         users.${config.cfg.user.username} = {

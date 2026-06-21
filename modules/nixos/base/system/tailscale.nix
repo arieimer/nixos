@@ -13,6 +13,7 @@ in {
       enable = true;
       authKeyFile = config.sops.secrets.tailscale.path;
       openFirewall = true;
+      extraUpFlags = ["--ssh"];
     };
   };
 }

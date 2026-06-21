@@ -9,6 +9,7 @@ in {
   options.cfg.system.tailscale.enable = mkEnableOption "tailscale";
   config = mkIf cfg.enable {
     cfg.preservation.directories = ["/var/lib/tailscale"];
+    services.resolved.enable = true;
     services.tailscale = {
       enable = true;
       authKeyFile = config.sops.secrets.tailscale.path;

@@ -21,6 +21,10 @@ in {
           working-directory = "home";
         };
       };
+      files.".ssh/config".text = ''
+        Host *
+        SetEnv TERM=xterm-256color
+      '';
     };
   };
 }

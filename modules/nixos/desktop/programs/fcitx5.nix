@@ -5,9 +5,10 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
+  cfg = config.cfg.programs.fcitx5;
 in {
   options.cfg.programs.fcitx5.enable = mkEnableOption "fcitx5";
-  config = mkIf config.cfg.programs.fcitx5.enable {
+  config = mkIf cfg.enable {
     environment.sessionVariables.XMODIFIERS = "@im=fcitx";
     i18n.inputMethod = {
       enable = true;

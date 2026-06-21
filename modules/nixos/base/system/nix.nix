@@ -10,9 +10,12 @@
       };
     };
     documentation = {
-      nixos.enable = false;
       enable = false;
+      nixos.enable = false;
+      doc.enable = false;
+      info.enable = false;
     };
+    environment.defaultPackages = [];
     programs.command-not-found.enable = false;
     nix = {
       channel.enable = false;

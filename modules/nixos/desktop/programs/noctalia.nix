@@ -6,13 +6,14 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
+  cfg = config.cfg.programs.noctalia;
   hostsDir = ../../../../hosts;
   avatar = builtins.path {
     path = hostsDir + "/${hostName}/profile.png";
   };
 in {
   options.cfg.programs.noctalia.enable = mkEnableOption "noctalia";
-  config = mkIf config.cfg.programs.noctalia.enable {
+  config = mkIf cfg.enable {
     cfg.preservation.homeDirectories = [".local/state/noctalia"];
     hjem.extraModules = [
       inputs.noctalia.hjemModules.default

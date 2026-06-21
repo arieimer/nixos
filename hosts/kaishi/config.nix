@@ -6,11 +6,12 @@
   ];
   cfg = {
     system = {
-      # kernel = "latest";
-      kernel = "cachyos-v3";
+      kernel = {
+        type = "cachyos-v3";
+        scx.enable = true;
+      };
       nvidia.enable = true;
       greetd.enable = true;
-      scx.enable = true;
       networkmanager.enable = true;
       fish.enable = true;
       tailscale.enable = true;

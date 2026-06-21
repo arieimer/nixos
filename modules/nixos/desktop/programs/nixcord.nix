@@ -5,12 +5,13 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
+  cfg = config.cfg.programs.nixcord;
 in {
   imports = [
     inputs.nixcord.nixosModules.nixcord
   ];
   options.cfg.programs.nixcord.enable = mkEnableOption "nixcord";
-  config = mkIf config.cfg.programs.nixcord.enable {
+  config = mkIf cfg.enable {
     cfg.preservation.homeDirectories = [".config/vesktop"];
     programs.nixcord = {
       discord.enable = false;

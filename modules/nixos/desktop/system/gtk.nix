@@ -5,9 +5,10 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
+  cfg = config.cfg.system.gtk;
 in {
   options.cfg.system.gtk.enable = mkEnableOption "gtk";
-  config = mkIf config.cfg.system.gtk.enable {
+  config = mkIf cfg.enable {
     hj = {
       packages = [
         pkgs.papirus-icon-theme

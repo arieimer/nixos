@@ -4,7 +4,7 @@
   ...
 }: let
   inherit (lib) mkOption types;
-  locale = config.cfg.locale;
+  cfg = config.cfg.locale;
 in {
   options.cfg.locale = mkOption {
     type = types.str;
@@ -12,8 +12,8 @@ in {
   };
   config = {
     i18n = {
-      defaultLocale = locale;
-      extraLocaleSettings.LC_ALL = locale;
+      defaultLocale = cfg;
+      extraLocaleSettings.LC_ALL = cfg;
     };
   };
 }

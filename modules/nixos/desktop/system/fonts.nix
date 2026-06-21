@@ -5,9 +5,10 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
+  cfg = config.cfg.system.fonts;
 in {
   options.cfg.system.fonts.enable = mkEnableOption "fonts";
-  config = mkIf config.cfg.system.fonts.enable {
+  config = mkIf cfg.enable {
     fonts = {
       enableDefaultPackages = false;
       fontconfig = {

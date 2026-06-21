@@ -5,8 +5,9 @@
   ...
 }: let
   inherit (lib) mkIf mkEnableOption;
+  cfg = config.cfg.programs.mullvad;
   mullvadType =
-    if config.cfg.programs.mullvad.enableGUI
+    if cfg.enableGUI
     then pkgs.mullvad-vpn
     else pkgs.mullvad;
 in {
@@ -14,7 +15,7 @@ in {
     enable = mkEnableOption "mullvad-vpn";
     enableGUI = mkEnableOption "mullvad-vpn GUI";
   };
-  config = mkIf config.cfg.programs.mullvad.enable {
+  config = mkIf cfg.enable {
     cfg.preservation.directories = ["/etc/mullvad-vpn"];
     systemd.services.mullvad-daemon.postStart = mkIf config.cfg.system.sops.enable (let
       mullvad = config.services.mullvad-vpn.package;

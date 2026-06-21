@@ -5,9 +5,10 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
+  cfg = config.cfg.programs.anki;
 in {
   options.cfg.programs.anki.enable = mkEnableOption "anki";
-  config = mkIf config.cfg.programs.anki.enable {
+  config = mkIf cfg.enable {
     cfg.preservation.homeDirectories = [".local/share/Anki2"];
     hj = {
       packages = [

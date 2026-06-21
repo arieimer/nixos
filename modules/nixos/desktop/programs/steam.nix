@@ -5,9 +5,10 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
+  cfg = config.cfg.programs.steam;
 in {
   options.cfg.programs.steam.enable = mkEnableOption "steam";
-  config = mkIf config.cfg.programs.steam.enable {
+  config = mkIf cfg.enable {
     cfg.preservation.homeDirectories = [".local/share/Steam" ".steam"];
     programs.steam = {
       enable = true;

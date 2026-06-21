@@ -5,13 +5,14 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf types mkOption optionalAttrs;
+  cfg = config.cfg.programs.git;
 in {
   options.cfg.programs.git.enable = mkEnableOption "git";
   options.cfg.user.email = mkOption {
     type = types.nullOr types.str;
     default = null;
   };
-  config = mkIf config.cfg.programs.git.enable {
+  config = mkIf cfg.enable {
     hj.packages = [pkgs.delta];
     programs.git = {
       enable = true;

@@ -5,9 +5,10 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
+  cfg = config.cfg.programs.lazyssh;
 in {
   options.cfg.programs.lazyssh.enable = mkEnableOption "lazyssh";
-  config = mkIf config.cfg.programs.lazyssh.enable {
+  config = mkIf cfg.enable {
     hj = {
       packages = [pkgs.lazyssh];
       files.".ssh/config".text = ''

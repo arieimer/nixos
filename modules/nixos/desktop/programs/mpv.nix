@@ -5,9 +5,10 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
+  cfg = config.cfg.programs.mpv;
 in {
   options.cfg.programs.mpv.enable = mkEnableOption "mpv";
-  config = mkIf config.cfg.programs.mpv.enable {
+  config = mkIf cfg.enable {
     hj.packages = [pkgs.mpv];
     xdg.mime.defaultApplications = {
       "video/*" = "mpv.desktop";

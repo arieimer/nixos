@@ -6,6 +6,7 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
+  cfg = config.cfg.programs.zen;
   extension = shortId: guid: {
     name = guid;
     value = {
@@ -36,7 +37,7 @@
   ];
 in {
   options.cfg.programs.zen.enable = mkEnableOption "zen browser";
-  config = mkIf config.cfg.programs.zen.enable {
+  config = mkIf cfg.enable {
     cfg.preservation.homeDirectories = [".config/zen"];
     hj.packages = [
       (

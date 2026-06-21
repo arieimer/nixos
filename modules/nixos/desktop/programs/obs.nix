@@ -5,9 +5,10 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
+  cfg = config.cfg.programs.obs;
 in {
   options.cfg.programs.obs.enable = mkEnableOption "obs";
-  config = mkIf config.cfg.programs.obs.enable {
+  config = mkIf cfg.enable {
     cfg.preservation.homeDirectories = [".config/obs-studio"];
     programs.obs-studio = {
       enable = true;

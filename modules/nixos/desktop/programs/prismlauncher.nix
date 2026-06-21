@@ -5,9 +5,10 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
+  cfg = config.cfg.programs.prismlauncher;
 in {
   options.cfg.programs.prismlauncher.enable = mkEnableOption "prismlauncher";
-  config = mkIf config.cfg.programs.prismlauncher.enable {
+  config = mkIf cfg.enable {
     cfg.preservation.homeDirectories = [".local/share/PrismLauncher"];
     hj = {
       packages = [

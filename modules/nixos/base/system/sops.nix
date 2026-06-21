@@ -5,12 +5,13 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
+  cfg = config.cfg.system.sops;
 in {
   imports = [
     inputs.sops-nix.nixosModules.sops
   ];
   options.cfg.system.sops.enable = mkEnableOption "sops";
-  config = mkIf config.cfg.system.sops.enable {
+  config = mkIf cfg.enable {
     sops = {
       defaultSopsFile = ../../../../secrets/secrets.yaml;
       defaultSopsFormat = "yaml";

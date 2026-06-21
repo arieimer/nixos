@@ -5,6 +5,7 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf concatMapStrings;
+  cfg = config.cfg.programs.thunar;
   bookmarks = [
     "file:///home/${config.cfg.user.username}/Downloads Downloads"
     "file:///home/${config.cfg.user.username}/Documents Documents"
@@ -12,7 +13,7 @@
   ];
 in {
   options.cfg.programs.thunar.enable = mkEnableOption "thunar";
-  config = mkIf config.cfg.programs.thunar.enable {
+  config = mkIf cfg.enable {
     programs.thunar = {
       enable = true;
       plugins = [

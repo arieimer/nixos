@@ -4,6 +4,7 @@
   ...
 }: let
   inherit (lib) mkOption types;
+  cfg = config.cfg.user;
 in {
   options.cfg.user = {
     username = mkOption {
@@ -23,15 +24,15 @@ in {
     services.automatic-timezoned.enable = true;
     users = {
       mutableUsers = false;
-      users.${config.cfg.user.username} = {
+      users.${cfg.username} = {
         isNormalUser = true;
         hashedPassword = "$2b$05$.i8mAte0MIo.hsItMvWSge6VYE/K1ejh5ZnjPq7D698BD7dyxWXEK"; # Oh so temporary
         extraGroups =
           [
             "wheel"
           ]
-          ++ config.cfg.user.extraGroups;
-        openssh.authorizedKeys.keys = config.cfg.user.authorizedKeys;
+          ++ cfg.extraGroups;
+        openssh.authorizedKeys.keys = cfg.authorizedKeys;
       };
     };
   };

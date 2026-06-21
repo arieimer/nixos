@@ -5,9 +5,10 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf generators;
+  cfg = config.cfg.programs.ghostty;
 in {
   options.cfg.programs.ghostty.enable = mkEnableOption "ghostty";
-  config = mkIf config.cfg.programs.ghostty.enable {
+  config = mkIf cfg.enable {
     hj = {
       packages = [
         pkgs.ghostty

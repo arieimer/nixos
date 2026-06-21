@@ -5,9 +5,10 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
+  cfg = config.cfg.programs.lazygit;
 in {
   options.cfg.programs.lazygit.enable = mkEnableOption "lazygit";
-  config = mkIf config.cfg.programs.lazygit.enable {
+  config = mkIf cfg.enable {
     hj = {
       packages = [
         pkgs.lazygit

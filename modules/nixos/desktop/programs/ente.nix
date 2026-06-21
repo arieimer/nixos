@@ -5,9 +5,10 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
+  cfg = config.cfg.programs.ente;
 in {
   options.cfg.programs.ente.enable = mkEnableOption "ente";
-  config = mkIf config.cfg.programs.ente.enable {
+  config = mkIf cfg.enable {
     cfg.preservation.homeDirectories = [".local/share/io.ente.auth"];
     hj.packages = [pkgs.ente-auth];
   };

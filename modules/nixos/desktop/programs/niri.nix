@@ -5,6 +5,7 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf mkOption types splitString elemAt concatStringsSep imap0 optionalString;
+  cfg = config.cfg.programs.niri;
   parseMonitor = str: isFirst: let
     parts = splitString ", " str;
   in ''
@@ -40,7 +41,7 @@ in {
       # "DP-1, 1920x1080@144, 1, x=0  y=0"
     };
   };
-  config = mkIf config.cfg.programs.niri.enable {
+  config = mkIf cfg.enable {
     programs.niri = {
       enable = true;
       useNautilus = false;
@@ -51,7 +52,7 @@ in {
         pkgs.xwayland-satellite
       ];
       xdg.config.files."niri/config.kdl".text = ''
-        ${concatStringsSep "" (imap0 (i: m: parseMonitor m (i == 0)) config.cfg.programs.niri.monitors)}
+        ${concatStringsSep "" (imap0 (i: m: parseMonitor m (i == 0)) cfg.monitors)}
         window-rule {
           geometry-corner-radius 15
           clip-to-geometry true

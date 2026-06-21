@@ -5,9 +5,10 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
+  cfg = config.cfg.programs.yazi;
 in {
   options.cfg.programs.yazi.enable = mkEnableOption "yazi";
-  config = mkIf config.cfg.programs.yazi.enable {
+  config = mkIf cfg.enable {
     programs.yazi = {
       enable = true;
       plugins = {

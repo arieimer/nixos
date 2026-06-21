@@ -6,6 +6,7 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkOption types attrNames;
+  cfg = config.cfg.system.kernel;
   kernels = {
     "latest" = pkgs.linuxPackages_latest;
     "lts" = pkgs.linuxPackages;
@@ -16,11 +17,11 @@
     "cachyos-v4" = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v4;
     "cachyos-zen4" = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-86_64-zen4;
   };
-  kernelType = kernels.${config.cfg.system.kernel}
-    or (throw "Unknown kernel: ${config.cfg.system.kernel}");
+  kernelType = kernels.${cfg.type}
+    or (throw "Unknown kernel: ${cfg.type}");
 in {
-  options.cfg.system = {
-    kernel = mkOption {
+  options.cfg.system.kernel = {
+    type = mkOption {
       type = types.enum (attrNames kernels);
       default = "latest";
     };
@@ -39,8 +40,8 @@ in {
     nix.settings.substituters = ["https://attic.xuyh0120.win/lantian"];
     nix.settings.trusted-public-keys = ["lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="];
     services.scx = {
-      enable = config.cfg.system.scx.enable;
-      scheduler = config.cfg.system.scx.scheduler;
+      enable = cfg.scx.enable;
+      scheduler = cfg.scx.scheduler;
     };
     boot = {
       kernelPackages = kernelType;

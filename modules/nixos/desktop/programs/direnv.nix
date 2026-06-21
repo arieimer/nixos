@@ -5,9 +5,10 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf;
+  cfg = config.cfg.programs.direnv;
 in {
   options.cfg.programs.direnv.enable = mkEnableOption "direnv";
-  config = mkIf config.cfg.programs.direnv.enable {
+  config = mkIf cfg.enable {
     programs.direnv = {
       enable = true;
       silent = true;

@@ -5,9 +5,10 @@
   ...
 }: let
   inherit (lib) mkIf mkEnableOption;
+  cfg = config.cfg.system.nvidia;
 in {
   options.cfg.system.nvidia.enable = mkEnableOption "nvidia";
-  config = mkIf config.cfg.system.nvidia.enable {
+  config = mkIf cfg.enable {
     hj.packages = [pkgs.nvtopPackages.nvidia];
     services.xserver.videoDrivers = ["nvidia"];
     hardware = {

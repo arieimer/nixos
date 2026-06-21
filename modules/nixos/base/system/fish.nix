@@ -5,9 +5,10 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf getExe;
+  cfg = config.cfg.system.fish;
 in {
   options.cfg.system.fish.enable = mkEnableOption "fish";
-  config = mkIf config.cfg.system.fish.enable {
+  config = mkIf cfg.enable {
     cfg.preservation.homeDirectories = [".local/share/zoxide"];
     hj.packages = [
       pkgs.dua

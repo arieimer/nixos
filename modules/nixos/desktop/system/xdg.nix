@@ -3,16 +3,11 @@
   lib,
   ...
 }: let
-  inherit (lib) mkEnableOption mkIf mkOption types;
+  inherit (lib) mkEnableOption mkIf;
+  cfg = config.cfg.system.xdg;
 in {
-  options.cfg.system.xdg = {
-    enable = mkEnableOption "xdg";
-    userDirs.enable = mkOption {
-      type = types.bool;
-      default = config.cfg.system.xdg.enable;
-    };
-  };
-  config = mkIf config.cfg.system.xdg.enable {
+  options.cfg.system.xdg.enable = mkEnableOption "xdg";
+  config = mkIf cfg.enable {
     cfg.preservation.homeDirectories = [
       "Documents"
       "Pictures"

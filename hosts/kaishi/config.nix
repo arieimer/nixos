@@ -22,6 +22,7 @@
       cursor.enable = true;
       qt.enable = true;
       bluetooth.enable = true;
+      udiskie.enable = true;
       gtk.enable = true;
       sops.enable = true;
     };
@@ -30,7 +31,6 @@
       ente.enable = true;
       obsidian.enable = true;
       direnv.enable = true;
-      lazyssh.enable = true;
       # bitwarden.enable = true; # broken build is a broken build
       mullvad = {
         enable = true;
@@ -57,8 +57,8 @@
       niri = {
         enable = true;
         monitors = [
-          "DP-1, 1920x1080@240, 1, x=0 y=0"
-          "HDMI-A-1, 1920x1080@75, 1, x=-1920 y=0"
+          "DP-1, 1920x1080@239.964, 1, x=0 y=0"
+          "HDMI-A-1, 1920x1080@74.973, 1, x=-1920 y=0"
         ];
       };
     };

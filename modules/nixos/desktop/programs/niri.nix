@@ -165,6 +165,7 @@ in {
         }
         spawn-at-startup "noctalia"
         spawn-sh-at-startup "fcitx5 -d"
+        spawn-at-startup "udiskie"
         include optional=true "noctalia.kdl"
       '';
     };

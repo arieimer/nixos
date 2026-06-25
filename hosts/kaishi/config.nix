@@ -56,10 +56,20 @@
       btop.enable = true;
       niri = {
         enable = true;
-        monitors = [
-          "DP-1, 1920x1080@239.964, 1, x=0 y=0"
-          "HDMI-A-1, 1920x1080@74.973, 1, x=-1920 y=0"
-        ];
+        monitors = {
+          "DP-1" = {
+            mode = "1920x1080@239.964";
+            scale = 1;
+            position = "x=0 y=0";
+            focusAtStartup = true;
+          };
+          "HDMI-A-1" = {
+            mode = "1920x1080@74.973";
+            scale = 1;
+            position = "x=-1080 y=-840";
+            transform = "90";
+          };
+        };
       };
     };
     user = {

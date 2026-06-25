@@ -4,19 +4,17 @@
   lib,
   ...
 }: let
-  inherit (lib) mkEnableOption mkIf mkOption types splitString elemAt concatStringsSep imap0 optionalString;
+  inherit (lib) mkEnableOption mkIf mkOption types concatStringsSep optionalString mapAttrsToList;
   cfg = config.cfg.programs.niri;
-  parseMonitor = str: isFirst: let
-    parts = splitString ", " str;
-  in ''
-    output "${elemAt parts 0}"  {
-       mode "${elemAt parts 1}"
-       scale ${elemAt parts 2}
-       position ${elemAt parts 3}
-       ${optionalString isFirst "focus-at-startup"}
+  monitorSettings = name: monitor: ''
+    output "${name}" {
+      mode "${monitor.mode}"
+      scale ${toString monitor.scale}
+      position ${monitor.position}
+      ${optionalString (monitor.transform != null) ''transform "${monitor.transform}"''}
+      ${optionalString monitor.focusAtStartup "focus-at-startup"}
     }
   '';
-
   workspaceBinds = concatStringsSep "\n" (builtins.concatLists (
     builtins.genList (
       i: let
@@ -36,9 +34,39 @@ in {
   options.cfg.programs.niri = {
     enable = mkEnableOption "niri";
     monitors = mkOption {
-      type = types.listOf types.str;
-      default = [];
-      # "DP-1, 1920x1080@144, 1, x=0  y=0"
+      type = types.attrsOf (types.submodule {
+        options = {
+          mode = mkOption {
+            type = types.str;
+            example = "1920x1080@60";
+          };
+          scale = mkOption {
+            type = types.either types.int types.float;
+            default = 1;
+          };
+          position = mkOption {
+            type = types.str;
+            example = "0,0";
+          };
+          transform = mkOption {
+            type = types.nullOr (types.enum [
+              "normal"
+              "90"
+              "180"
+              "270"
+              "flipped"
+              "flipped-90"
+              "flipped-180"
+              "flipped-270"
+            ]);
+            default = null;
+          };
+          focusAtStartup = mkOption {
+            type = types.bool;
+            default = false;
+          };
+        };
+      });
     };
   };
   config = mkIf cfg.enable {
@@ -52,7 +80,7 @@ in {
         pkgs.xwayland-satellite
       ];
       xdg.config.files."niri/config.kdl".text = ''
-        ${concatStringsSep "" (imap0 (i: m: parseMonitor m (i == 0)) cfg.monitors)}
+        ${concatStringsSep "\n" (mapAttrsToList monitorSettings cfg.monitors)}
         window-rule {
           geometry-corner-radius 15
           clip-to-geometry true

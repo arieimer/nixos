@@ -78,7 +78,6 @@ in {
     programs.niri = {
       enable = true;
     };
-    xdg.portal.config.niri."org.freedesktop.impl.portal.FileChooser" = ["gtk"];
     hj = {
       packages = [
         pkgs.xwayland-satellite

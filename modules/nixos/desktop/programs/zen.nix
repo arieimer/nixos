@@ -38,7 +38,7 @@
 in {
   options.cfg.programs.zen.enable = mkEnableOption "zen browser";
   config = mkIf cfg.enable {
-    cfg.preservation.homeDirectories = [".config/zen"];
+    cfg.preservation.homeDirectories = [".config/zen" ".cache/zen"];
     hj.packages = [
       (
         pkgs.wrapFirefox

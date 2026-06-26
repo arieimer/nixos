@@ -26,6 +26,8 @@ in {
         enabledThemes = ["noctalia.theme.css"];
         plugins = {
           alwaysTrust.enable = true;
+          plainFolderIcon.enable = true;
+          memberCount.enable = true;
           fakeNitro.enable = true;
           gameActivityToggle.enable = true;
           messageLatency.enable = true;
@@ -41,33 +43,14 @@ in {
         body {
                 --custom-dms-icon: hide;
         }
-        /* Hides Store and Shop button */
         [href="/store"],
-        [href='/shop'] {
+        [href="/quest-home"],
+        [href='/shop'],
+        div[aria-label="Open sticker picker"],
+        div[aria-label="Apps"],
+        div[aria-label="Open GIF picker"],
+        div[aria-label="Send a gift"] {
                 display: none;
-        }
-        /* Hide Nitro Gift button */
-        button[aria-label="Send a gift"] {
-                display: none;
-        }
-        /* Hide GIF picker button */
-        div[aria-label="Open GIF picker"] {
-            display: none !important;
-        }
-
-        /* Hide sticker picker button */
-        div[aria-label="Open sticker picker"] {
-            display: none;
-        }
-
-        /* Remove annoying gaps between buttons (vc, text inputs, etc) */
-        div[class*="buttons_"] {
-            gap: 0 !important;
-        }
-
-        /* Hide app launcher */
-        .app-launcher-entrypoint{
-            display: none !important;
         }
       '';
     };

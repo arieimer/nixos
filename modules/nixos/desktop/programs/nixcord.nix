@@ -41,7 +41,7 @@ in {
       };
       quickCss = ''
         body {
-                --custom-dms-icon: hide;
+                --custom-dms-icon: off;
         }
         [href="/store"],
         [href="/quest-home"],

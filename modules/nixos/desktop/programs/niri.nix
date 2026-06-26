@@ -13,6 +13,7 @@
       position ${monitor.position}
       ${optionalString (monitor.transform != null) ''transform "${monitor.transform}"''}
       ${optionalString monitor.focusAtStartup "focus-at-startup"}
+      ${monitor.extraConfig}
     }
   '';
   workspaceBinds = concatStringsSep "\n" (builtins.concatLists (
@@ -64,6 +65,10 @@ in {
           focusAtStartup = mkOption {
             type = types.bool;
             default = false;
+          };
+          extraConfig = mkOption {
+            type = types.lines;
+            default = "";
           };
         };
       });

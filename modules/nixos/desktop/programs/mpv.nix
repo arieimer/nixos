@@ -12,7 +12,6 @@ in {
     hj.packages = [pkgs.mpv];
     xdg.mime.defaultApplications = {
       "video/*" = "mpv.desktop";
-      "audio/*" = "mpv.desktop";
     };
   };
 }

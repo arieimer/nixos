@@ -5,24 +5,19 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkIf concatMapStrings;
-  cfg = config.cfg.programs.thunar;
+  cfg = config.cfg.programs.nautilus;
   bookmarks = [
     "file:///home/${config.cfg.user.username}/Downloads Downloads"
     "file:///home/${config.cfg.user.username}/Documents Documents"
     "file:///home/${config.cfg.user.username}/Pictures Pictures"
   ];
 in {
-  options.cfg.programs.thunar.enable = mkEnableOption "thunar";
+  options.cfg.programs.nautilus.enable = mkEnableOption "nautilus";
   config = mkIf cfg.enable {
-    programs.thunar = {
-      enable = true;
-      plugins = [
-        pkgs.thunar-archive-plugin
-      ];
-    };
-    services.tumbler.enable = true;
+    services.gnome.sushi.enable = true;
     hj = {
       packages = [
+        pkgs.nautilus
         pkgs.p7zip
         pkgs.unrar
         pkgs.file-roller
@@ -30,7 +25,7 @@ in {
       xdg.config.files."gtk-3.0/bookmarks".text = concatMapStrings (l: l + "\n") bookmarks;
     };
     xdg.mime.defaultApplications = {
-      "inode/directory" = "thunar.desktop";
+      "inode/directory" = "org.gnome.Nautilus.desktop";
 
       "application/zip" = "org.gnome.FileRoller.desktop";
       "application/vnd.rar" = "org.gnome.FileRoller.desktop";

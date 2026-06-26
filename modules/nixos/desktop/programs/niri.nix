@@ -77,7 +77,6 @@ in {
   config = mkIf cfg.enable {
     programs.niri = {
       enable = true;
-      useNautilus = false;
     };
     xdg.portal.config.niri."org.freedesktop.impl.portal.FileChooser" = ["gtk"];
     hj = {

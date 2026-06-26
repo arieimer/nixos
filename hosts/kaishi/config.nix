@@ -41,6 +41,7 @@
       anki.enable = true;
       lazygit.enable = true;
       loupe.enable = true;
+      decibels.enable = true;
       noctalia.enable = true;
       steam.enable = true;
       qbittorrent.enable = true;
@@ -50,7 +51,7 @@
       zen.enable = true;
       nvf.enable = true;
       fcitx5.enable = true;
-      thunar.enable = true;
+      nautilus.enable = true;
       git.enable = true;
       yazi.enable = true;
       btop.enable = true;

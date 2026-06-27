@@ -29,8 +29,10 @@ in {
             avatar_path = "${avatar}";
             polkit_agent = true;
             panel = {
-              session_placement = "centered";
-              wallpaper_placement = "centered";
+              session_placement = "floating";
+              session_position = "center";
+              wallpaper_placement = "floating";
+              wallpaper_position = "center";
             };
             launch_apps_as_systemd_services = true;
             screenshot = {
@@ -95,7 +97,6 @@ in {
                 "workspaces"
               ];
               center = [
-                # "clock-12h"
                 "group:g2"
               ];
               end = [
@@ -141,6 +142,8 @@ in {
                 "ghostty"
                 "niri"
                 "btop"
+                "gtk3"
+                "gtk4"
               ];
               community_ids = [
                 "discord"

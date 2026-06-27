@@ -19,7 +19,11 @@ in {
       ];
       xdg.config.files."qt6ct/qt6ct.conf" = {
         generator = lib.generators.toINI {};
-        value.Appearance.style = "Adwaita-Dark";
+        value.Appearance = {
+          style = "Adwaita-Dark";
+          custom_palette = true;
+          color_scheme_path = "/home/${config.cfg.user.username}/.config/qt6ct/colors/noctalia.conf";
+        };
       };
     };
   };

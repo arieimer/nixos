@@ -122,6 +122,9 @@ in {
         clipboard {
           disable-primary
         }
+        environment {
+          QT_QPA_PLATFORMTHEME "qt6ct"
+        }
         input {
           focus-follows-mouse max-scroll-amount="0%"
           warp-mouse-to-focus

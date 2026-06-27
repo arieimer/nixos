@@ -2,6 +2,7 @@
   hostName,
   config,
   inputs,
+  pkgs,
   lib,
   ...
 }: let
@@ -19,6 +20,7 @@ in {
       inputs.noctalia.hjemModules.default
     ];
     hj = {
+      packages = [pkgs.songrec];
       programs.noctalia = {
         enable = true;
         settings = {
@@ -144,6 +146,7 @@ in {
                 "btop"
                 "gtk3"
                 "gtk4"
+                "qt"
               ];
               community_ids = [
                 "discord"

@@ -39,6 +39,7 @@
       mpv.enable = true;
       obs.enable = true;
       anki.enable = true;
+      jellyfin-tui.enable = true;
       lazygit.enable = true;
       loupe.enable = true;
       decibels.enable = true;

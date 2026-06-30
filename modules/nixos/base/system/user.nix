@@ -15,10 +15,6 @@ in {
       type = types.listOf types.str;
       default = [];
     };
-    authorizedKeys = mkOption {
-      type = types.listOf types.str;
-      default = [];
-    };
   };
   config = {
     services.automatic-timezoned.enable = true;
@@ -26,13 +22,12 @@ in {
       mutableUsers = false;
       users.${cfg.username} = {
         isNormalUser = true;
-        hashedPassword = "$2b$05$.i8mAte0MIo.hsItMvWSge6VYE/K1ejh5ZnjPq7D698BD7dyxWXEK"; # Oh so temporary
+        hashedPasswordFile = config.sops.secrets.password.path;
         extraGroups =
           [
             "wheel"
           ]
           ++ cfg.extraGroups;
-        openssh.authorizedKeys.keys = cfg.authorizedKeys;
       };
     };
   };

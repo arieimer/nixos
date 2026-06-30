@@ -6,6 +6,7 @@
       imports = [
         ./hosts
         ./modules
+        ./pkgs
         ./fmt.nix
       ];
     };

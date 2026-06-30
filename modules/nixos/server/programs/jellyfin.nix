@@ -9,7 +9,7 @@
 in {
   options.cfg.programs.jellyfin.enable = mkEnableOption "jellyfin";
   config = mkIf cfg.enable {
-    cfg.preservation.homeDirectories = [".local/share/jellyfin"];
+    cfg.preservation.homeDirectories = [".local/share/jellyfin" ".local/state/jellyfin" ".cache/jellyfin" "Media"];
     services.jellyfin = {
       enable = true;
       openFirewall = true;

@@ -7,8 +7,6 @@
   cfg = {
     system = {
       fish.enable = true;
-      # openssh.enable = true;
-      sops.enable = true;
       tailscale.enable = true;
     };
     programs = {

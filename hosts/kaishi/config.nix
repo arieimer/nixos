@@ -24,11 +24,11 @@
       bluetooth.enable = true;
       udiskie.enable = true;
       gtk.enable = true;
-      sops.enable = true;
     };
     programs = {
       ghostty.enable = true;
       ente.enable = true;
+      # atuin.enable = true;
       obsidian.enable = true;
       direnv.enable = true;
       # bitwarden.enable = true; # broken build is a broken build

@@ -1,5 +1,6 @@
 _: {
   config = {
+    security.polkit.enable = true; # Move eventually
     boot = {
       loader = {
         timeout = 0;

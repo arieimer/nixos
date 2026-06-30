@@ -5,7 +5,6 @@
 }: let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.cfg.programs.jellyfin;
-  # usr = config.cfg.user.username;
 in {
   options.cfg.programs.jellyfin.enable = mkEnableOption "jellyfin";
   config = mkIf cfg.enable {

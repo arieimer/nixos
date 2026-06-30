@@ -27,6 +27,7 @@
     };
     programs = {
       ghostty.enable = true;
+      syncthing.enable = true;
       ente.enable = true;
       # atuin.enable = true;
       obsidian.enable = true;

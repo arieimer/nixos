@@ -12,6 +12,7 @@
     };
     programs = {
       jellyfin.enable = true;
+      syncthing.enable = true;
     };
     user = {
       username = "ari";

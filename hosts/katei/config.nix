@@ -8,6 +8,7 @@
     system = {
       fish.enable = true;
       tailscale.enable = true;
+      caddy.enable = true;
     };
     programs = {
       jellyfin.enable = true;

@@ -12,7 +12,7 @@ in {
   ];
   options.cfg.preservation = {
     directories = mkOption {
-      type = types.listOf types.str;
+      type = types.listOf (types.either types.str (types.attrsOf types.str));
       default = [];
     };
     homeDirectories = mkOption {

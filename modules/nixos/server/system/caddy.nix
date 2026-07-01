@@ -10,7 +10,7 @@ in {
   config = mkIf cfg.enable {
     services.caddy = {
       enable = true;
-      virtualHosts."http://katei" = {
+      virtualHosts."http://aomori" = {
         extraConfig = ''
           reverse_proxy localhost:8096
         '';

@@ -9,6 +9,7 @@
   obsidianPath = {
     kaishi = "~/Documents/again";
     katei = "~/Syncthing/again";
+    aomori = "~/Syncthing/again";
   };
 in {
   options.cfg.programs.syncthing.enable = mkEnableOption "syncthing";
@@ -46,13 +47,14 @@ in {
         devices = {
           "kaishi".id = "ASF3RG4-OM5YAZS-TWUBADG-FDOAUJD-3QV5YYX-EL5XGQT-UXAW6TJ-6KFKLQB";
           "katei".id = "SNCB7VL-7WNJBWL-ZTPEKVX-7YPQ5OP-2WDQCFM-MUTKCPN-JELI3EB-ZYCKCAT";
+          "aomori".id = "6BGMEMT-SUHELX3-SGLB4M7-LDX5PMT-4INYZWI-K5UKDQO-ONBYGIX-Y4RMHAP";
         };
         folders = {
           "obsidian" = {
             id = "obsidian";
             label = "Obsidian";
             path = obsidianPath.${hostName};
-            devices = ["kaishi" "katei"];
+            devices = ["kaishi" "katei" "aomori"];
           };
         };
       };

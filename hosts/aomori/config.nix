@@ -8,11 +8,13 @@
     system = {
       fish.enable = true;
       tailscale.enable = true;
+      podman.enable = true;
       caddy.enable = true;
+      amd.enable = true;
     };
     programs = {
-      jellyfin.enable = true;
       syncthing.enable = true;
+      jellyfin.enable = true;
     };
     user = {
       username = "ari";

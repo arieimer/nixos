@@ -29,5 +29,6 @@ in {
       enable = true;
       package = mullvadType;
     };
+    sops.secrets."mullvad".owner = config.cfg.user.username;
   };
 }

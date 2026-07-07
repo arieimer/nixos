@@ -19,9 +19,7 @@
           owner = config.cfg.user.username;
           path = "/home/${config.cfg.user.username}/.ssh/id_ed25519";
         };
-        "mullvad".owner = config.cfg.user.username;
         "password".neededForUsers = true;
-        "tailscale" = {};
       };
     };
   };

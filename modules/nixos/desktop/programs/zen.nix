@@ -23,6 +23,10 @@
     "signon.rememberSignons" = false;
     "zen.welcome-screen.seen" = true;
     "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
+    "browser.translations.neverTranslateLanguages" = "ja";
+    "extensions.formautofill.addresses.enabled" = false;
+    "extensions.formautofill.creditCards.enabled" = false;
+    "extensions.formautofill.heuristics" = false;
   };
   extensions = [
     (extension "ublock-origin" "uBlock0@raymondhill.net")

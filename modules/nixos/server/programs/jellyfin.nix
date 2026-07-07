@@ -8,31 +8,22 @@
 in {
   options.cfg.programs.jellyfin.enable = mkEnableOption "jellyfin";
   config = mkIf cfg.enable {
-    cfg.preservation.directories = [
-      {
-        directory = "/var/lib/jellyfin";
-        user = config.services.jellyfin.user;
-        group = config.services.jellyfin.group;
-        mode = "2775";
-      }
-      {
-        directory = "/var/cache/jellyfin";
-        user = config.services.jellyfin.user;
-        group = config.services.jellyfin.group;
-        mode = "2750";
-      }
-    ];
-    services.jellyfin = {
-      enable = true;
-      openFirewall = true;
-      user = "jellyfin";
-      group = "jellyfin";
+    virtualisation.oci-containers.containers.jellyfin = {
+      image = "lscr.io/linuxserver/jellyfin:latest";
+      extraOptions = ["--network=host" "--device=/dev/dri:/dev/dri"];
+      environment = {
+        PUID = "1000";
+        PGID = "1000";
+        TZ = "America/Chicago";
+      };
+      volumes = [
+        "jellyfin-config:/config"
+        "/home/${config.cfg.user.username}/Media:/media"
+      ];
+      autoStart = true;
     };
-    systemd.tmpfiles.rules = [
-      "d /var/lib/jellyfin/Media 2775 ${config.services.jellyfin.user} ${config.services.jellyfin.group} -"
-      "d /var/lib/jellyfin/Media/Music 2775 ${config.services.jellyfin.user} ${config.services.jellyfin.group} -"
-      "L+ /home/${config.cfg.user.username}/Media - ${config.services.jellyfin.user} ${config.services.jellyfin.group} - /var/lib/jellyfin/Media"
-    ];
-    cfg.user.extraGroups = ["jellyfin"];
+    hj.files = {
+      "Media/Music".type = "directory";
+    };
   };
 }

@@ -19,9 +19,9 @@ in {
         value = {
           servers = [
             {
-              name = "katei";
+              name = "aomori";
               quick_connect = true;
-              url = "https://katei:8096";
+              url = "https://jellyfin.arieimer.net";
             }
           ];
         };

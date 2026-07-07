@@ -16,7 +16,7 @@ in {
       default = [];
     };
     homeDirectories = mkOption {
-      type = types.listOf types.str;
+      type = types.listOf (types.either types.str (types.attrsOf types.str));
       default = [];
     };
     files = mkOption {

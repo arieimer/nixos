@@ -18,6 +18,7 @@
       minecraft.enable = true;
       beszel.enable = true;
       paperless.enable = true;
+      uptime-kuma.enable = true;
     };
     user = {
       username = "ari";

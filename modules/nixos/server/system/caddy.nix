@@ -42,6 +42,10 @@ in {
           handle @paperless {
             reverse_proxy localhost:8000
           }
+          @uptime-kuma host status.arieimer.net
+          handle @uptime-kuma {
+            reverse_proxy localhost:3001
+          }
           handle {
             respond "Not found" 404
           }

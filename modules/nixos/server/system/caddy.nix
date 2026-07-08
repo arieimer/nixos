@@ -38,6 +38,10 @@ in {
           handle @beszel {
             reverse_proxy localhost:8090
           }
+          @paperless host paperless.arieimer.net
+          handle @paperless {
+            reverse_proxy localhost:8000
+          }
           handle {
             respond "Not found" 404
           }

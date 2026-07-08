@@ -81,6 +81,7 @@ in {
     hj = {
       packages = [
         pkgs.xwayland-satellite
+        pkgs.playerctl
       ];
       xdg.config.files."niri/config.kdl".text = ''
         ${concatStringsSep "\n" (mapAttrsToList monitorSettings cfg.monitors)}
@@ -193,6 +194,10 @@ in {
           XF86AudioMute { spawn-sh "noctalia msg volume-mute"; }
           XF86MonBrightnessUp { spawn-sh "noctalia msg brightness-up"; }
           XF86MonBrightnessDown { spawn-sh "noctalia msg brightness-down"; }
+
+          Mod+Shift+U { spawn "playerctl" "previous"; }
+          Mod+Shift+I { spawn "playerctl" "play-pause"; }
+          Mod+Shift+O { spawn "playerctl" "next"; }
 
           ${workspaceBinds}
 

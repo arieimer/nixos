@@ -17,6 +17,7 @@
       jellyfin.enable = true;
       minecraft.enable = true;
       beszel.enable = true;
+      paperless.enable = true;
     };
     user = {
       username = "ari";

@@ -12,7 +12,8 @@ My personal NixOS configuration built against unstable with
 ├── hosts/
 │   ├── iso
 │   ├── kaishi
-│   └── katei
+│   ├── katei
+│   └── aomori 
 │
 ├── modules/
 │   └── nixos/

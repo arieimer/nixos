@@ -15,6 +15,8 @@
     programs = {
       syncthing.enable = true;
       jellyfin.enable = true;
+      minecraft.enable = true;
+      beszel.enable = true;
     };
     user = {
       username = "ari";

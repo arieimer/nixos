@@ -30,6 +30,14 @@ in {
           handle @immich {
             reverse_proxy localhost:2283
           }
+          @minecraft host minecraft.arieimer.net
+          handle @minecraft {
+            reverse_proxy localhost:25565
+          }
+          @beszel host beszel.arieimer.net
+          handle @beszel {
+            reverse_proxy localhost:8090
+          }
           handle {
             respond "Not found" 404
           }

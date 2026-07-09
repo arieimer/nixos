@@ -14,7 +14,7 @@ in {
         "--network=host"
       ];
       volumes = [
-        "/home/${config.cfg.user.username}/Uptime-kuma/data:/data"
+        "/home/${config.cfg.user.username}/Uptime-kuma/data:/app/data"
       ];
       autoStart = true;
     };

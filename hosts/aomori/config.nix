@@ -10,6 +10,7 @@
       tailscale.enable = true;
       podman.enable = true;
       caddy.enable = true;
+      dns.enable = true;
       amd.enable = true;
     };
     programs = {
@@ -19,6 +20,7 @@
       beszel.enable = true;
       paperless.enable = true;
       uptime-kuma.enable = true;
+      adguardhome.enable = true;
     };
     user = {
       username = "ari";

@@ -61,7 +61,7 @@ in {
               Default = "DuckDuckGo";
               Add = [
                 {
-                  Name = "nixpkgs packages";
+                  Name = "NixOS packages";
                   URLTemplate = "https://search.nixos.org/packages?query={searchTerms}";
                   IconURL = "https://wiki.nixos.org/favicon.ico";
                   Alias = "@np";
@@ -73,10 +73,22 @@ in {
                   Alias = "@no";
                 }
                 {
-                  Name = "noogle";
+                  Name = "Noogle";
                   URLTemplate = "https://noogle.dev/q?term={searchTerms}";
                   IconURL = "https://noogle.dev/favicon.ico";
                   Alias = "@ng";
+                }
+                {
+                  Name = "Claude";
+                  URLTemplate = "https://claude.ai/new?q={searchTerms}";
+                  IconURL = "https://claude.ai/favicon.ico";
+                  Alias = "@cl";
+                }
+                {
+                  Name = "Jisho";
+                  URLTemplate = "https://jisho.org/search/{searchTerms}";
+                  IconURL = "https://jisho.org/favicon.ico";
+                  Alias = "@ji";
                 }
               ];
               Remove = [

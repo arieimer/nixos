@@ -46,6 +46,10 @@ in {
           handle @uptime-kuma {
             reverse_proxy localhost:3001
           }
+          @adguardhome host adguard.arieimer.net
+          handle @adguardhome {
+            reverse_proxy localhost:3000
+          }
           handle {
             respond "Not found" 404
           }

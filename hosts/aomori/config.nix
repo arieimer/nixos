@@ -15,6 +15,7 @@
     };
     programs = {
       syncthing.enable = true;
+      immich.enable = true;
       jellyfin.enable = true;
       minecraft.enable = true;
       beszel.enable = true;

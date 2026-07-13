@@ -61,6 +61,7 @@ in {
         OPS = "7939";
         DUMP_SERVER_PROPERTIES = "TRUE";
         CREATE_CONSOLE_IN_PIPE = "true";
+        CURSEFORGE_FILES = "https://www.curseforge.com/minecraft/mc-mods/ae2-fluid-crafting-rework,https://www.curseforge.com/minecraft/mc-mods/flux-networks,https://www.curseforge.com/minecraft/mc-mods/lazy-ae2,https://www.curseforge.com/minecraft/mc-mods/zbgt,https://www.curseforge.com/minecraft/mc-mods/libnine";
       };
       volumes = [
         "/home/${config.cfg.user.username}/Minecraft/nomi-ceu:/data"

@@ -90,6 +90,12 @@ in {
                   IconURL = "https://jisho.org/favicon.ico";
                   Alias = "@ji";
                 }
+                {
+                  Name = "Nadeshiko";
+                  URLTemplate = "https://nadeshiko.co/ja/search/{searchTerms}";
+                  IconURL = "https://nadeshiko.co/favicon.ico";
+                  Alias = "@ns";
+                }
               ];
               Remove = [
                 "Bing"

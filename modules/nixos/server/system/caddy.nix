@@ -34,13 +34,17 @@ in {
           handle @minecraft {
             reverse_proxy localhost:25565
           }
+          @mc host mc.arieimer.net
+          handle @mc {
+            reverse_proxy localhost:25565
+          }
           @beszel host beszel.arieimer.net
           handle @beszel {
             reverse_proxy localhost:8090
           }
           @paperless host paperless.arieimer.net
           handle @paperless {
-            reverse_proxy localhost:8000
+            reverse_proxy localhost:28981
           }
           @uptime-kuma host status.arieimer.net
           handle @uptime-kuma {

@@ -15,6 +15,7 @@ in {
       openFirewall = true;
       extraUpFlags = ["--ssh"];
     };
+    services.resolved.enable = true;
     sops.secrets."tailscale" = {};
   };
 }

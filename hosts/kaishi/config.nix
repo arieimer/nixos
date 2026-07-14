@@ -24,7 +24,6 @@
       bluetooth.enable = true;
       udiskie.enable = true;
       gtk.enable = true;
-      dns.enable = true;
     };
     programs = {
       ghostty.enable = true;

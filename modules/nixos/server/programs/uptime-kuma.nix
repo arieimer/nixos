@@ -8,18 +8,15 @@
 in {
   options.cfg.programs.uptime-kuma.enable = mkEnableOption "uptime-kuma";
   config = mkIf cfg.enable {
-    virtualisation.oci-containers.containers.uptime-kuma = {
-      image = "louislam/uptime-kuma:2";
-      extraOptions = [
-        "--network=host"
-      ];
-      volumes = [
-        "/home/${config.cfg.user.username}/Uptime-kuma/data:/app/data"
-      ];
-      autoStart = true;
+    services.uptime-kuma = {
+      enable = true;
     };
-    cfg.preservation.homeDirectories = [
-      "Uptime-kuma/data"
+    systemd.services.adguardhome.serviceConfig.DynamicUser = lib.mkForce false;
+    cfg.preservation.directories = [
+      {
+        directory = "/var/lib/uptime-kuma";
+        user = "uptime-kuma";
+      }
     ];
   };
 }

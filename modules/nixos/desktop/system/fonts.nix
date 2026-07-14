@@ -19,6 +19,7 @@ in {
           ];
           sansSerif = [
             "Inter Variable"
+            "Noto Sans CJK JP"
           ];
           monospace = [
             "Symbols Nerd Font Mono"

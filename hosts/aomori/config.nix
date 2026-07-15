@@ -10,7 +10,6 @@
       tailscale.enable = true;
       podman.enable = true;
       caddy.enable = true;
-      dns.enable = true;
       amd.enable = true;
     };
     programs = {

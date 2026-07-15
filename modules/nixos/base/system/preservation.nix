@@ -4,13 +4,14 @@
   lib,
   ...
 }: let
-  inherit (lib) mkOption types;
+  inherit (lib) mkOption mkEnableOption types mkIf;
   cfg = config.cfg.preservation;
 in {
   imports = [
     inputs.preservation.nixosModules.default
   ];
   options.cfg.preservation = {
+    enable = mkEnableOption "preservation";
     directories = mkOption {
       type = types.listOf (types.either types.str (types.attrsOf types.str));
       default = [];
@@ -20,15 +21,15 @@ in {
       default = [];
     };
     files = mkOption {
-      type = types.listOf types.str;
+      type = types.listOf (types.either types.str (types.attrsOf types.str));
       default = [];
     };
     homeFiles = mkOption {
-      type = types.listOf types.str;
+      type = types.listOf (types.either types.str (types.attrsOf types.str));
       default = [];
     };
   };
-  config = {
+  config = mkIf cfg.enable {
     preservation = {
       enable = true;
       preserveAt."/persistent" = {

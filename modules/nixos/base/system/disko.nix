@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  inherit (lib) mkOption types;
+  inherit (lib) mkOption types mkIf;
   cfg = config.cfg.disko;
 in {
   imports = [
@@ -26,7 +26,7 @@ in {
   };
   config = {
     disko.devices = {
-      nodev."/" = {
+      nodev."/" = mkIf config.cfg.preservation.enable {
         fsType = "tmpfs";
         mountOptions = [
           "size=${toString cfg.tmpfsSize}%"
@@ -64,9 +64,13 @@ in {
                 type = "btrfs";
                 extraArgs = ["-f"];
                 subvolumes = {
-                  "/persistent" = {
+                  "/persistent" = mkIf config.cfg.preservation.enable {
                     mountOptions = ["subvol=persistent" "noatime"];
                     mountpoint = "/persistent";
+                  };
+                  "/root" = mkIf (!config.cfg.preservation.enable) {
+                    mountpoint = "/";
+                    mountOptions = ["noatime" "compress=zstd:1"];
                   };
                   "/nix" = {
                     mountOptions = ["subvol=nix" "noatime" "compress=zstd:1"];

@@ -5,6 +5,7 @@
     self.nixosModules.desktop
   ];
   cfg = {
+    preservation.enable = true;
     system = {
       kernel = {
         type = "cachyos-v3";

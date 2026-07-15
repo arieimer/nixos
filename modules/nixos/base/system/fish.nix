@@ -21,14 +21,13 @@ in {
       enable = true;
       interactiveShellInit = ''
         set -g fish_greeting ""
+
         alias ... "cd ../.."
-        function nsp
-          nix-shell -p $argv --command "fish"
-        end
         alias ls "${getExe pkgs.eza} --color always --icons --group-directories-first"
         alias cat "${getExe pkgs.bat}"
         alias grep "${getExe pkgs.ripgrep}"
         alias fetch "${getExe pkgs.microfetch}"
+
         function y
           set tmp (mktemp -t "yazi-cwd.XXXXX")
           yazi $argv --cwd-file="$tmp"
@@ -38,6 +37,10 @@ in {
           rm -f -- "$tmp"
         end
 
+        function nsp
+          nix-shell -p $argv --command "fish"
+        end
+
         function sudo
           if test "$argv" = !!
             eval command sudo $history[1]
@@ -45,6 +48,7 @@ in {
             command sudo $argv
           end
         end
+
         zoxide init fish --cmd cd | source
       '';
     };

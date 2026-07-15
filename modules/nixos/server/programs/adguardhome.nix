@@ -13,11 +13,11 @@ in {
       mutableSettings = false;
       settings = {
         http = {
-          address = "100.112.194.46:3000";
+          address = "100.83.82.126:3000";
         };
         dns = {
           bind_hosts = [
-            "100.112.194.46"
+            "100.83.82.126"
           ];
           bootstrap_dns = [
             "9.9.9.10"
@@ -27,17 +27,13 @@ in {
           ];
           port = 53;
         };
+        filtering.blocked_services = {
+          ids = [
+            "reddit"
+            "twitter"
+          ];
+        };
       };
     };
-    systemd.services.adguardhome = {
-      after = ["tailscaled.service" "network-online.target"];
-      wants = ["tailscaled.service" "network-online.target"];
-    };
-    cfg.preservation.directories = [
-      {
-        directory = "/var/lib/AdGuardHome";
-        user = "adguardhome";
-      }
-    ];
   };
 }

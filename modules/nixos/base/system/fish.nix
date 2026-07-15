@@ -12,6 +12,7 @@ in {
     cfg.preservation.homeDirectories = [".local/share/zoxide"];
     hj.packages = [
       pkgs.dua
+      pkgs.wl-clipboard
       pkgs.onefetch
       pkgs.fzf
       pkgs.zoxide

@@ -13,12 +13,11 @@
       amd.enable = true;
     };
     programs = {
-      syncthing.enable = true;
-      immich.enable = true;
-      jellyfin.enable = true;
-      minecraft.enable = true;
-      beszel.enable = true;
-      paperless.enable = true;
+      # syncthing.enable = true;
+      # immich.enable = true;
+      # jellyfin.enable = true;
+      # minecraft.enable = true;
+      # paperless.enable = true;
       uptime-kuma.enable = true;
       adguardhome.enable = true;
     };

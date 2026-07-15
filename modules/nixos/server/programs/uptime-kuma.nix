@@ -10,13 +10,8 @@ in {
   config = mkIf cfg.enable {
     services.uptime-kuma = {
       enable = true;
+      settings = {
+      };
     };
-    systemd.services.adguardhome.serviceConfig.DynamicUser = lib.mkForce false;
-    cfg.preservation.directories = [
-      {
-        directory = "/var/lib/uptime-kuma";
-        user = "uptime-kuma";
-      }
-    ];
   };
 }

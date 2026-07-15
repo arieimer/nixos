@@ -30,7 +30,7 @@
       ghostty.enable = true;
       syncthing.enable = true;
       ente.enable = true;
-      # atuin.enable = true;
+      atuin.enable = true;
       obsidian.enable = true;
       direnv.enable = true;
       # bitwarden.enable = true; # broken build is a broken build

@@ -18,11 +18,5 @@ in {
         PAPERLESS_ADMIN_USER = "ari";
       };
     };
-    cfg.preservation.directories = [
-      {
-        directory = "/var/lib/paperless";
-        user = config.services.paperless.user;
-      }
-    ];
   };
 }

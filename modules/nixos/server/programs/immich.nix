@@ -11,12 +11,5 @@ in {
     services.immich = {
       enable = true;
     };
-    cfg.preservation.directories = [
-      {
-        directory = "/var/lib/immich";
-        user = config.services.immich.user;
-        group = config.services.immich.group;
-      }
-    ];
   };
 }

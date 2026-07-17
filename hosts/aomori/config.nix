@@ -18,7 +18,8 @@
       # jellyfin.enable = true;
       # minecraft.enable = true;
       # paperless.enable = true;
-      uptime-kuma.enable = true;
+      atuin.enable = true;
+      gatus.enable = true;
       adguardhome.enable = true;
     };
     user = {

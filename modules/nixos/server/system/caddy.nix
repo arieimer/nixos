@@ -4,10 +4,31 @@
   lib,
   ...
 }: let
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) mkEnableOption mkOption mkIf mapAttrsToList concatStringsSep types;
   cfg = config.cfg.system.caddy;
+
+  mkVhost = name: proxyCfg: ''
+    @${name} host ${name}.arieimer.net
+    handle @${name} {
+      reverse_proxy localhost:${toString proxyCfg.port}
+    }
+  '';
 in {
-  options.cfg.system.caddy.enable = mkEnableOption "caddy";
+  options.cfg.system.caddy = {
+    enable = mkEnableOption "caddy";
+
+    proxies = mkOption {
+      type = types.attrsOf (types.submodule {
+        options = {
+          port = mkOption {
+            type = types.port;
+          };
+        };
+      });
+      default = {};
+    };
+  };
+
   config = mkIf cfg.enable {
     services.caddy = {
       enable = true;
@@ -16,41 +37,17 @@ in {
         hash = "sha256-hEHgAG0F0ozHRAPuxEqLyTATBrE+pajeXDiSNwniorg=";
       };
       environmentFile = config.sops.secrets."cloudflare".path;
-      virtualHosts."*.arieimer.net" = {
-        extraConfig = ''
-          tls {
-            dns cloudflare {env.CLOUDFLARE_API_TOKEN}
-          }
+      virtualHosts."*.arieimer.net".extraConfig = ''
+        tls {
+          dns cloudflare {env.CLOUDFLARE_API_TOKEN}
+        }
 
-          @jellyfin host jellyfin.arieimer.net
-          handle @jellyfin {
-            reverse_proxy localhost:8096
-          }
-          @immich host immich.arieimer.net
-          handle @immich {
-            reverse_proxy localhost:2283
-          }
-          @beszel host beszel.arieimer.net
-          handle @beszel {
-            reverse_proxy localhost:8090
-          }
-          @paperless host paperless.arieimer.net
-          handle @paperless {
-            reverse_proxy localhost:28981
-          }
-          @uptime-kuma host status.arieimer.net
-          handle @uptime-kuma {
-            reverse_proxy localhost:3001
-          }
-          @adguardhome host adguard.arieimer.net
-          handle @adguardhome {
-            reverse_proxy localhost:3000
-          }
-          handle {
-            respond "Not found" 404
-          }
-        '';
-      };
+        ${concatStringsSep "\n" (mapAttrsToList mkVhost cfg.proxies)}
+
+        handle {
+          respond "Not found" 404
+        }
+      '';
     };
     sops.secrets."cloudflare".owner = config.services.caddy.user;
   };

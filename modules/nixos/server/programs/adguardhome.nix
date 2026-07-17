@@ -8,6 +8,7 @@
 in {
   options.cfg.programs.adguardhome.enable = mkEnableOption "adguard-home";
   config = mkIf cfg.enable {
+    cfg.system.caddy.proxies.adguard.port = 3000;
     services.adguardhome = {
       enable = true;
       mutableSettings = false;

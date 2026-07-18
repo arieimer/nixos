@@ -16,6 +16,10 @@ in {
   options.cfg.programs.noctalia.enable = mkEnableOption "noctalia";
   config = mkIf cfg.enable {
     cfg.preservation.homeDirectories = [".local/state/noctalia"];
+    sops.secrets."radicale_noctalia" = {
+      owner = config.cfg.user.username;
+      path = "/home/${config.cfg.user.username}/.local/state/noctalia/state.toml";
+    };
     hjem.extraModules = [
       inputs.noctalia.hjemModules.default
     ];
@@ -40,6 +44,17 @@ in {
             screenshot = {
               directory = "~/Pictures/Screenshots";
               copy_to_clipboard = true;
+            };
+          };
+          calendar = {
+            enabled = true;
+            refresh_minutes = 10;
+            account.radicale = {
+              type = "caldav";
+              name = "School";
+              provider = "custom";
+              server_url = "https://radicale.arieimer.net";
+              username = "ari";
             };
           };
           desktop_widgets.enabled = false;

@@ -9,6 +9,7 @@ in {
   options.cfg.programs.radicale.enable = mkEnableOption "radicale";
   config = mkIf cfg.enable {
     cfg.system.caddy.proxies.radicale.port = 5232;
+    cfg.programs.gatus.endpoint.Radicale.url = "https://radicale.arieimer.net";
     sops.secrets.radicale.owner = config.services.radicale.user;
     services.radicale = {
       enable = true;

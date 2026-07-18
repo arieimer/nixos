@@ -8,6 +8,8 @@
 in {
   options.cfg.programs.paperless.enable = mkEnableOption "paperless";
   config = mkIf cfg.enable {
+    cfg.system.caddy.proxies.paperless.port = 28981;
+    cfg.programs.gatus.endpoint.Paperless.url = "https://paperless.arieimer.net";
     sops.secrets."paperless_password" = {};
     services.paperless = {
       enable = true;

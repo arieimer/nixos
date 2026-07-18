@@ -18,7 +18,7 @@
       # jellyfin.enable = true;
       minecraft.enable = true;
       radicale.enable = true;
-      # paperless.enable = true;
+      paperless.enable = true;
       atuin.enable = true;
       gatus.enable = true;
       adguardhome.enable = true;

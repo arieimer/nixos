@@ -9,6 +9,7 @@ in {
   options.cfg.programs.adguardhome.enable = mkEnableOption "adguard-home";
   config = mkIf cfg.enable {
     cfg.system.caddy.proxies.adguard.port = 3000;
+    cfg.programs.gatus.endpoint.AdGuardHome.url = "https://adguard.arieimer.net";
     services.adguardhome = {
       enable = true;
       mutableSettings = false;

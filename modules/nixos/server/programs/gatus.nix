@@ -33,6 +33,15 @@ in {
               "[BODY].version != \"\""
             ];
           }
+          {
+            name = "Radicale";
+            url = "https://radicale.arieimer.net";
+            interval = "5m";
+            conditions = [
+              "[STATUS] == 200"
+              "[RESPONSE_TIME] < 300"
+            ];
+          }
         ];
       };
     };

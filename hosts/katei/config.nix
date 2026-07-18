@@ -16,6 +16,7 @@
     };
     user = {
       username = "ari";
+      timeZone = "America/Chicago";
     };
     disko = {
       disk = "/dev/disk/by-id/ata-256GB_SSD_CM53CBH2606858";

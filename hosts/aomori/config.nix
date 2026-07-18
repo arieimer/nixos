@@ -25,6 +25,7 @@
     };
     user = {
       username = "ari";
+      timeZone = "America/Chicago";
     };
     disko = {
       disk = "/dev/disk/by-id/nvme-WD_Blue_SN570_500GB_222622801561";

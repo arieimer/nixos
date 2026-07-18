@@ -78,6 +78,7 @@
     user = {
       username = "ari";
       email = "ari.eimer@proton.me";
+      timeZone = "America/Chicago";
     };
     disko = {
       disk = "/dev/disk/by-id/nvme-ADATA_SX8200PNP_2O042924KCY";

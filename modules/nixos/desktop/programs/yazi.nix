@@ -21,18 +21,37 @@ in {
         require("no-status"):setup()
         require("git"):setup()
       '';
-      settings.yazi = {
-        plugin = {
-          prepend_fetchers = [
+      settings = {
+        yazi = {
+          plugin = {
+            prepend_fetchers = [
+              {
+                url = "*";
+                run = "git";
+                group = "git";
+              }
+              {
+                url = "*/";
+                run = "git";
+                group = "git";
+              }
+            ];
+          };
+        };
+        vfs = {
+          services.aomori = {
+            type = "sftp";
+            host = "aomori";
+            user = "ari";
+            port = 22;
+          };
+        };
+        keymap = {
+          mgr.prepend_keymap = [
             {
-              url = "*";
-              run = "git";
-              group = "git";
-            }
-            {
-              url = "*/";
-              run = "git";
-              group = "git";
+              on = ["g" "s"];
+              run = "cd sftp://aomori";
+              desc = "Enter aomori";
             }
           ];
         };

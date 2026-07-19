@@ -13,9 +13,9 @@
       amd.enable = true;
     };
     programs = {
-      # syncthing.enable = true;
+      syncthing.enable = true;
       # immich.enable = true;
-      # jellyfin.enable = true;
+      jellyfin.enable = true;
       minecraft.enable = true;
       radicale.enable = true;
       paperless.enable = true;

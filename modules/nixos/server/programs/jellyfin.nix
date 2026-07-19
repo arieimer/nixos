@@ -8,13 +8,38 @@
 in {
   options.cfg.programs.jellyfin.enable = mkEnableOption "jellyfin";
   config = mkIf cfg.enable {
+    cfg.system.caddy.proxies.jellyfin.port = 8096;
+    cfg.programs.gatus.endpoint.Jellyfin.url = "https://jellyfin.arieimer.net";
     services.jellyfin = {
       enable = true;
       hardwareAcceleration = {
         enable = true;
-        type = "amf";
+        type = "vaapi";
         device = "/dev/dri/renderD128";
       };
+      forceEncodingConfig = true;
+      transcoding = {
+        enableHardwareEncoding = true;
+
+        hardwareDecodingCodecs = {
+          h264 = true;
+          hevc = true;
+          vp8 = true;
+          vp9 = true;
+          av1 = true;
+        };
+        hardwareEncodingCodecs.hevc = true;
+        enableToneMapping = true;
+        encodingPreset = "auto";
+      };
     };
+    systemd.tmpfiles.rules = [
+      # "d /srv/media 02775 root media -"
+      # "d /srv/media/Movies 02775 jellyfin media -"
+      # "d /srv/media/TV 02775 jellyfin media -"
+      "d /srv/media/Music 02775 jellyfin media -"
+    ];
+    users.groups.media = {};
+    users.users.jellyfin.extraGroups = ["render" "video" "media"];
   };
 }

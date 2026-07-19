@@ -48,6 +48,7 @@ in {
         [href='/shop'],
         div[aria-label="Open sticker picker"],
         div[aria-label="Apps"],
+        div[aria-label="Discover"],
         div[aria-label="Open GIF picker"],
         div[aria-label="Send a gift"] {
                 display: none;

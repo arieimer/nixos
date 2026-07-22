@@ -19,7 +19,7 @@ in {
       greeter-args = "--user ${config.cfg.user.username}";
       settings = {
         cursor = mkIf config.cfg.system.cursor.enable {
-          package = pkgs.bibata-cursors;
+          package = "${pkgs.bibata-cursors}/share/icons";
           theme = "Bibata-Modern-Ice";
           size = 24;
         };

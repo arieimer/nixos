@@ -34,10 +34,10 @@ in {
       };
     };
     systemd.tmpfiles.rules = [
-      # "d /srv/media 02775 root media -"
+      "d /srv/tampa/media 02775 root media -"
       # "d /srv/media/Movies 02775 jellyfin media -"
       # "d /srv/media/TV 02775 jellyfin media -"
-      "d /srv/media/Music 02775 jellyfin media -"
+      "d /srv/tampa/media/Music 02775 jellyfin media -"
     ];
     users.groups.media = {};
     users.users.jellyfin.extraGroups = ["render" "video" "media"];

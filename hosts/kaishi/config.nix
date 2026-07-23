@@ -70,7 +70,14 @@
           "HDMI-A-1" = {
             mode = "1920x1080@74.973";
             scale = 1;
-            position = "x=-1920 y=0";
+            position = "x=-1080 y=-420";
+            transform = "90";
+            extraConfig = ''
+              layout {
+                default-column-width { proportion 1.0; }
+                preset-window-heights { proportion 0.5; }
+              }
+            '';
           };
         };
       };

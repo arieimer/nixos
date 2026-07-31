@@ -27,6 +27,7 @@ in {
       packages = [pkgs.songrec];
       programs.noctalia = {
         enable = true;
+        package = pkgs.noctalia;
         settings = {
           shell = {
             time_format = "{:%-I:%M %p}";

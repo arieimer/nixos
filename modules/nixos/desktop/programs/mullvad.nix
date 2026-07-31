@@ -1,19 +1,13 @@
 {
   config,
-  pkgs,
   lib,
   ...
 }: let
   inherit (lib) mkIf mkEnableOption;
   cfg = config.cfg.programs.mullvad;
-  mullvadType =
-    if cfg.enableGUI
-    then pkgs.mullvad-vpn
-    else pkgs.mullvad;
 in {
   options.cfg.programs.mullvad = {
     enable = mkEnableOption "mullvad-vpn";
-    enableGUI = mkEnableOption "mullvad-vpn GUI";
   };
   config = mkIf cfg.enable {
     cfg.preservation.directories = ["/etc/mullvad-vpn"];
@@ -27,7 +21,7 @@ in {
 
     services.mullvad-vpn = {
       enable = true;
-      package = mullvadType;
+      gui.enable = true;
     };
     sops.secrets."mullvad".owner = config.cfg.user.username;
   };

@@ -21,6 +21,7 @@
       pipewire.enable = true;
       xdg.enable = true;
       cursor.enable = true;
+      electron.enable = true;
       qt.enable = true;
       bluetooth.enable = true;
       udiskie.enable = true;
@@ -34,11 +35,9 @@
       obsidian.enable = true;
       direnv.enable = true;
       # bitwarden.enable = true; # broken build is a broken build
-      mullvad = {
-        enable = true;
-        enableGUI = true;
-      };
+      mullvad.enable = true;
       mpv.enable = true;
+      zeditor.enable = true;
       obs.enable = true;
       anki.enable = true;
       jellyfin-tui.enable = true;

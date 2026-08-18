@@ -34,7 +34,7 @@
       atuin.enable = true;
       obsidian.enable = true;
       direnv.enable = true;
-      # bitwarden.enable = true; # broken build is a broken build
+      bitwarden.enable = true;
       mullvad.enable = true;
       mpv.enable = true;
       zeditor.enable = true;

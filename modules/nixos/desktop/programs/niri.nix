@@ -113,7 +113,7 @@ in {
           opacity 1.0
         }
         window-rule {
-          match app-id=r#"^io\.ente\.auth$"#
+          match app-id=r#"^(bitwarden|io\.ente\.auth)$"#
           block-out-from "screencast"
         }
         cursor {

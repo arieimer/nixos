@@ -13,6 +13,7 @@ in {
     hj = {
       packages = [
         pkgs.anki
+        pkgs.python3
       ];
       # Beyond hacky fix for AJT mecab controller
       xdg.data.files."Anki2/addons21/200813220/mecab_controller/support/mecab.lin" = {

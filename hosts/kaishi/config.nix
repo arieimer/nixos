@@ -8,7 +8,8 @@
     preservation.enable = true;
     system = {
       kernel = {
-        type = "cachyos-v3";
+        # type = "cachyos-v3";
+        type = "latest";
         scx.enable = true;
       };
       nvidia.enable = true;

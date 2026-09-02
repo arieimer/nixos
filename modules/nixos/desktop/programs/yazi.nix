@@ -39,8 +39,7 @@ in {
           };
         };
         vfs = {
-          services.aomori = {
-            type = "sftp";
+          sftp.aomori = {
             host = "aomori";
             user = "ari";
             port = 22;

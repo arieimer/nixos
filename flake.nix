@@ -16,7 +16,6 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     preservation.url = "github:nix-community/preservation";
     treefmt-nix.url = "github:numtide/treefmt-nix";
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     nvf = {
       url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";

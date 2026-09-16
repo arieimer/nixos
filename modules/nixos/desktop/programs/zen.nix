@@ -45,8 +45,7 @@ in {
     cfg.preservation.homeDirectories = [".config/zen" ".cache/zen"];
     hj.packages = [
       (
-        pkgs.wrapFirefox
-        inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.zen-browser-unwrapped
+        inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default.override
         {
           extraPrefs = lib.concatLines (
             lib.mapAttrsToList (
@@ -95,6 +94,24 @@ in {
                   URLTemplate = "https://nadeshiko.co/ja/search/{searchTerms}";
                   IconURL = "https://nadeshiko.co/favicon.ico";
                   Alias = "@ns";
+                }
+                {
+                  Name = "ProtonDB";
+                  URLTemplate = "https://www.protondb.com/search?q={searchTerms}";
+                  IconURL = "https://www.protondb.com/favicon.ico";
+                  Alias = "@pd";
+                }
+                {
+                  Name = "ProtonDB";
+                  URLTemplate = "https://www.protondb.com/search?q={searchTerms}";
+                  IconURL = "https://www.protondb.com/favicon.ico";
+                  Alias = "@pd";
+                }
+                {
+                  Name = "Amazon";
+                  URLTemplate = "https://www.amazon.com/s?k={searchTerms}";
+                  IconURL = "https://www.amazon.com/favicon.ico";
+                  Alias = "@am";
                 }
               ];
               Remove = [

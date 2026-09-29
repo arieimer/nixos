@@ -10,21 +10,24 @@ in {
   config = mkIf cfg.enable {
     sops.secrets."Minecraft" = {};
     hj.files."Minecraft".type = "directory";
-    virtualisation.oci-containers.containers.gtnh = mkIf false {
-      image = "itzg/minecraft-server:java25";
+    virtualisation.oci-containers.containers.gtnh = mkIf true {
+      image = "docker.io/itzg/minecraft-server:java25";
       ports = ["25565:25565"];
       environmentFiles = [config.sops.secrets."Minecraft".path];
       environment = {
         TYPE = "GTNH";
-        GTNH_PACK_VERSION = "2.8.4";
+        GTNH_PACK_VERSION = "2.9.0-RC-1";
+        SEED = "3274142658973974225";
         MEMORY = "8G";
+        # JVM_OPTS = "-Dfml.queryResult=confirm";
+        # SKIP_GTNH_UPDATE_CHECK = "true";
       };
       volumes = [
         "/home/${config.cfg.user.username}/Minecraft/gtnh:/data"
       ];
     };
     virtualisation.oci-containers.containers.starT = mkIf false {
-      image = "itzg/minecraft-server:java17";
+      image = "docker.io/itzg/minecraft-server:java17";
       ports = ["25565:25565"];
       environmentFiles = [config.sops.secrets."Minecraft".path];
       environment = {
@@ -38,8 +41,8 @@ in {
         "/home/${config.cfg.user.username}/Minecraft/starT:/data"
       ];
     };
-    virtualisation.oci-containers.containers.nomi-ceu = mkIf true {
-      image = "itzg/minecraft-server:java8";
+    virtualisation.oci-containers.containers.nomi-ceu = mkIf false {
+      image = "docker.io/itzg/minecraft-server:java8";
       ports = ["25565:25565"];
       environmentFiles = [config.sops.secrets."Minecraft".path];
       environment = {
@@ -52,6 +55,18 @@ in {
       };
       volumes = [
         "/home/${config.cfg.user.username}/Minecraft/nomi-ceu:/data"
+      ];
+    };
+    virtualisation.oci-containers.containers.vanilla = mkIf false {
+      image = "docker.io/itzg/minecraft-server";
+      ports = ["25565:25565"];
+      environmentFiles = [config.sops.secrets."Minecraft".path];
+      environment = {
+        TYPE = "FABRIC";
+        MEMORY = "8G";
+      };
+      volumes = [
+        "/home/${config.cfg.user.username}/Minecraft/vanilla:/data"
       ];
     };
   };

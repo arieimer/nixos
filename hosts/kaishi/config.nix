@@ -29,6 +29,7 @@
     };
     programs = {
       ghostty.enable = true;
+      helium.enable = true;
       cider.enable = true;
       syncthing.enable = true;
       ente.enable = true;

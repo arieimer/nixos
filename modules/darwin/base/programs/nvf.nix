@@ -1,0 +1,92 @@
+{
+  inputs,
+  config,
+  lib,
+  ...
+}: let
+  inherit (lib) mkEnableOption mkIf;
+  cfg = config.cfg.programs.nvf;
+in {
+  imports = [inputs.nvf.darwinModules.default];
+
+  options.cfg.programs.nvf.enable = mkEnableOption "nvf";
+
+  config = mkIf cfg.enable {
+    programs.nvf = {
+      enable = true;
+      defaultEditor = true;
+      settings.vim = {
+        autocmds = [
+          {
+            # Remove when nvf#1937 is fixed.
+            enable = true;
+            event = ["BufEnter"];
+            pattern = ["*"];
+            command = "setlocal indentexpr=nvim_treesitter#indent()";
+          }
+        ];
+        viAlias = true;
+        vimAlias = true;
+        lsp = {
+          enable = true;
+          formatOnSave = true;
+          lspkind.enable = true;
+          lspsaga.enable = true;
+          lightbulb.enable = true;
+          trouble.enable = true;
+          otter-nvim.enable = true;
+        };
+        opts = {
+          expandtab = true;
+          smartindent = true;
+          tabstop = 2;
+          shiftwidth = 2;
+          softtabstop = 2;
+        };
+        languages = {
+          enableFormat = true;
+          enableTreesitter = true;
+          enableExtraDiagnostics = true;
+
+          nix.enable = true;
+          java.enable = true;
+          markdown.enable = true;
+          lua.enable = true;
+          bash.enable = true;
+          rust = {
+            enable = true;
+            extensions.crates-nvim.enable = true;
+          };
+        };
+        autocomplete.blink-cmp.enable = true;
+        ui = {
+          borders.enable = true;
+          noice.enable = true;
+          colorizer.enable = true;
+          illuminate.enable = true;
+        };
+        visuals = {
+          nvim-scrollbar.enable = true;
+          nvim-web-devicons.enable = true;
+          nvim-cursorline.enable = true;
+          cinnamon-nvim.enable = true;
+          fidget-nvim.enable = true;
+          highlight-undo.enable = true;
+        };
+        git = {
+          enable = true;
+          gitsigns.enable = true;
+        };
+        binds = {
+          whichKey.enable = true;
+          cheatsheet.enable = true;
+        };
+        notify.nvim-notify.enable = true;
+        presence.neocord.enable = true;
+        autopairs.nvim-autopairs.enable = true;
+        statusline.lualine.enable = true;
+        filetree.neo-tree.enable = true;
+      };
+    };
+  };
+}

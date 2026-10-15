@@ -1,6 +1,6 @@
-# NixOS
+# NixOS and nix-darwin
 
-My personal NixOS configuration built against unstable with
+My personal NixOS and nix-darwin configuration built against unstable with
 [flake-parts](https://github.com/hercules-ci/flake-parts).
 
 ![image](.github/assets/hero.png)
@@ -10,12 +10,18 @@ My personal NixOS configuration built against unstable with
 ```txt
 .
 ├── hosts/
-│   ├── iso
-│   ├── kaishi
-│   ├── katei
-│   └── aomori 
+│   ├── darwin/
+│   │   └── saitama
+│   └── linux/
+│       ├── iso
+│       ├── kaishi
+│       ├── katei
+│       └── aomori
 │
 ├── modules/
+│   ├── darwin/
+│   │   └── base/
+│   │       └── system
 │   └── nixos/
 │       ├── base/
 │       │   ├── programs
@@ -38,7 +44,6 @@ My personal NixOS configuration built against unstable with
 
 - [preservation](https://github.com/nix-community/preservation)
 - [disko](https://github.com/nix-community/disko)
-- [cachyos-kernel](https://github.com/xddxdd/nix-cachyos-kernel)
 - [sops-nix](https://github.com/Mic92/sops-nix)
 - [hjem](https://github.com/feel-co/hjem)
 - NNN ([NixOS](https://nixos.org), [Niri](https://github.com/niri-wm/niri),

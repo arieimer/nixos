@@ -40,6 +40,9 @@ in {
           opts = {
             expandtab = true;
             smartindent = true;
+            tabstop = 2;
+            shiftwidth = 2;
+            softtabstop = 2;
           };
           languages = {
             enableFormat = true;
@@ -47,6 +50,7 @@ in {
             enableExtraDiagnostics = true;
 
             nix.enable = true;
+            java.enable = true;
             markdown.enable = true;
             lua.enable = true;
             bash.enable = true;

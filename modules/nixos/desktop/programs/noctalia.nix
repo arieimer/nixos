@@ -8,7 +8,7 @@
 }: let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.cfg.programs.noctalia;
-  hostsDir = ../../../../hosts;
+  hostsDir = ../../../../hosts/linux;
   avatar = builtins.path {
     path = hostsDir + "/${hostName}/profile.png";
   };

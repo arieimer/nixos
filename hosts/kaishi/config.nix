@@ -52,7 +52,6 @@
       prismlauncher.enable = true;
       heroic.enable = true;
       nixcord.enable = true;
-      zen.enable = true;
       nvf.enable = true;
       fcitx5.enable = true;
       nautilus.enable = true;

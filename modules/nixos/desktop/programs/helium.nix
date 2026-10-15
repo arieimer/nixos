@@ -12,7 +12,10 @@ in {
     inputs.helium.nixosModules.default
   ];
   config = mkIf cfg.enable {
-    cfg.preservation.homeDirectories = [".config/net.imput.helium"];
+    cfg.preservation.homeDirectories = [
+      ".config/net.imput.helium"
+      ".cache/net.imput.helium"
+    ];
     programs.helium = {
       enable = true;
       flags = [
@@ -99,6 +102,14 @@ in {
           }
         ];
       };
+    };
+    xdg.mime.defaultApplications = {
+      "application/pdf" = "helium.desktop";
+      "application/xhtml+xml" = "helium.desktop";
+      "text/html" = "helium.desktop";
+      "text/xml" = "helium.desktop";
+      "x-scheme-handler/http" = "helium.desktop";
+      "x-scheme-handler/https" = "helium.desktop";
     };
   };
 }

@@ -109,7 +109,7 @@ in {
           default-floating-position x=10 y=10 relative-to="bottom-right"
         }
         window-rule {
-          match app-id="zen"
+          match app-id="helium"
           opacity 1.0
         }
         window-rule {

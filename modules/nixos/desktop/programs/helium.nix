@@ -15,6 +15,7 @@ in {
     cfg.preservation.homeDirectories = [
       ".config/net.imput.helium"
       ".cache/net.imput.helium"
+      ".local/share/keyrings"
     ];
     programs.helium = {
       enable = true;

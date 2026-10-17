@@ -105,7 +105,6 @@ in {
       };
     };
     xdg.mime.defaultApplications = {
-      "application/pdf" = "helium.desktop";
       "application/xhtml+xml" = "helium.desktop";
       "text/html" = "helium.desktop";
       "text/xml" = "helium.desktop";

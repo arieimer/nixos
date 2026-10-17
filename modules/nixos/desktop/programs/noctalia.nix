@@ -203,6 +203,7 @@ in {
               ];
               community_ids = [
                 "discord"
+                "zathura"
               ];
             };
           };

@@ -32,6 +32,7 @@
       helium.enable = true;
       cider.enable = true;
       syncthing.enable = true;
+      zathura.enable = true;
       ente.enable = true;
       atuin.enable = true;
       obsidian.enable = true;

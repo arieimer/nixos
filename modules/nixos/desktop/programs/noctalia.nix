@@ -204,6 +204,8 @@ in {
               community_ids = [
                 "discord"
                 "zathura"
+                "heroic"
+                "prismlauncher"
               ];
             };
           };

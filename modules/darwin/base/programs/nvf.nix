@@ -51,6 +51,7 @@ in {
           nix.enable = true;
           java.enable = true;
           markdown.enable = true;
+          tex.enable = true;
           lua.enable = true;
           bash.enable = true;
           rust = {

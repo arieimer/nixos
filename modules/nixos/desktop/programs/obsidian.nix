@@ -9,6 +9,7 @@
 in {
   options.cfg.programs.obsidian.enable = mkEnableOption "obsidian";
   config = mkIf cfg.enable {
+    cfg.preservation.homeDirectories = [".config/obsidian"];
     hj = {
       packages = [pkgs.obsidian];
       xdg.config.files."obsidian/obsidian.json" = {

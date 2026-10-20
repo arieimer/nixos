@@ -52,6 +52,11 @@ in {
               run = "cd sftp://aomori";
               desc = "Enter aomori";
             }
+            {
+              on = "d";
+              run = "remove --permanently";
+              desc = "permanently delete selected files.";
+            }
           ];
         };
       };

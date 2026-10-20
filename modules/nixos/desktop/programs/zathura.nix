@@ -14,6 +14,7 @@ in {
       xdg.config.files."zathura/zathurarc".text = ''
         include noctaliarc
         set recolor true
+        set selection-clipboard clipboard
       '';
     };
     xdg.mime.defaultApplications."application/pdf" = "org.pwmt.zathura.desktop";

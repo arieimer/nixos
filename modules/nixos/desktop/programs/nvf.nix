@@ -28,6 +28,24 @@ in {
           ];
           viAlias = true;
           vimAlias = true;
+          keymaps = [
+            {
+              key = "<C-c>";
+              mode = "n";
+              action = "gcc";
+              noremap = false;
+              silent = true;
+              desc = "Toggle line comment";
+            }
+            {
+              key = "<C-c>";
+              mode = "v";
+              action = "gc";
+              noremap = false;
+              silent = true;
+              desc = "Toggle comment on selection";
+            }
+          ];
           lsp = {
             enable = true;
             formatOnSave = true;

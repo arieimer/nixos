@@ -18,6 +18,7 @@ in {
             pkgs.temurin-jre-bin-17
             pkgs.temurin-jre-bin-21
             pkgs.temurin-jre-bin-25
+            pkgs.temurin-jre-bin-26
           ];
         })
       ];

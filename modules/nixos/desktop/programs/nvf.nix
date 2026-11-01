@@ -30,6 +30,34 @@ in {
           vimAlias = true;
           keymaps = [
             {
+              key = "<leader>e";
+              mode = "n";
+              action = "<cmd>Neotree toggle<CR>";
+              silent = true;
+              desc = "Toggle Neo-tree";
+            }
+            {
+              key = "<leader>ff";
+              mode = "n";
+              action = "<cmd>Telescope find_files<CR>";
+              silent = true;
+              desc = "Find files";
+            }
+            {
+              key = "<leader>fg";
+              mode = "n";
+              action = "<cmd>Telescope live_grep<CR>";
+              silent = true;
+              desc = "Search text";
+            }
+            {
+              key = "<leader>fb";
+              mode = "n";
+              action = "<cmd>Telescope buffers<CR>";
+              silent = true;
+              desc = "Find buffers";
+            }
+            {
               key = "<C-c>";
               mode = "n";
               action = "gcc";
@@ -105,7 +133,11 @@ in {
           presence.neocord.enable = true;
           autopairs.nvim-autopairs.enable = true;
           statusline.lualine.enable = true;
+          tabline.nvimBufferline.enable = true;
+          dashboard.alpha.enable = true;
           filetree.neo-tree.enable = true;
+          telescope.enable = true;
+          utility.motion.precognition.enable = true;
         };
       };
     };

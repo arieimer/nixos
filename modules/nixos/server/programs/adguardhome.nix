@@ -15,7 +15,7 @@ in {
       mutableSettings = false;
       settings = {
         http = {
-          address = "100.83.82.126:3000";
+          address = "127.0.0.1:3000";
         };
         dns = {
           bind_hosts = [

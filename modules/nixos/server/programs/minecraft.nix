@@ -16,10 +16,9 @@ in {
       environmentFiles = [config.sops.secrets."Minecraft".path];
       environment = {
         TYPE = "GTNH";
-        GTNH_PACK_VERSION = "2.9.0-RC-1";
-        SEED = "3274142658973974225";
+        GTNH_PACK_VERSION = "2.9.0";
         MEMORY = "8G";
-        # JVM_OPTS = "-Dfml.queryResult=confirm";
+        JVM_OPTS = "-Dfml.queryResult=confirm";
         # SKIP_GTNH_UPDATE_CHECK = "true";
       };
       volumes = [

@@ -1,4 +1,8 @@
-{config, lib, ...}: let
+{
+  config,
+  lib,
+  ...
+}: let
   inherit (lib) mkOption types;
   cfg = config.cfg.user;
 in {
@@ -16,5 +20,6 @@ in {
   config = {
     system.primaryUser = cfg.username;
     users.users.${cfg.username}.home = cfg.home;
+    security.pam.services.sudo_local.touchIdAuth = true;
   };
 }

@@ -15,5 +15,7 @@ in {
   flake.nixosModules.base.imports = collectNixModules ./nixos/base;
   flake.nixosModules.desktop.imports = collectNixModules ./nixos/desktop;
   flake.nixosModules.server.imports = collectNixModules ./nixos/server;
+  flake.nixosModules.nvf-common = import ./common/programs/nvf.nix;
   flake.darwinModules.base.imports = collectNixModules ./darwin/base;
+  flake.darwinModules.nvf-common = import ./common/programs/nvf.nix;
 }

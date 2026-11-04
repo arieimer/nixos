@@ -31,7 +31,6 @@
       ghostty.enable = true;
       helium.enable = true;
       cider.enable = true;
-      syncthing.enable = true;
       zathura.enable = true;
       ente.enable = true;
       atuin.enable = true;

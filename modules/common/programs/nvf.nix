@@ -70,7 +70,6 @@ in {
         ];
         terminal.toggleterm = {
           enable = true;
-          mappings.open = "<leader>gt";
           lazygit.enable = true;
         };
         lsp = {
@@ -93,7 +92,6 @@ in {
           enableFormat = true;
           enableTreesitter = true;
           enableExtraDiagnostics = true;
-
           nix.enable = true;
           java.enable = true;
           markdown.enable = true;

@@ -12,10 +12,16 @@
   in
     builtins.filter filterFile allNixFiles;
 in {
-  flake.nixosModules.base.imports = collectNixModules ./nixos/base;
-  flake.nixosModules.desktop.imports = collectNixModules ./nixos/desktop;
-  flake.nixosModules.server.imports = collectNixModules ./nixos/server;
-  flake.nixosModules.nvf-common = import ./common/programs/nvf.nix;
-  flake.darwinModules.base.imports = collectNixModules ./darwin/base;
-  flake.darwinModules.nvf-common = import ./common/programs/nvf.nix;
+  flake = {
+    nixosModules = {
+      base.imports = collectNixModules ./nixos/base;
+      desktop.imports = collectNixModules ./nixos/desktop;
+      server.imports = collectNixModules ./nixos/server;
+      nvf-common = import ./common/programs/nvf/default.nix;
+    };
+    darwinModules = {
+      base.imports = collectNixModules ./darwin/base;
+      nvf-common = import ./common/programs/nvf/default.nix;
+    };
+  };
 }

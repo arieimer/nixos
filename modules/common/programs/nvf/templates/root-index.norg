@@ -1,0 +1,19 @@
+@document.meta
+title: Index
+description: Root of the notes workspace
+categories: index
+version: 1.1.1
+@end
+
+* Areas
+  - {:$/school/index:}[School]
+  - {:$/work/index:}[Work]
+  - {:$/projects/index:}[Projects]
+  - {:$/personal/index:}[Personal]
+  - {:$/reference/index:}[Reference]
+
+* Inbox
+  - ( ) {CURSOR}
+
+* Recent
+  -

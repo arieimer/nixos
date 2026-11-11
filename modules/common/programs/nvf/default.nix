@@ -125,6 +125,28 @@ in {
               action = "<cmd>0read ${./templates/note.norg} | silent $delete _ | normal! gg<CR>";
               desc = "Template: note";
             }
+            {
+              key = "<C-j>";
+              mode = ["n" "v" "x"];
+              lua = true;
+              action = ''
+                function()
+                  require('neoscroll').scroll(3, { move_cursor = true, duration = 30, easing = 'linear' })
+                end
+              '';
+              desc = "Smooth scroll down";
+            }
+            {
+              key = "<C-k>";
+              mode = ["n" "v" "x"];
+              lua = true;
+              action = ''
+                function()
+                  require('neoscroll').scroll(-3, { move_cursor = true, duration = 30, easing = 'linear' })
+                end
+              '';
+              desc = "Smooth scroll up";
+            }
           ];
           terminal.toggleterm = {
             enable = true;
@@ -171,6 +193,10 @@ in {
           };
           visuals = {
             nvim-scrollbar.enable = true;
+            neoscroll-nvim = {
+              enable = true;
+              setupOpts.mappings = [];
+            };
             nvim-web-devicons.enable = true;
             nvim-cursorline.enable = true;
             cinnamon-nvim.enable = true;

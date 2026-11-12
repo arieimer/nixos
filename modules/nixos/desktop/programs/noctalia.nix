@@ -77,7 +77,7 @@ in {
                 rotation = 0.0;
                 type = "login_box";
                 settings = {
-                  background_color = "surface_variant";
+                  background_color = "surface_container";
                   background_opacity = 0.88;
                   background_radius = 12.0;
                   center_password_text = false;
@@ -134,14 +134,14 @@ in {
               margin_ends = 0;
               capsule_group = [
                 {
-                  fill = "surface_variant";
+                  fill = "surface_container";
                   id = "g1";
                   members = ["volume" "input_volume"];
                   opacity = 0.5;
                   padding = 6.0;
                 }
                 {
-                  fill = "surface_variant";
+                  fill = "surface_container";
                   id = "g2";
                   members = ["clock-12h"];
                   opacity = 0.5;

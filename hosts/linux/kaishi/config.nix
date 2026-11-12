@@ -53,6 +53,7 @@
       heroic.enable = true;
       nixcord.enable = true;
       nvf.enable = true;
+      tmux.enable = true;
       fcitx5.enable = true;
       nautilus.enable = true;
       git.enable = true;

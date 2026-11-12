@@ -15,8 +15,14 @@ in {
       xdg.config.files."ghostty/config.ghostty" = {
         generator = generators.toKeyValue {};
         value = {
+          background = "101014";
+          background-opacity = 0.85;
           confirm-close-surface = false;
           working-directory = "home";
+          macos-titlebar-proxy-icon = "hidden";
+          macos-titlebar-style = "hidden";
+          # window-decoration = "none";
+          title = " ";
         };
       };
       files.".ssh/config".text = ''

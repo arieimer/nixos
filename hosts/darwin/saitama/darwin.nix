@@ -8,6 +8,7 @@
     };
     programs = {
       btop.enable = true;
+      codex.enable = true;
       direnv.enable = true;
       ghostty.enable = true;
       lazygit.enable = true;

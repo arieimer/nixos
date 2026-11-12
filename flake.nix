@@ -15,6 +15,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     preservation.url = "github:nix-community/preservation";
     treefmt-nix.url = "github:numtide/treefmt-nix";
+    llm-agents.url = "github:numtide/llm-agents.nix";
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";

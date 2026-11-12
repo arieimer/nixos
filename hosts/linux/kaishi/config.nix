@@ -29,7 +29,9 @@
     };
     programs = {
       ghostty.enable = true;
+      codex.enable = true;
       helium.enable = true;
+      jdownloader2.enable = true;
       cider.enable = true;
       zathura.enable = true;
       ente.enable = true;

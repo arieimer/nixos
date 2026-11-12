@@ -7,6 +7,7 @@
       fish.enable = true;
     };
     programs = {
+      anki.enable = true;
       btop.enable = true;
       codex.enable = true;
       direnv.enable = true;

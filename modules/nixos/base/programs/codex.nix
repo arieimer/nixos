@@ -11,6 +11,7 @@ in {
   options.cfg.programs.codex.enable = mkEnableOption "Codex CLI";
 
   config = mkIf cfg.enable {
+    cfg.preservation.homeDirectories = [".codex"];
     hj.packages = [inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.codex];
   };
 }

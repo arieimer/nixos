@@ -1,0 +1,32 @@
+--- a/src/logger.py
++++ b/src/logger.py
+@@ -2,7 +2,9 @@
+ import os
+ import traceback
+ 
+-logger_directory = os.path.dirname(__file__) + "/user_files/logs/"
++from aqt import mw
++
++logger_directory = os.path.join(mw.pm.base, "addons21", "1610304449", "user_files", "logs", "")
+ current_epoch_time_ms_str = str(int(datetime.datetime.now(tz=datetime.timezone.utc).timestamp() * 1000))
+ logger_filepath = logger_directory + "output_log_" + current_epoch_time_ms_str
+ 
+--- a/src/data.py
++++ b/src/data.py
+@@ -39,7 +39,15 @@
+     load_from_folder(groupings, data_folder)
+ 
+     # user_files persists across addon updates
+-    user_data_folder = cwd + "/user_files/data"
++    # Also load custom groupings supplied through the package's withConfig.
++    bundled_user_data_folder = cwd + "/user_files/data"
++    if os.path.isdir(bundled_user_data_folder):
++        load_from_folder(groupings, bundled_user_data_folder)
++
++    from aqt import mw
++
++    # Reuse the AnkiWeb addon's writable data under Anki's base directory.
++    user_data_folder = os.path.join(mw.pm.base, "addons21", "1610304449", "user_files", "data")
+     os.makedirs(user_data_folder, exist_ok=True)
+     load_from_folder(groupings, user_data_folder)
+ 

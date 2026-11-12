@@ -1,0 +1,20 @@
+--- a/helpers/file_ops.py
++++ b/helpers/file_ops.py
+@@ -52,10 +52,13 @@
+ @functools.cache
+ def user_files_dir() -> pathlib.Path:
+     """Return path to the user files directory."""
+-    for parent_dir in walk_parents(__file__):
+-        if (dir_path := parent_dir.joinpath("user_files")).is_dir():
+-            return dir_path
+-    raise RuntimeError("couldn't find user_files directory")
++    from aqt import mw
++
++    # Keep mutable data outside the Nix store, reusing the AnkiWeb addon's
++    # existing user files under Anki's selected base directory.
++    dir_path = pathlib.Path(mw.pm.base) / "addons21" / "200813220" / "user_files"
++    dir_path.mkdir(parents=True, exist_ok=True)
++    return dir_path
+ 
+ 
+ def open_file(path: str) -> None:

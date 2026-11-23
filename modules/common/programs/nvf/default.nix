@@ -26,6 +26,13 @@ in {
           vimAlias = true;
           keymaps = [
             {
+              key = "<leader>gy";
+              mode = ["n" "x"];
+              action = ''"+y'';
+              silent = true;
+              desc = "Yank to clipboard";
+            }
+            {
               key = "<leader>gf";
               mode = "n";
               action = "<cmd>Neotree toggle<CR>";

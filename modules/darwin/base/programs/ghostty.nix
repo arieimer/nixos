@@ -18,6 +18,7 @@ in {
           background = "101014";
           background-opacity = 0.85;
           confirm-close-surface = false;
+          mouse-hide-while-typing = true;
           working-directory = "home";
           macos-titlebar-proxy-icon = "hidden";
           macos-titlebar-style = "hidden";

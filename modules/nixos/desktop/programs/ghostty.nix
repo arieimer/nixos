@@ -18,6 +18,7 @@ in {
         value = {
           theme = "noctalia";
           confirm-close-surface = false;
+          mouse-hide-while-typing = true;
           working-directory = "home";
         };
       };

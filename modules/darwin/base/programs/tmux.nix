@@ -16,6 +16,8 @@ in {
       extraConfig = ''
         unbind C-b
         set -g prefix C-a
+        set -g base-index 1
+        set -g renumber-windows on
       '';
     };
   };
